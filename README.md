@@ -1,10 +1,7 @@
 # Slugblaster system for FoundryVTT
 This is a FoundryVTT system for playing Slugblaster.
 
-# TODO
-* add Compendium data to the system via packs
-
-# Features
+## Features
 * detailed actor sheet (incl. playbook drag-and-drop support)
 * rollable tables for customizing your slugblaster (your board, gun, background, etc.)
 * rollable tables for the GM (challenges, opportunities, etc.)
@@ -12,5 +9,8 @@ This is a FoundryVTT system for playing Slugblaster.
 * Signature devices
 * and more...
 
-# Version history
+## TODO
+* add Compendium data to the system via packs
+
+## Version history
 0.1 - Initial release (not finished)
