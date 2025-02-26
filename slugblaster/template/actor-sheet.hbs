@@ -1,0 +1,55 @@
+<form class="slugblaster-actor-sheet {{cssClass}} {{actor.type}}" autocomplete="off">
+  <header>
+    <!-- AVATARS + details -->
+    {{> "systems/slugblaster/template/parts/details.hbs" }}
+    
+    <!-- STYLE -->
+    {{> "systems/slugblaster/template/parts/style.hbs" styleMax=8 cssClass='half-width'}}
+    
+    <!-- TROUBLE -->
+    {{> "systems/slugblaster/template/parts/trouble.hbs" }}
+  </header>
+  
+  {{!-- Character Sheet Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="navitem" data-tab="gear">{{ localize "SB.gear" }}</a>
+    <a class="navitem" data-tab="signature">{{ localize "SB.signature" }}</a>
+    <a class="navitem" data-tab="legacy">{{ localize "SB.legacy_tab" }}</a>
+    <a class="navitem" data-tab="traits">{{ localize "SB.traits" }}</a>
+    <a class="navitem" data-tab="crew">{{ localize "SB.crew" }}</a>
+    <a class="navitem" data-tab="notes">{{ localize "SB.notes" }}</a>
+  </nav>
+  
+  <section class="sheet-body">
+    <!-- GEAR -->
+    <div class="tab gear" data-group="primary" data-tab="gear">
+      {{> "systems/slugblaster/template/parts/gear.hbs" }}
+    </div>
+    
+    <!-- SIGNATURE -->
+    <div class="tab signature" data-group="primary" data-tab="signature">
+      {{> "systems/slugblaster/template/parts/stash.hbs" }}
+      {{> "systems/slugblaster/template/parts/signature.hbs" }}
+    </div>
+    
+    <!-- LEGACY -->
+    <div class="tab legacy" data-group="primary" data-tab="legacy">
+      {{> "systems/slugblaster/template/parts/legacy.hbs" }}
+    </div>
+    
+    <!-- TRAITS -->
+    <div class="tab traits" data-group="primary" data-tab="traits">
+      {{> "systems/slugblaster/template/parts/traits.hbs" }}
+    </div>
+    
+    <!-- CREW -->
+    <div class="tab crew" data-group="primary" data-tab="crew">
+      {{> "systems/slugblaster/template/parts/crew.hbs" }}
+    </div>
+    
+    <!-- NOTES -->
+    <div class="tab notes" data-group="primary" data-tab="notes">
+      {{> "systems/slugblaster/template/parts/notes.hbs" }}
+    </div>
+  </section>
+</form>

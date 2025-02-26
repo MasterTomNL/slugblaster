@@ -1,0 +1,52 @@
+<form class="slugblaster-fame-sheet {{cssClass}} {{actor.type}}" autocomplete="off">
+  <header>
+    <div>
+      <label for="name">{{ localize 'SB.name' }}</label>
+      <input id="name" name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'sb.ph_name'}}" />
+    </div>
+    
+    <div>
+      <label for="styleCost">{{ localize 'SB.styleCost' }}</label>
+      <input id="styleCost" type="text" name="system.styleCost" value="{{actor.system.styleCost}}" placeholder="{{ localize 'SB.ph_styleCost' }}" />
+    </div>
+    
+    <div>
+      <label for="description">{{ localize 'SB.description' }}</label>
+      <textarea id="description" name="system.description" placeholder="{{ localize 'SB.ph_description' }}" />{{actor.system.description}}</textarea>
+    </div>
+    
+    <div>
+      <label for="reward">{{ localize 'SB.reward' }}</label>
+      <textarea id="reward" name="system.reward" placeholder="{{ localize 'SB.ph_reward' }}" />{{actor.system.reward}}</textarea>
+    </div>
+  </header>
+  
+  <section class="sheet-body">
+    <h3>
+      <a class="addBtn" title="{{ localize 'SB.addPerk' }}" data-type="perk">
+        {{ localize 'SB.perks' }}
+        <i class="item-control fas fa-plus"></i>
+      </a>
+    </h3>
+    <ul class="perks">
+      {{#each perks as |p key|}}
+      <li class="list-item" data-item-id="{{p._id}}" data-type="perk">
+        <div class="flexrow">
+          <input class="valChange" type="text" data-name="name" value="{{p.name}}" placeholder="{{ localize 'SB.ph_name' }}" />
+          <div class="styleCost flex0">
+            <input class="valChange" type="text" data-name="system.styleCost" value="{{p.system.styleCost}}" title="{{ localize 'SB.styleCost' }}" placeholder="{{ localize 'SB.ph_styleCost' }}" />
+            <i class="icon icon-style active" title="{{ localize 'SB.styleCost' }}"></i>
+          </div>
+          <input class="valChange" type="text" data-name="system.reward" value="{{p.system.reward}}" placeholder="{{ localize 'SB.ph_reward' }}" />
+          <a class="delete flex0" title="{{ localize 'SB.delete' }}" data-item-id="{{ p._id }}">
+            <i class="fas fa-trash"></i>
+          </a>
+        </div>
+        <div class="flexrow">
+          <input data-name="system.description" class="valChange" type="text" value="{{p.system.description}}" placeholder="{{ localize 'SB.ph_newPerkDesc' }}" />
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+  </section>
+</form>

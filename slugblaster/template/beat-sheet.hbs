@@ -1,0 +1,29 @@
+<form class="slugblasterBeatSheet {{cssClass}}" autocomplete="off">
+  <section>
+    <div>
+      <label for="name">{{ localize 'SB.name' }}</label>
+      <input id="name" name="name" type="text" value="{{item.name}}" placeholder="{{ localize 'SB.ph_name'}}" />
+    </div>
+    <input type="text" name="type" value="{{ item.type }}" />
+    <input type="text" name="system.type" value="{{item.system.type}}" />
+    <div>
+      <label for="description">{{ localize 'SB.description' }}</label>
+      <textarea name="system.description">{{ item.system.description }}</textarea>
+    </div>
+    
+    <div>
+      <label for="reward">{{ localize 'SB.reward' }}</label>
+      <input id="reward" name="system.reward" type="text" value="{{item.system.reward}}" />
+    </div>
+    
+    <div class="sb_itemCost">
+      <label style="line-height: 26px;">{{ localize 'SB.cost' }}:</label>
+      
+      <input id="troubleCost" type="number" name="system.troubleCost" value="{{item.system.troubleCost}}" title="{{ localize 'SB.trouble' }}" />
+      <label for="troubleCost"><i class="icon icon-trouble" title="{{ localize 'SB.trouble' }}"></i></label>
+      
+      <input id="styleCost" type="number" name="system.styleCost" value="{{item.system.styleCost}}" title="{{ localize 'SB.style' }}" />
+      <label for="styleCost"><i class="icon icon-style" title="{{ localize 'SB.style' }}"></i></label>
+    </div>
+  </section>
+</form>

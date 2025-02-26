@@ -1,0 +1,29 @@
+<section class="slugblaster-details flexrow">
+  <div class="actor-img">
+    <img class="profile-img flex0" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
+    <div class="attitude">
+      <div class="sbResources" data-value="{{actor.system.boostsRemaining}}" data-key="boostsRemaining">
+        {{#numLoop actor.system.boosts }}<i class="icon icon-boost" data-index="{{this}}"></i>{{/numLoop}}
+      </div>
+      <div class="sbResources" data-value="{{actor.system.kicksRemaining}}" data-key="kicksRemaining">
+        {{#numLoop actor.system.kicks }}<i class="icon icon-kick" data-index="{{this}}"></i>{{/numLoop}}
+      </div>
+    </div>
+  </div>
+  <div class="crew-details">
+    <label for="name">{{ localize 'SB.name' }}</label>
+    <input id="name" name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'SB.ph_name'}}" />
+    
+    <label for="brands">{{ localize 'SB.brands' }}</label>
+    <input id="brands" type="text" name="system.brands" value="{{actor.system.brands}}" placeholder="{{ localize 'SB.ph_brands' }}" />
+    
+    <label for="hangouts">{{ localize 'SB.hangouts' }}</label>
+    <input id="hangouts" type="text" name="system.hangouts" value="{{actor.system.hangouts}}" placeholder="{{ localize 'SB.ph_hangouts' }}" />
+    
+    <h3>{{ localize 'SB.fractures' }}</h3>
+    <div class="crewFractures">
+      <input type="text" name="system.fracture1" value="{{actor.system.fracture1}}" placeholder="{{ localize 'SB.ph_fracture' }}" />
+      <input type="text" name="system.fracture2" value="{{actor.system.fracture2}}" placeholder="{{ localize 'SB.ph_fracture' }}" />
+    </div>
+  </div>
+</section>

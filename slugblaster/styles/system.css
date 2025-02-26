@@ -1,0 +1,422 @@
+/* WINDOW (XP) */
+.app.window-app.slugblaster {
+  background-image: url('../img/app-bg.webp');
+  background-repeat; repeat-x;
+  color: #fff;
+}
+/* background for window: #e5e8f1; */
+@font-face {
+  font-family: 'OneDirection';
+  src: url('../fonts/OneDirection.ttf');
+}
+
+/* GENERAL styles */
+.slugblaster .window-title, .slugblaster .header-button, .slugblaster input, .slugblaster label, .slugblaster h2, .slugblaster h3, .slugblaster textarea {
+  font-family: Tahoma;
+}
+.slugblaster h2, .slugblaster h3, .slugblaster #signature-name {
+  font-family: OneDirection;
+  border-bottom-color: #a3a3a3;
+  width: calc(100% - 17px);
+}
+.actor-details input#name, .slugblaster-crew-sheet #name, .slugblaster .sb-name-input {
+  font-family: OneDirection;
+  font-size: 2.4em;
+  line-height: 2.4em;
+  height: 52px;
+}
+.slugblaster .hidden { display: none !important; }
+
+.slugblaster .header-button.close i {
+  background: red;
+  padding: 2px;
+  border: 1px solid #fff;
+  border-radius: 3px;
+}
+.slugblaster.sheet section.window-content {
+	overflow: scroll;
+  border: 3px solid #0066ff;
+  border-top: 0px;
+}
+.slugblaster-actor-sheet {
+	padding: 5px;
+  padding-left: 12px;
+}
+.slugblaster section {
+	clear: both;
+	margin-bottom: 10px;
+  display: inline-block;
+	width: 100%;
+}
+.slugblaster .addBtn {
+  display: inline-block;
+}
+.slugblaster .install, .slugblaster .salvage { cursor: pointer; }
+.slugblaster .install:hover { color: navy; }
+.slugblaster .salvage:hover { color: #0a3a04; }
+
+.half-width {
+  display: inline-block;
+  width: calc(50% - 2px) !important;
+}
+.slugblaster input, .slugblaster textarea {
+  border: 0px;
+  border-bottom: 1px solid #9d9c93;
+}
+.slugblaster label {
+  display: inline-block;
+  color: #777;
+}
+.pad10bot { padding-bottom: 8px; }
+.styleBonus, .troubleBonus { display: block; cursor: pointer; clear: both; }
+.slugblaster .al-c { text-align: center; }
+.slugblaster .editor { height: 160px; margin-bottom: 10px; border-bottom: 1px solid #777; }
+.slugblaster .beatCostBlock { margin-right: 6px; display: inline-block; }
+
+.slugblaster .delete { font-size: 1em; color: #777; cursor: pointer; opacity: 0.5; }
+.slugblaster .signature-details .delete { font-size: 0.7em; }
+.slugblaster .delete:hover { color: maroon; opacity: 1; }
+
+/* CHARACTER details */
+.actor-img {
+  width: 190px;
+  height: 190px;
+  margin-right: 12px;
+  float: left;
+}
+.actor-img .attitude { text-align: center; width: 100%; }
+.actor-img .attitude i { float: none; width: 42px; height: 42px; margin: 0px; }
+.actor-img .sbResources { display: inline; }
+.actor-img img { border: 0px; width: 100%; height: auto; }
+.actor-details {
+  float: left;
+  width: calc(100% - 202px);
+}
+.actor-details div {
+  display: inline-block;
+  padding: 2px 0px;
+  width: 100%;
+}
+.actor-details label, .slugblaster-gear-list label {
+  display: inline-block;
+  width: 90px;
+  text-align: right;
+}
+.actor-details input {
+  display: inline-block;
+  width: calc(100% - 116px);
+}
+
+
+/* GEAR list */
+.slugblaster li {
+  list-style: none;
+  padding: 0;
+}
+.slugblaster .half-width {
+  display: inline-block;
+  width: 50%;
+}
+.slugblaster .half-width input {
+  width: calc(100% - 36px);
+}
+.slugblaster .half-width input.with-load {
+  width: calc(100% - 54px);
+}
+.slugblaster .load {
+  display: inline-block;
+  min-height: 16px;
+  min-width: 16px;
+  background: url('../img/check.png') no-repeat center;
+  vertical-align: top;
+  margin-right: 6px;
+  margin-top: 1px;
+}
+.slugblaster .load.active {
+  background-image: url('../img/checked.png');
+}
+.slugblaster .iconLabel {
+  min-width: 16px;
+}
+
+/* HOVERBOARD AND RAYGUN */
+.slugblasterBoardAndRaygun label {
+  width: 100px;
+  text-align: right;
+}
+.slugblasterBoardAndRaygun input {
+  width: calc(100% - 124px);
+}
+
+
+/* SIGNATURE */
+.signatureImg {
+  border: 0px;
+  float: left;
+  display: inline-block;
+  padding-right: 8px;
+  width: 100px;
+  max-height: 100px;
+}
+.signature-details {
+  display: inline-block;
+  width: 100%;
+}
+.signature-details label {
+  display: inline-block;
+  width: 90px;
+  text-align: right;
+  position: relative;
+}
+.signature-details input, .signature-details textarea {
+  width: calc(100% - 30px);
+}
+.signatureDescLabel {
+  top: -20px;
+}
+#signature-name {
+  font-size: 1.6em;
+  height: 40px;
+}
+.signatureRow label {
+  display: inline-block;
+  width: 90px;
+}
+.signatureTurbo .icon { width: 32px; height: 32px; }
+
+
+/* TROUBLE and STYLE */
+.slugblasterStyle .icon, .slugblasterTrouble .icon {
+	height: 32px;
+	width: 32px;
+  float: left;
+  margin: 0px 2px 0px 0px;
+}
+.sbResources .icon { cursor: pointer; }
+
+
+.third {
+	width: 33%;
+  display: inline-block;
+  float: left;
+}
+.two-third {
+	width: 66%;
+  display: inline-block;
+  float: left;
+}
+
+
+/* ACTIONS */
+.action-block {
+  display: block;
+  clear: both;
+  height: 20px;
+}
+.action-block .action, .bitd-extra-dice .push-indicator, .help-indicator {
+  position: relative;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border: 1px solid #777;
+  border-radius: 50%;
+  background: #fff;
+  float: left;
+  margin-right: 3px;
+}
+.action-block .action:nth-child(2)::before{
+  position: relative;
+  left: -3px;
+  content: '';
+  border-right: 1px dashed #333;
+}
+.action-block .action.active, .push.active .push-indicator, .help.active .help-indicator {
+  background: #000;
+}
+.action-block label {
+  position: relative;
+  display: inline-block;
+  background: none;
+  color: #333;
+  float: left;
+  margin: 0px;
+  padding: 0px;
+  vertical-align: middle;
+  line-height: 22px;
+}
+.rollable, .load, .action {
+  cursor: pointer;
+}
+.xp {
+  padding: 4px;
+  vertical-align: middle;
+  display: inline-block;
+  color: #777;
+}
+
+
+/* Playbook editing */
+.slugblaster-playbook-sheet section, .signature-row, .slugblasterSignatureSheet section {
+  padding-bottom: 12px !important;
+}
+.slugblaster ul, .slugblasterSignatureSheet  ul {
+  padding: 0px;
+}
+.slugblaster-playbook-sheet .beatName, .slugblasterBeats .beatName, .slugblasterGear .itemName, .beatRow .traitName {
+  font-weight: bold;
+  padding-right: 6px;
+  font-size: 1.1em;
+}
+
+
+/* STASH */
+.slugblasterStash input[type=number], .sb_itemCost input[type=number] {
+  text-align: center;
+  max-width: 32px;
+  float: left;
+}
+.slugblasterStash label, .sb_itemCost label {
+  float: left;
+  margin-right: 16px;
+}
+.slugblasterGear .gearLi,
+.slugblasterStash .lootLi,
+.signatureTurbo .dots {
+  width: 50%;
+  padding-right: 10px;
+  float: left;
+}
+.slugblasterGearSheet textarea {
+  height: 92px;
+}
+
+/* ICONS */
+.icon {
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  margin: 0px 4px;
+}
+.icon-trouble {
+  background-image: url('../img/warning-empty.webp');
+}
+.icon-trouble.active {
+  background-image: url('../img/warning.webp');
+}
+.icon-style {
+  background-image: url('../img/star-empty.png');
+}
+.icon-style.active {
+  background-image: url('../img/star.png');
+}
+.icon.icon-coil {
+  background-image: url('../img/coil.png');
+}
+.icon.icon-disc {
+  background-image: url('../img/disc.png');
+}
+.icon.icon-gem {
+  background-image: url('../img/gem.png');
+}
+.icon.icon-lens {
+  background-image: url('../img/lens.png');
+}
+.icon-boost {
+  background-image: url('../img/dice-orange-empty.png');
+}
+.icon-boost.active {
+  background-image: url('../img/dice-orange-v2.png');
+}
+.icon-kick {
+  background-image: url('../img/flash-empty.webp');
+}
+.icon-kick.active {
+  background-image: url('../img/flash-v2.webp');
+}
+.icon-dice {
+  background-image: url('../img/dice.png');
+}
+.slugblasterStash .rollableTable {
+  display: inline-block;
+  vertical-align: middle;
+  height: 32px;
+  background-color: #0066ff;
+  border-radius: 15px;
+  color: #c4cbff;
+}
+.slugblasterStash .rollableTable .icon {
+  position: relative;
+  top: 4px;
+}
+.slugblasterStash .rollableTable span {
+  position: relative;
+  padding-right: 8px;
+  top: -3px;
+}
+.rollableTable:hover {
+  color: white;
+}
+
+.slugblaster .disabled { opacity: 0.5; }
+.slugblaster .disabled:hover { opacity: 0.9; }
+
+.beatRow, .itemRow { clear: both; margin-bottom: 4px; }
+.itemRow p, .beatRow p { display: inline; }
+.beatRow .delete { margin-right: 6px; }
+.beatReward { font-weight: bold; margin-right: 6px; }
+.slugblasterTrait { opacity: 0.5; }
+.slugblasterTrait:hover, .beatRow:hover { opacity: 1; }
+.slugblasterGear .icon, .slugblasterBeats .icon { height: 16px; width: 16px; margin: 0px; }
+
+
+.slugblasterBeatSheet textarea {
+  min-height: 64px;
+}
+
+.tab.legacy input { float: left; width: calc(100% - 16px); }
+.tab.legacy .delete { line-height: 26px; }
+
+
+.slugblaster .sheet-body {
+  padding: 8px;
+}
+.slugblaster .sheet-tabs {
+  border-top: 0px !important;
+  border-bottom: 0px !important;
+  background: url('../img/tabs-bg.png') repeat-x bottom;
+  padding: 0px 4px;
+}
+.slugblaster .sheet-tabs .navitem {
+  border: 1px solid #93a7b5;
+  border-bottom: 0px;
+  border-radius: 5px 5px 0px 0px;
+  background: url('../img/inactive-tab.png') repeat-x top;
+  /*background: linear-gradient(0deg, rgba(183,184,194,0) 0%, rgba(247,253,255,1) 100%);*/
+}
+.slugblaster .sheet-tabs .active {
+  background: #dbd9cd url('../img/active-tab.png') repeat-x top;
+}
+
+.actor-details .icon, .slugblasterBoardAndRaygun .icon {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  float: none;
+}
+
+.slugblaster-crew-sheet .icon { width: 36px; height: 36px; }
+.slugblaster-crew-sheet .crewFractures input { float: left; width:50%; }
+.crew-details { float: left; width: calc(100% - 204px); }
+.crew-details input { margin-bottom: 6px; }
+.crew-details h3 { margin-top: 6px; }
+
+.sigMod, .perks .list-item { margin-bottom: 6px; border-bottom: 1px dashed #999; }
+.sigMod .cost, .perks .styleCost { position: relative; }
+.sigMod .cost input, .perks .styleCost input { width: 40px; margin: 0px 40px 0px 10px; text-align: center; }
+.sigMod .cost .icon, .perks .styleCost .icon-style { position: absolute; top: 0px; left: 48px; }
+.sigMod .name { font-weight: bold; padding-right: 12px; }
+.sigMod .desc { color: #777; }
+.sigMod .icon { height: 16px; width: 16px; position: relative; top: 4px; margin-left: -1px; margin-right: 6px; }

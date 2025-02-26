@@ -1,0 +1,33 @@
+<form class="slugblasterGearSheet {{cssClass}}" autocomplete="off">
+  <section>
+    <div>
+      <label for="name">{{ localize 'SB.name' }}</label>
+      <input id="name" name="name" type="text" value="{{item.name}}" placeholder="{{ localize 'SB.ph_name'}}" />
+    </div>
+    
+    <div>
+      <label for="type">{{ localize 'SB.type' }}</label>
+      <input id="type" name="system.type" type="text" value="{{item.system.type}}" placeholder="{{ localize 'SB.ph_type'}}" />
+    </div>
+    
+    <div>
+      <label for="description">{{ localize 'SB.description' }}</label>
+      <textarea id="description" name="system.description" placeholder="{{ localize 'SB.ph_description' }}">{{item.system.description}}</textarea>
+    </div>
+    
+    <div class="sb_itemCost">
+      <label style="line-height: 26px;">{{ localize 'SB.cost' }}:</label>
+      <input id="itemCoilCost" type="number" name="system.coilCost" value="{{item.system.coilCost}}" title="{{ localize 'SB.coils' }}" />
+      <label for="itemCoilCost"><i class="icon icon-coil" title="{{ localize 'SB.coils' }}"></i></label>
+      
+      <input id="itemDiscCost" type="number" name="system.discCost" value="{{item.system.discCost}}" title="{{ localize 'SB.discs' }}" />
+      <label for="itemDiscCost"><i class="icon icon-disc" title="{{ localize 'SB.discs' }}"></i></label>
+      
+      <input id="itemGemCost" type="number" name="system.gemCost" value="{{item.system.gemCost}}" title="{{ localize 'SB.gems' }}" />
+      <label for="itemGemCost"><i class="icon icon-gem" title="{{ localize 'SB.gems' }}"></i></label>
+      
+      <input id="itemLensCost" type="number" name="system.lensCost" value="{{item.system.lensCost}}" title="{{ localize 'SB.lenses' }}" />
+      <label for="itemLensCost"><i class="icon icon-lens" title="{{ localize 'SB.lenses' }}"></i></label>
+    </div>
+  </section>
+</form>

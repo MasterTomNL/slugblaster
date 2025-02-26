@@ -1,0 +1,36 @@
+<form class="slugblaster-crew-sheet {{cssClass}} {{actor.type}}" autocomplete="off">
+  <header>
+    <!-- AVATARS + details -->
+    {{> "systems/slugblaster/template/parts/crew-details.hbs" }}
+    
+    <!-- STYLE -->
+    {{> "systems/slugblaster/template/parts/style.hbs" styleMax=10 }}
+    
+    <!-- HYPE -->
+    {{> "systems/slugblaster/template/parts/hype.hbs" boostMax=5 kickMax=3 }}
+  </header>
+  
+  {{!-- Character Sheet Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="navitem" data-tab="factions">{{ localize "SB.factions" }}</a>
+    <a class="navitem" data-tab="fame">{{ localize "SB.fame" }}</a>
+    <a class="navitem" data-tab="notes">{{ localize "SB.notes" }}</a>
+  </nav>
+  
+  <section class="sheet-body">
+    <!-- FACTIONS -->
+    <div class="tab factions" data-group="primary" data-tab="factions">
+      {{> "systems/slugblaster/template/parts/factions.hbs" }}
+    </div>
+    
+    <!-- FAME -->
+    <div class="tab fame" data-group="primary" data-tab="fame">
+      {{> "systems/slugblaster/template/parts/fame.hbs" }}
+    </div>
+    
+    <!-- NOTES -->
+    <div class="tab notes" data-group="primary" data-tab="notes">
+      {{> "systems/slugblaster/template/parts/notes.hbs" }}
+    </div>
+  </section>
+</form>

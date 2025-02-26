@@ -1,0 +1,13 @@
+<section class="slugblasterFame">
+  <ul>
+    {{#each fame as |f key|}}
+    <li class="fameRow data-item-id="{{f._id}}">
+      <span class="fameName">{{ f.name }}</span>
+      <a class="delete flex0" title="{{ localize 'SB.delete' }}" data-item-id="{{f._id}}">
+        <i class="fas fa-trash"></i>
+      </a>
+      <span class="fameDesc">{{ f.system.description }}</span>
+    </li>
+  {{/each}}
+  </ul>
+</section>
