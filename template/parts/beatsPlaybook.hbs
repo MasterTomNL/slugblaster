@@ -1,0 +1,30 @@
+<section class="slugblasterBeats">
+  <h3>
+    {{ localize beatName }}
+    <a class="addBtn" title="{{ localize 'SB.addBeat' }}" data-type="{{beatName}}"><i class="item-control fas fa-plus"></i></a>
+  </h3>
+  <ul>
+    <li class="flexrow">
+      <label class="flex2">{{ localize 'SB.name' }}</label>
+      <label class="al-c">{{ localize 'SB.trouble' }}</label>
+      <label class="al-c">{{ localize 'SB.style' }}</label>
+      <label class="flex2">{{ localize 'SB.reward' }}</label>
+      <div class="flex0"></div>
+    </li>
+      
+    {{#each beats as |beat bId|}}
+    <li class="beatRow" data-item-id="{{beat._id}}" data-type="{{beatName}}">
+      <div class="flexrow">
+        <input data-name="name" class="valChange beatName flex2" type="text" value="{{beat.name}}" />
+        <input data-name="system.troubleCost" class="valChange al-c" type="text" value="{{beat.system.troubleCost}}" />
+        <input data-name="system.styleCost" class="valChange al-c" type="text" value="{{beat.system.styleCost}}" />
+        <input data-name="system.reward" class="valChange flex2" type="text" value="{{beat.system.reward}}" placeholder="{{ localize 'SB.newBeatReward' }}" />
+        <a class="delete flex0" title="{{ localize 'SB.delete' }}" data-item-id="{{beat._id}}">
+          <i class="fas fa-trash"></i>
+        </a>
+      </div>
+      <textarea data-name="system.description" class="valChange">{{ beat.system.description }}</textarea>
+    </li>
+    {{/each}}
+  </ul>
+</section>

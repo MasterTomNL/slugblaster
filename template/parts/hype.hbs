@@ -1,0 +1,13 @@
+<section class="slugblasterHype">
+  <h2>{{ localize 'SB.hype' }}</h2>
+	<div class="sbResources" data-value="{{actor.system.boost}}" data-key="boost">
+    {{#numLoop boostMax}}
+			<i class="icon icon-boost" data-index="{{this}}"></i>
+    {{/numLoop}}
+  </div>
+  <div class="sbResources" data-value="{{actor.system.kick}}" data-key="kick">
+    {{#numLoop kickMax}}
+			<i class="icon icon-kick" data-index="{{this}}"></i>
+    {{/numLoop}}
+  </div>
+</section>

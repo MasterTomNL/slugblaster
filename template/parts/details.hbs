@@ -1,0 +1,61 @@
+<section class="slugblaster-details flexrow">
+  <div class="actor-img">
+    <img class="profile-img flex0" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
+    <div class="attitude" title="{{ actor.system.attitude }}">
+      <div class="sbResources" data-value="{{actor.system.boostsRemaining}}" data-key="boostsRemaining">
+        {{#numLoop actor.system.boosts }}<i class="icon icon-boost" data-index="{{this}}"></i>{{/numLoop}}
+      </div>
+      <div class="sbResources" data-value="{{actor.system.kicksRemaining}}" data-key="kicksRemaining">
+        {{#numLoop actor.system.kicks }}<i class="icon icon-kick" data-index="{{this}}"></i>{{/numLoop}}
+      </div>
+    </div>
+  </div>
+  <div class="actor-details">
+    <div>
+      <label for="name">{{ localize 'SB.name' }}</label>
+      <input id="name" name="name" type="text" value="{{actor.name}}" class="sb-name-input" placeholder="{{ localize 'sb.name_placeholder'}}" />
+    </div>
+    
+    <div class="sb_playbook">
+      <label for="playbook">{{ localize 'SB.playbook' }}</label>
+      <span class="actorPlaybook">{{ actor.system.playbook }}</span>
+    </div>
+    
+    <div>
+      <label for="look">{{ localize 'SB.look' }}</label>
+      <input id="look" type="text" name="system.look"
+       value="{{actor.system.look}}" placeholder="{{ localize 'SB.look_placeholder' }}" />
+      <a class="rollableTable" title="{{ localize 'SB.randomize' }}" data-action="look"><i class="icon icon-dice"></i></a>
+    </div>
+
+    <div>
+      <label for="family">{{ localize 'SB.family' }}</label>
+      <input id="family" type="text" name="system.family"
+       value="{{actor.system.family}}" placeholder="{{ localize 'SB.family_placeholder' }}"/>
+      <a class="rollableTable" title="{{ localize 'SB.randomize' }}" data-action="family"><i class="icon icon-dice"></i></a>
+    </div>
+    
+    <div>
+      <label for="bond">{{ localize 'SB.bond' }}</label>
+      <input id="bond" type="text" name="system.bond"
+       value="{{actor.system.bond}}" placeholder="{{ localize 'SB.bond_placeholder' }}"/>
+      <a class="rollableTable" title="{{ localize 'SB.randomize' }}" data-action="bond"><i class="icon icon-dice"></i></a>
+    </div>
+
+    <div>
+      <label for="vibes">{{ localize 'SB.vibes' }}</label>
+      <input id="vibes" type="text" name="system.vibes"
+       value="{{actor.system.vibes}}" placeholder="{{ localize 'SB.vibes_placeholder' }}"/>
+      {{#if actor.system.playbook }}
+      <a class="rollableTable" title="{{ localize 'SB.randomize' }}" data-action="vibes"><i class="icon icon-dice"></i></a>
+      {{/if}}
+    </div>
+    
+    <div>
+      <label for="stickers">{{ localize 'SB.stickers' }}</label>
+      <input id="stickers" type="text" name="system.stickers"
+       value="{{actor.system.stickers}}" placeholder="{{ localize 'SB.stickers_placeholder' }}"/>
+      <a class="rollableTable" title="{{ localize 'SB.randomize' }}" data-action="stickers"><i class="icon icon-dice"></i></a>
+    </div>
+  </div>
+</section>
