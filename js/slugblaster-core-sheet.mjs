@@ -44,7 +44,7 @@ export class SlugblasterCoreSheet extends ActorSheet {
       case 'getComponents':
         // only allow a "free" roll when there's no style...
         if (!this.actor.system.styleFree && this.actor.system.style < 1) return;
-        table = await fromUuid("Compendium.world.rollable-tables.RollTable.OCxESGRjaa3Uoc0D");
+        table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.OCxESGRjaa3Uoc0D");
         
         // roll it!
         result = await table.draw();
@@ -68,22 +68,22 @@ export class SlugblasterCoreSheet extends ActorSheet {
 
       case 'hoverboard': // type, grip-colour, grip-cut and deck-graphic
         // type
-        table = await fromUuid("Compendium.world.rollable-tables.RollTable.9SK6fHCLI7iTajxx");
+        table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.9SK6fHCLI7iTajxx");
         result = await table.draw();
         type = result.results[0].text;
         
         // deck graphic
-        table = await fromUuid("Compendium.world.rollable-tables.RollTable.Vq0qzyqMYC8YmrC8");
+        table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.Vq0qzyqMYC8YmrC8");
         result = await table.draw();
         value = type + " " + result.results[0].text;
         // add grip colour and cut when its a "Deck"
         if (type.indexOf("Deck") !== -1) {
           // grip-colour
-          table = await fromUuid("Compendium.world.rollable-tables.RollTable.j5kPRYmMqV86BDdp");
+          table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.j5kPRYmMqV86BDdp");
           result = await table.draw();
           value += " and " + result.results[0].text;
           // grip-cut
-          table = await fromUuid("Compendium.world.rollable-tables.RollTable.6lDtG5SjEYNJhHSg");
+          table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.6lDtG5SjEYNJhHSg");
           result = await table.draw();
           value += " " + result.results[0].text + " Grip";
         }
@@ -92,11 +92,11 @@ export class SlugblasterCoreSheet extends ActorSheet {
       
       case 'raygun':
         // style
-        table = await fromUuid("Compendium.world.rollable-tables.RollTable.cqXhmWc40Mh4J15S");
+        table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.cqXhmWc40Mh4J15S");
         result = await table.draw();
         value = result.results[0].text;
         // type
-        table = await fromUuid("Compendium.world.rollable-tables.RollTable.DM7cmXnk66Djpw6b");
+        table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.DM7cmXnk66Djpw6b");
         result = await table.draw();
         value += " " + result.results[0].text;
         await this.actor.update({['system.raygun']: value });
@@ -113,35 +113,35 @@ export class SlugblasterCoreSheet extends ActorSheet {
           "The Smarts": "RollTable.507bLzCESSbyPbgS"
         };
         // get the rollable table
-        table = await fromUuid("Compendium.world.rollable-tables."+vTables[this.actor.system.playbook]);
+        table = await fromUuid("Compendium.slugblaster.rollable-tables."+vTables[this.actor.system.playbook]);
         this._processTable(table, action);
         break;
       
       case 'look':
-        table = await fromUuid("Compendium.world.rollable-tables.RollTable.2jDUdtYoabUS9jbI");
+        table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.2jDUdtYoabUS9jbI");
         this._processTable(table, action);
         break;
       case 'family':
-        table = await fromUuid("Compendium.world.rollable-tables.RollTable.jKGFRPUgQQlLmot4");
+        table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.jKGFRPUgQQlLmot4");
         this._processTable(table, action);
         break;
       case 'bond':
-        table = await fromUuid("Compendium.world.rollable-tables.RollTable.VJSTeFSldwMYCSOQ");
+        table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.VJSTeFSldwMYCSOQ");
         this._processTable(table, action);
         break;
       
       case 'hilarious_slogan':
-        table = await fromUuid("Compendium.world.rollable-tables.RollTable.T0M3ujor4LRmWZBy");
+        table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.T0M3ujor4LRmWZBy");
         break;
       
       case 'stickers':
         // form
-        table = await fromUuid("Compendium.world.rollable-tables.RollTable.yvUtuUgAsiQwpGrG");
+        table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.yvUtuUgAsiQwpGrG");
         result = await table.draw();
         value = result.results[0].text;
         
         // origin
-        table = await fromUuid("Compendium.world.rollable-tables.RollTable.3Zc5TFURrDCgaYJF");
+        table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.3Zc5TFURrDCgaYJF");
         result = await table.draw();
         value += ", " + result.results[0].text;
         await this.actor.update({[`system.${action}`]: value });
