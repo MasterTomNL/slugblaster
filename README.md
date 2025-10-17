@@ -14,11 +14,12 @@ With Mikey's permission I've added a bunch of information from the official Slug
 ### Signature devices (incl. craft/salvage mods)
 <img width="646" height="616" alt="Schermafbeelding 2025-10-17 232719" src="https://github.com/user-attachments/assets/7a923dc9-2385-4838-a481-6427a4d1e2be" />
 
+### Crew (actor) sheet
+<img width="634" height="574" alt="Schermafbeelding 2025-10-17 233003" src="https://github.com/user-attachments/assets/06591c15-e5fe-4054-af0a-a113af497a54" />
+
 ### Character traits
 ![Slugblaster-traits](https://github.com/user-attachments/assets/a95b20f2-26fc-49d4-8d11-05a0050d2798)
 
-### Crew traits/beats
-![Slugblaster-crew](https://github.com/user-attachments/assets/756771e3-7758-4928-ae2f-de6fe847670c)
 
 
 ## Other features
