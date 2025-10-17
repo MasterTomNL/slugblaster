@@ -1,5 +1,7 @@
 # Slugblaster system for FoundryVTT
-This is a FoundryVTT system for playing Slugblaster.
+This is a FoundryVTT system for Slugblaster (https://www.slugblaster.com).
+Mike Hamms is the original creator of Slugblaster.
+With his permission I've added a bunch of information from the official Slugblaster book: Playbooks, Rollable tables, devices and more.
 
 ## Features
 ### Slugblaster actor sheet
@@ -21,8 +23,10 @@ This is a FoundryVTT system for playing Slugblaster.
 * A compendium with Playbooks (Chill, Smarts, etc.), Signature Devices, and more...
 
 ## TODO
-* add Compendium data to the system via packs
+* finish Crew sheet
 
 ## Version history
 0.1 - Initial release (not finished)
+0.2 - Improved functionality
+0.3 - Added Compendium packs
 
