@@ -38,6 +38,91 @@
       "slam": {}
     }
   },
+  "packs": [
+    {
+      "label": "Playbooks",
+      "type": "Actor",
+      "name": "playbooks",
+      "path": "packs/playbooks",
+      "system": "slugblaster",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    },
+    {
+      "label": "Signature Devices",
+      "type": "Actor",
+      "name": "signature-devices",
+      "path": "packs/signature-devices",
+      "system": "slugblaster",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    },
+    {
+      "label": "Rollable Tables",
+      "type": "RollTable",
+      "name": "rollable-tables",
+      "path": "packs/rollable-tables",
+      "system": "slugblaster",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    },
+    {
+      "label": "Components",
+      "type": "Item",
+      "name": "components",
+      "path": "packs/components",
+      "system": "slugblaster",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    },
+    {
+      "label": "Other Gear",
+      "type": "Item",
+      "name": "other-gear",
+      "path": "packs/other-gear",
+      "system": "slugblaster",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    },
+    {
+      "label": "Traits and Beats",
+      "type": "Item",
+      "name": "traits-and-beats",
+      "path": "packs/traits-and-beats",
+      "system": "slugblaster",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    },
+    {
+      "label": "Signature Mods",
+      "type": "Item",
+      "name": "signature-mods",
+      "path": "packs/signature-mods",
+      "system": "slugblaster",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    },
   "primaryTokenAttribute": "resources.boosts",
   "secondaryTokenAttribute": "resources.kicks",
   "url": "https://your/hosted/system/repo/",
