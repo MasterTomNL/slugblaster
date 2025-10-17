@@ -4,8 +4,14 @@
       <label for="name">{{ localize 'SB.name' }}</label>
       <input id="name" name="name" type="text" value="{{item.name}}" placeholder="{{ localize 'SB.ph_name'}}" />
     </div>
-    <input type="text" name="type" value="{{ item.type }}" />
-    <input type="text" name="system.type" value="{{item.system.type}}" />
+    <div>
+      <label for="type">{{ localize 'SB.type' }}</label>
+      <input type="hidden" name="type" value="{{ item.type }}" />
+      <select name="system.type" value="{{ item.system.type }}">
+        {{selectOptions beatTypes selected=item.system.type localize=true}}
+      </select>
+    </div>
+    
     <div>
       <label for="description">{{ localize 'SB.description' }}</label>
       <textarea name="system.description">{{ item.system.description }}</textarea>
