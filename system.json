@@ -7,11 +7,7 @@
     "minimum": 12,
     "verified": 12
   },
-  "authors": [{
-    "name": "Mikey Hamm",
-    "url": "https://slugblaster.com/",
-    "discord": ""
-  }, { "name": "Tom van der Lek" }],
+  "authors": [{ "name": "Tom van der Lek" }],
   "esmodules": ["slugblaster.mjs"],
   "styles": ["styles/system.css"],
   "languages": [{
@@ -129,4 +125,5 @@
   "download": "https://github.com/MasterTomNL/slugblaster/archive/refs/heads/main.zip"
 
 }
+
 
