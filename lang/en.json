@@ -21,6 +21,7 @@
     "ph_itemDesc": "What does it look like and do?",
     "unlock": "Unlock:",
     "craft": "Craft:",
+    "type": "Type",
     
     "board": "Your Board",
     "board_placeholder": "...",
@@ -45,6 +46,7 @@
     "newSignatureModDesc": "...",
     
     "attitude": "Attitude",
+    "attitude_placeholder": "Attitude description...",
     "gear": "Gear",
     "new_gear": "New Gear",
     "addGear": "Add Gear",
@@ -76,6 +78,8 @@
     "styleBonus_placeholder": "being rad",
     "specialGear": "Special Gear this Playbook character has",
     "specialGear_placeholder": "something whack",
+    
+    "playbookBeats": "Playbook Arc",
     
     "crew": "Crew",
     "traits": "Traits",
@@ -132,6 +136,7 @@
     "ph_brands": "...",
     "factions": "Factions",
     "ph_factions": "...",
+    "new_faction": "Faction name",
     "hangouts": "Hangouts",
     "ph_hangouts": "...",
     "fractures": "Fractures",
