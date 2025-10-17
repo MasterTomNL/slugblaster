@@ -1,4 +1,4 @@
-<section class="slugblaster-details flexrow">
+<section class="crew-details flexrow">
   <div class="actor-img">
     <img class="profile-img flex0" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
     <div class="attitude">
@@ -11,14 +11,28 @@
     </div>
   </div>
   <div class="crew-details">
-    <label for="name">{{ localize 'SB.name' }}</label>
+    <label for="name">
+      {{ localize 'SB.name' }}
+      <a class="rollableTable" title="{{ localize 'SB.randomize' }}" data-action="crew"><i class="icon icon-dice"></i></a>
+    </label>
     <input id="name" name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'SB.ph_name'}}" />
     
-    <label for="brands">{{ localize 'SB.brands' }}</label>
-    <input id="brands" type="text" name="system.brands" value="{{actor.system.brands}}" placeholder="{{ localize 'SB.ph_brands' }}" />
+    <div>
+      <label for="brands">
+        {{ localize 'SB.brands' }}
+        <a class="rollableTable" title="{{ localize 'SB.randomize' }}" data-action="brands"><i class="icon icon-dice"></i></a>
+      </label>
+      <input id="brands" type="text" name="system.brands" value="{{actor.system.brands}}" placeholder="{{ localize 'SB.ph_brands' }}" />
+    </div>
     
-    <label for="hangouts">{{ localize 'SB.hangouts' }}</label>
-    <input id="hangouts" type="text" name="system.hangouts" value="{{actor.system.hangouts}}" placeholder="{{ localize 'SB.ph_hangouts' }}" />
+    <div>
+      <label for="hangouts">
+        {{ localize 'SB.hangouts' }}
+        <a class="rollableTable" title="{{ localize 'SB.randomize' }}" data-action="hangouts"><i class="icon icon-dice"></i></a>
+      </label>
+      <input id="hangouts" type="text" name="system.hangouts" value="{{actor.system.hangouts}}" placeholder="{{ localize 'SB.ph_hangouts' }}" />
+    </div>
+    
     
     <h3>{{ localize 'SB.fractures' }}</h3>
     <div class="crewFractures">

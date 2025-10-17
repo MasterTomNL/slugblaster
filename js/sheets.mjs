@@ -269,56 +269,7 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
     let keep = 'kh' // keep highest
     let value = 0;
     let bonus = 0;
-    // get value for resistance rolls
-    if (dataset.type == 'resistance') {
-      switch (dataset.action) {
-        case 'resolve':
-          value += (this.actor.system.hunt > 0 ? 1 : 0);
-          value += (this.actor.system.study > 0 ? 1 : 0);
-          value += (this.actor.system.survey > 0 ? 1 : 0);
-          value += (this.actor.system.tinker > 0 ? 1 : 0);
-          break;
-        case 'prowess':
-          value += (this.actor.system.finesse > 0 ? 1 : 0);
-          value += (this.actor.system.prowl > 0 ? 1 : 0);
-          value += (this.actor.system.skirmish > 0 ? 1 : 0);
-          value += (this.actor.system.wreck > 0 ? 1 : 0);
-          break;
-        case 'insight':
-          value += (this.actor.system.attune > 0 ? 1 : 0);
-          value += (this.actor.system.command > 0 ? 1 : 0);
-          value += (this.actor.system.consort > 0 ? 1 : 0);
-          value += (this.actor.system.sway > 0 ? 1 : 0);
-          break;
-      }
-    }
-    
-    // Handle ACTION rolls
-    if (dataset.type == 'action') {
-      value = Number(dataset.value);
-      // when you have nothing... and no bonus selected
-      if (value == 0 && !this.actor.system.bitd_push_bonus && !this.actor.system.bitd_help_bonus) {
-        value = 2;
-        keep = 'kl';
-      }
-    }
-    
-    // help bonus?
-    if (this.actor.system.bitd_help_bonus) {
-      bonus += 1;
-      await this.actor.update({'system.bitd_help_bonus': ''});
-    }
-    
-    // push_bonus?
-    if (this.actor.system.bitd_push_bonus) {
-      bonus += 1;
-      // add two stress
-      if (this.actor.system.bitd_push_bonus == 'stress')
-        await this.actor.update({'system.bitd_stress': this.actor.system.bitd_stress + 2});
-      // deactivate push_bonus
-      await this.actor.update({'system.bitd_push_bonus': ''});
-    }
-    
+        
     // when you have none... don't roll
     if (value == 0 && bonus == 0) {
       return;

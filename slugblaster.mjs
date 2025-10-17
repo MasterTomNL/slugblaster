@@ -27,8 +27,7 @@ Hooks.on("init", () => {
     'slugblaster': SlugblasterActorData,
     'playbook': SlugblasterPlaybookData,
     'signature': SlugblasterSignatureData,
-    'crew': SlugblasterCrewData,
-    'fame': SlugblasterFameData
+    'crew': SlugblasterCrewData
   };
   CONFIG.Item.dataModels.gear = SlugblasterGearData;
   
@@ -38,7 +37,6 @@ Hooks.on("init", () => {
   Actors.registerSheet("slugblaster", SlugblasterCrewSheet, { label: "Slugblaster Crew Sheet", types: ["crew"], makeDefault: true });
   Actors.registerSheet("slugblaster", SlugblasterPlaybookSheet, { label: "Slugblaster Playbook Sheet", types: ["playbook"], makeDefault: true });
   Actors.registerSheet("slugblaster", SlugblasterSignatureSheet, { label: "Slugblaster Signature Sheet", types: ["signature"], makeDefault: true });
-  Actors.registerSheet("slugblaster", SlugblasterFameSheet, { label: "Slugblaster Fame Sheet", types: ["fame"], makeDefault: true });
   Items.registerSheet("slugblaster", SlugblasterGearSheet, { label: "Slugblaster Gear Sheet", types: ["gear"], makeDefault: true });
   Items.registerSheet("slugblaster", SlugblasterBeatSheet, { label: "Slugblaster Beat Sheet", types: ["beat", "trait"], makeDefault: true });
   

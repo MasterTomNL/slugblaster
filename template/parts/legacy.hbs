@@ -1,13 +1,13 @@
 <section class="slugblasterLegacy">
   <h2>
-    <a class="addBtn" title="{{ localize 'SB.addLegacy' }}" data-type="legacy">
+    <a class="addBtn" title="{{ localize 'SB.addLegacy' }}" data-type="legacy" data-system-type="legacy">
       {{ localize 'SB.legacy' }}
       <i class="item-control fas fa-plus"></i>
     </a>
   </h2>
   <ul>
     {{#each legacy as |item key|}}
-    <li class="itemRow" data-item-id="{{beat._id}}" data-type="legacy">
+    <li class="itemRow" data-item-id="{{item._id}}" data-type="legacy">
       <input type="text" data-name="name" class="valChange" value="{{item.name}}" />
       <a class="delete flex0" title="{{ localize 'SB.delete' }}" data-item-id="{{item._id}}">
         <i class="fas fa-trash"></i>
@@ -18,14 +18,14 @@
 </section>
 <section class="slugblasterLegacy">
   <h2>
-    <a class="addBtn" title="{{ localize 'SB.addDoom' }}" data-type="doom">
+    <a class="addBtn" title="{{ localize 'SB.addDoom' }}" data-type="doom" data-system-type="doom">
       {{ localize 'SB.doom' }}
       <i class="item-control fas fa-plus"></i>
     </a>
   </h2>
   <ul>
     {{#each doom as |item key|}}
-    <li class="itemRow" data-item-id="{{beat._id}}" data-type="doom">
+    <li class="itemRow" data-item-id="{{item._id}}" data-type="doom">
       <input type="text" data-name="name" class="valChange" value="{{item.name}}" />
       <a class="delete flex0" title="{{ localize 'SB.delete' }}" data-item-id="{{item._id}}">
         <i class="fas fa-trash"></i>
@@ -36,14 +36,14 @@
 </section>
 <section class="slugblasterSlam">
   <h2>
-    <a class="addBtn" title="{{ localize 'SB.addLegacy' }}" data-type="slam">
+    <a class="addBtn" title="{{ localize 'SB.addLegacy' }}" data-type="slam" data-system-type="slam">
       {{ localize 'SB.slams' }}
       <i class="item-control fas fa-plus"></i>
     </a>
   </h2>
   <ul>
     {{#each slams as |item key|}}
-    <li class="itemRow" data-item-id="{{beat._id}}" data-type="slam">
+    <li class="itemRow" data-item-id="{{item._id}}" data-type="slam">
       <input type="text" data-name="name" class="valChange" value="{{item.name}}" />
       <a class="delete flex0" title="{{ localize 'SB.delete' }}" data-item-id="{{item._id}}">
         <i class="fas fa-trash"></i>

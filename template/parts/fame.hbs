@@ -2,11 +2,15 @@
   <ul>
     {{#each fame as |f key|}}
     <li class="fameRow data-item-id="{{f._id}}">
-      <span class="fameName">{{ f.name }}</span>
-      <a class="delete flex0" title="{{ localize 'SB.delete' }}" data-item-id="{{f._id}}">
-        <i class="fas fa-trash"></i>
-      </a>
-      <span class="fameDesc">{{ f.system.description }}</span>
+      <div class="fameName" title="{{ f.desc }}">
+        <input name="system.fame" type="checkbox" value="{{ key }}">
+        {{ key }}: {{ f.name }}
+      </div>
+      {{#each f.perks as |p key|}}
+      <div class="perk">
+        <div class="perkName" title="{{ p.desc }}">{{ p.name }} <span="perkCost">({{ p.cost }} style)</span></div>
+      </div>
+      {{/each}}
     </li>
   {{/each}}
   </ul>

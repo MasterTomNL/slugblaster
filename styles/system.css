@@ -86,7 +86,7 @@
 }
 .actor-img .attitude { text-align: center; width: 100%; }
 .actor-img .attitude i { float: none; width: 42px; height: 42px; margin: 0px; }
-.actor-img .sbResources { display: inline; }
+.actor-img .sbResources, .slugblasterHype .sbResources { display: inline; }
 .actor-img img { border: 0px; width: 100%; height: auto; }
 .actor-details {
   float: left;
@@ -420,3 +420,11 @@
 .sigMod .name { font-weight: bold; padding-right: 12px; }
 .sigMod .desc { color: #777; }
 .sigMod .icon { height: 16px; width: 16px; position: relative; top: 4px; margin-left: -1px; margin-right: 6px; }
+
+/* CREW */
+.slugblaster-crew-sheet .crew-details .rollableTable .icon { height: 16px; width: 16px; }
+
+.fameRow { width: 50%; display: inline-block; float: left; }
+.fameName { font-size: 1.2em; font-weight: bold; clear: both; }
+.perkName { clear: both; }
+

@@ -66,6 +66,20 @@ export class SlugblasterCoreSheet extends ActorSheet {
           await this.actor.update({['system.styleFree']: 0 });
         break;
 
+      case 'crew':
+        // colour
+        table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.vyuWcWbTMZ6FmGyC");
+        result = await table.draw();
+        value = result.results[0].text;
+        
+        // suffix
+        table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.MXGae0Bkncgfw0GX");
+        result = await table.draw();
+        value += " " + result.results[0].text;
+        
+        await this.actor.update({['name']: value });
+        break;
+
       case 'hoverboard': // type, grip-colour, grip-cut and deck-graphic
         // type
         table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.9SK6fHCLI7iTajxx");
@@ -75,7 +89,7 @@ export class SlugblasterCoreSheet extends ActorSheet {
         // deck graphic
         table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.Vq0qzyqMYC8YmrC8");
         result = await table.draw();
-        value = type + " " + result.results[0].text;
+        value = type + ": " + result.results[0].text;
         // add grip colour and cut when its a "Deck"
         if (type.indexOf("Deck") !== -1) {
           // grip-colour
@@ -114,6 +128,15 @@ export class SlugblasterCoreSheet extends ActorSheet {
         };
         // get the rollable table
         table = await fromUuid("Compendium.slugblaster.rollable-tables."+vTables[this.actor.system.playbook]);
+        this._processTable(table, action);
+        break;
+      
+      case 'hangouts':
+        table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.8BvLRznUulA8TjQG");
+        this._processTable(table, action);
+        break;
+      case 'brands':
+        table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.Rlq9RNWSnZhoWEn1");
         this._processTable(table, action);
         break;
       
