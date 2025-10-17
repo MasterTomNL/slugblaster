@@ -42,11 +42,11 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
     
     // get traits and beats from items
     let angstBeats = [];
-    let arcBeats = [];
     let crewBeats = [];
     let familyBeats = [];
     let otherBeats = [];
     let playbookBeats = [];
+    let traits = [];
     let traitBeats = [];
     
     let gear = [];
@@ -66,12 +66,12 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
       i.img = i.img || DEFAULT_TOKEN;
       
       if (type == 'angst') angstBeats.push(i);
-      if (type == 'arc') arcBeats.push(i);
       if (type == 'crew') crewBeats.push(i);
       if (type == 'family') familyBeats.push(i);
       if (type == 'other') otherBeats.push(i);
       if (type == 'playbook') playbookBeats.push(i);
-      if (type == 'trait') traitBeats.push(i);
+      if (type == 'trait') traits.push(i);
+      if (type == 'traitBeat') traitBeats.push(i);
       
       if (type == 'gear') gear.push(i);
       if (type == 'signature') signatures.push(i);
@@ -83,11 +83,11 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
     }
     
     context.angstBeats = angstBeats;
-    context.arcBeats = arcBeats;
     context.crewBeats = crewBeats;
     context.familyBeats = familyBeats;
     context.otherBeats = otherBeats;
     context.playbookBeats = playbookBeats;
+    context.traits = traits;
     context.traitBeats = traitBeats;
     
     context.gear = gear;
@@ -370,6 +370,7 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
           name: i.name,
           type: i.type,
           ['system.active']: "",
+          ['system.type']: i.system.type,
           ['system.cost']: i.system.cost,
           ['system.styleCost']: i.system.styleCost,
           ['system.troubleCost']: i.system.troubleCost,
