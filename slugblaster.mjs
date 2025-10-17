@@ -9,7 +9,6 @@ import { SlugblasterBeatSheet } from  "./js/beat-sheet.mjs";
 import { SlugblasterCrewSheet } from "./js/crew-sheet.mjs";
 import { SlugblasterFameSheet } from "./js/fame-sheet.mjs";
 import { SlugblasterGearSheet } from  "./js/gear-sheet.mjs";
-import { SlugblasterConfig } from './js/config.mjs';
 
 Hooks.on("init", () => {
   // handlebars
