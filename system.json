@@ -5,7 +5,7 @@
   "version": "0.3",
   "compatibility": {
     "minimum": 12,
-    "verified": 12
+    "verified": 13
   },
   "authors": [{ "name": "Tom van der Lek" }],
   "esmodules": ["slugblaster.mjs"],
@@ -125,6 +125,7 @@
   "download": "https://github.com/MasterTomNL/slugblaster/archive/refs/heads/main.zip"
 
 }
+
 
 
 
