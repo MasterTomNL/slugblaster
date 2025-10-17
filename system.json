@@ -28,7 +28,8 @@
       "gear": {},
       "legacy": {},
       "loot": {},
-      "slam": {}
+      "slam": {},
+      "faction": {}
     }
   },
   "packs": [
@@ -110,3 +111,4 @@
   "manifest": "https://raw.githubusercontent.com/MasterTomNL/slugblaster/refs/heads/main/system.json",
   "download": "https://github.com/MasterTomNL/slugblaster/archive/refs/heads/main.zip"
 }
+
