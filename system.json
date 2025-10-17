@@ -28,8 +28,6 @@
       "gear": {},
       "legacy": {},
       "loot": {},
-      "signature": {},
-      "signatureMod": {},
       "slam": {}
     }
   },
@@ -105,18 +103,6 @@
         "ASSISTANT": "OWNER"
       },
       "flags": {}
-    },
-    {
-      "label": "Signature Mods",
-      "type": "Item",
-      "name": "signature-mods",
-      "path": "packs/signature-mods",
-      "system": "slugblaster",
-      "ownership": {
-        "PLAYER": "OBSERVER",
-        "ASSISTANT": "OWNER"
-      },
-      "flags": {}
     }],
   "primaryTokenAttribute": "resources.boosts",
   "secondaryTokenAttribute": "resources.kicks",
@@ -125,6 +111,7 @@
   "download": "https://github.com/MasterTomNL/slugblaster/archive/refs/heads/main.zip"
 
 }
+
 
 
 
