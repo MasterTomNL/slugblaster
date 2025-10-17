@@ -168,12 +168,6 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
     await this.actor.update({['system.trouble']: Number(this.actor.system.trouble)+2 });
   }
   
-  _onEdit(event) {
-    let li = $(event.currentTarget).parents('li');
-    let label = li.find('.not-editable').addClass("hidden");
-    let editable = li.find('.editable').removeClass("hidden");
-  }
-  
   async _onInstall(event) {
     let li = $(event.currentTarget).parents('li'); // get parent (for itemId)
     let item = this.actor.items.get(li.data('itemId')); // get item

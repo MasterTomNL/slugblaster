@@ -87,6 +87,7 @@ export class SlugblasterCrewData extends foundry.abstract.TypeDataModel {
       style: new NumberField({ required: false, integer: true, min: 0, max: 10, initial: 0 }),
       kick: new NumberField({ required: false, integer: true, min: 0, max: 5, initial: 0 }),
       boost: new NumberField({ required: false, integer: true, min: 0, max: 5, initial: 0 }),
+      notes: new HTMLField(),
     };
   }
 }

@@ -135,6 +135,7 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
       if (i.type == 'faction') factions.push(i);
       if (i.type == 'fracture') fractures.push(i);
     }
+    console.log(factions);
     context.factions = factions;
     context.fractures = fractures;
   }
@@ -144,6 +145,9 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
     
     // Add Trait / BeatArc / Beat
 		html.on('click', '.addBtn', this._onAdd.bind(this));
+    
+    // edit (factions)
+    html.on('click', '.edit', this._onEdit.bind(this));
     
     // Delete Trait / BeatArc / Beat
 		html.on('click', '.delete', this._onDelete.bind(this));
@@ -186,13 +190,6 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
       await item.update({['system.'+key]: new_val});
     else
       await this.actor.update({['system.'+key]: new_val});
-  }
-  
-  
-  async _onAdd(event) {
-    event.preventDefault();
-    let type = $(event.currentTarget).data('type');
-    await Item.create({ name: game.i18n.localize('SB.newTrait'), type: type }, { parent: this.actor });
   }
   
   async _onValueChange(event) {
