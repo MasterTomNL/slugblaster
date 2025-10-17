@@ -9,9 +9,10 @@ With Mikey's permission I've added a bunch of information from the official Slug
 
 ## Features
 ### Slugblaster actor sheet
-![Slugblaster-gear](https://github.com/user-attachments/assets/ce43be5a-4f53-4fec-ab5a-62743a946ab7)
+<img width="592" height="661" alt="Schermafbeelding 2025-10-17 232537" src="https://github.com/user-attachments/assets/6efeb634-4891-42f0-8f6a-034d23048429" />
 
-### Signature devices (incl. craft/salvage mods)
+### Signature devices (incl. craft/
+salvage mods)
 ![Slugblaster-signature](https://github.com/user-attachments/assets/71477686-a090-4104-a973-7a9799eb7728)
 
 ### Character traits
