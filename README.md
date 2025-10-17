@@ -1,7 +1,8 @@
 # Slugblaster system for FoundryVTT
 This is a FoundryVTT system for Slugblaster (https://www.slugblaster.com).
-Mike Hamms is the original creator of Slugblaster.
-With his permission I've added a bunch of information from the official Slugblaster book: Playbooks, Rollable tables, devices and more.
+Mikey Hamm is the original creator of Slugblaster. Please buy the official Slugblaster book if you plan on running this module.
+Trust me... the book has soo much more content then I was able to fit into this system module... and you'll need it to properly run the game anyways.
+With Mikey's permission I've added a bunch of information from the official Slugblaster book: Playbooks, Rollable tables, devices and more.
 
 ## Features
 ### Slugblaster actor sheet
