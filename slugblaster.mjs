@@ -7,7 +7,6 @@ import { SlugblasterActorSheet, SlugblasterSignatureSheet } from "./js/sheets.mj
 import { SlugblasterPlaybookSheet } from "./js/playbook-sheet.mjs";
 import { SlugblasterBeatSheet } from  "./js/beat-sheet.mjs";
 import { SlugblasterCrewSheet } from "./js/crew-sheet.mjs";
-import { SlugblasterFameSheet } from "./js/fame-sheet.mjs";
 import { SlugblasterGearSheet } from  "./js/gear-sheet.mjs";
 
 Hooks.on("init", () => {
