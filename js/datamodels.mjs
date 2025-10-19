@@ -72,6 +72,8 @@ export class SlugblasterGearData extends foundry.abstract.TypeDataModel {
       type: new StringField(),
       description: new HTMLField(),
       parentId: new StringField(),
+      boosts: new NumberField({ required: true, integer: true, min: -1, max: 5, initial: 0 }),
+      kicks: new NumberField({ required: true, integer: true, min: -1, max: 5, initial: 0 }),
       coilCost: new NumberField({ required: false, integer: true, min: 0, max: 5, initial: 0 }),
       discCost: new NumberField({ required: false, integer: true, min: 0, max: 5, initial: 0 }),
       gemCost: new NumberField({ required: false, integer: true, min: 0, max: 5, initial: 0 }),
