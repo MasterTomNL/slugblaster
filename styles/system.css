@@ -457,10 +457,11 @@ li.standingLevel { padding: 4px; }
 }
 
 .draggable-item {
-  padding: 5px 6px;
+  padding: 0px 6px;
   border: 1px solid #ccc;
   cursor: move; 
   width: fit-content;  /* Indicate that the item is movable */
+  display: inline-block;
 }
 
 .draggable-item:hover {

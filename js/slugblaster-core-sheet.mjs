@@ -3,9 +3,9 @@ export class SlugblasterCoreSheet extends ActorSheet {
     event.preventDefault();
     let type = $(event.currentTarget).data('type'); // item.type
     let systemType = $(event.currentTarget).data('systemType'); // item.system.type
-    console.log(type + ', ' + systemType);
     let parentId = $(event.currentTarget).data('parentId'); // item.system.parentId
     const item = { name: game.i18n.localize(`SB.new_${systemType}`), type: type, ['system.active']: true, ['system.type']: systemType };
+    if (type == 'faction') item['system.level'] = 0;
     if (parentId) item.parentId = parentId; // assign parentId when it's defined
     await Item.create(item, { parent: this.actor }); // create the item
   }
