@@ -6,10 +6,10 @@
     {{/numLoop}}
   </div>
   <div class="rolling" data-type="challengesPool">
-    <p><input type="checkbox" class="conditional" name="system.cc_rival" {{checked actor.system.cc_rival }}"/> +1 if rivals or worse with five or more factions</p>
-    <p><input type="checkbox" class="conditional" name="system.cc_enemy" {{checked actor.system.cc_enemy }}"/> +1 if enemies with one or more factions</p>
-    <p><input type="checkbox" class="conditional" name="system.cc_upandc" {{checked actor.system.cc_upandc }}"/> +1 for being Up & Comers tier or higher</p>
-    <p><input type="checkbox" class="conditional" name="system.cc_rising" {{checked actor.system.cc_rising }}"/> +1 for being Rising Stars tier or higher</p>
+    <p><input type="checkbox" class="conditional" name="system.cc_rival" {{checked actor.system.cc_rival }}/> +1 if rivals or worse with five or more factions</p>
+    <p><input type="checkbox" class="conditional" name="system.cc_enemy" {{checked actor.system.cc_enemy }}/> +1 if enemies with one or more factions</p>
+    <p><input type="checkbox" class="conditional" name="system.cc_upandc" {{checked actor.system.cc_upandc }}/> +1 for being Up & Comers tier or higher</p>
+    <p><input type="checkbox" class="conditional" name="system.cc_rising" {{checked actor.system.cc_rising }}/> +1 for being Rising Stars tier or higher</p>
     <div class="btn-group">
       <button class="btn dicepoolMinus">-</button>
       <button class="btn dicepoolRoll">Roll {{ actor.system.challengesPool}} Di{{#if (gt actor.system.challengesPool 1) }}c{{/if}}e!</button>
