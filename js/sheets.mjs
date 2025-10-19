@@ -117,11 +117,6 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
 		// Rollable abilities.
 		html.on('click', '.rollable', this._onRoll.bind(this));
     html.on('click', '.rollableTable', this._onRollableTable.bind(this));
-    
-    // dicePool interactions
-    html.on('click', '.dicepoolPlus', this._onDicepoolPlus.bind(this));
-    html.on('click', '.dicepoolMinus', this._onDicepoolMinus.bind(this));
-    html.on('click', '.dicepoolRoll', this._onDicepoolRoll.bind(this));
 
 		// Add Gear / Trait / BeatArc / Beat
 		html.on('click', '.addBtn', this._onAdd.bind(this));
@@ -165,25 +160,6 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
       if (active=="true") $(this).addClass("active");
 		});
 	}
-  
-  async _onDicepoolPlus(event) {
-    await this.actor.update({['system.dicePool']: this.actor.system.dicePool+1 });
-  }
-  async _onDicepoolMinus(event) {
-    await this.actor.update({['system.dicePool']: this.actor.system.dicePool-1 });
-  }
-  async _onDicepoolRoll(event) {
-    let formula = this.actor.system.dicePool + 'd6kh';
-    let roll = new Roll(formula, this.actor.getRollData());
-		roll.toMessage({
-      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      flavor: 'Rolling...',
-      rollMode: game.settings.get('core', 'rollMode'),
-    });
-    
-    // roll
-    await this.actor.update({['system.dicePool']: 1 });
-  }
   
   async _addStyleBonus(event) {
     await this.actor.update({['system.style']: Number(this.actor.system.style)+1 });

@@ -5,7 +5,7 @@
 			<i class="icon icon-dice" data-index="{{this}}"></i>
     {{/numLoop}}
   </div>
-  <div class="btn-group">
+  <div class="btn-group rolling" data-type="dicePool">
     <button class="btn dicepoolMinus">-</button>
     <button class="btn dicepoolRoll">Roll {{ actor.system.dicePool}} Di{{#if (gt actor.system.dicePool 1) }}c{{/if}}e!</button>
     <button class="btn dicepoolPlus">+</button>

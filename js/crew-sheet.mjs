@@ -121,13 +121,13 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
     }];
     
     context.standings = [
-      { 'name': 'enemy', 'value': '-3', 'factions':[], 'desc': 'Let me at ‘em. Should trigger an event like Hunted or Smear Tactics.' },
-      { 'name': 'rivals', 'value': '-2', 'factions':[], 'desc': 'Resentful, angry, threatened, petty.' },
-      { 'name': 'unfriendly', 'value': '-1', 'factions':[], 'desc': 'Annoyed, skeptical, or wary.' },
-      { 'name': 'unstable', 'value': '0', 'factions':[], 'desc': 'The relationship is on the verge of changing dramatically. Anything could tip it.' },
-      { 'name': 'friendly', 'value': '+1', 'factions':[], 'desc': 'Agreeable, interested, encouraging.' },
+      { 'name': 'ally', 'value': '+3', 'factions':[], 'desc': 'Ride or Die. Should trigger a perk or event, such as Diehard Fans, Collab, or Swag.'},
       { 'name': 'tight', 'value': '+2', 'factions':[], 'desc': 'Helpful, close, caring, enthusiastic.' },
-      { 'name': 'ally', 'value': '+3', 'factions':[], 'desc': 'Ride or Die. Should trigger a perk or event, such as Diehard Fans, Collab, or Swag.'}
+      { 'name': 'friendly', 'value': '+1', 'factions':[], 'desc': 'Agreeable, interested, encouraging.' },
+      { 'name': 'unstable', 'value': '0', 'factions':[], 'desc': 'The relationship is on the verge of changing dramatically. Anything could tip it.' },
+      { 'name': 'unfriendly', 'value': '-1', 'factions':[], 'desc': 'Annoyed, skeptical, or wary.' },
+      { 'name': 'rivals', 'value': '-2', 'factions':[], 'desc': 'Resentful, angry, threatened, petty.' },
+      { 'name': 'enemy', 'value': '-3', 'factions':[], 'desc': 'Let me at ‘em. Should trigger an event like Hunted or Smear Tactics.' }
     ];
 
     // Prepare scoundrel data and items.
@@ -140,8 +140,9 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
         }
       }
     }
-    
     this._activateDragDrop(context);
+
+    console.log(context);
 
     return context;
   }
@@ -207,6 +208,9 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
     
     // Delete Trait / BeatArc / Beat
 		html.on('click', '.delete', this._onDelete.bind(this));
+    
+    // save conditional checkboxes
+    //html.on('change', '.conditional', this._onCondional.bind(this));
     
     // save changes in traits, beatArcs and beats
     html.on('change', '.valChange', this._onValueChange.bind(this));

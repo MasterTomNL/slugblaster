@@ -9,6 +9,50 @@ export class SlugblasterCoreSheet extends ActorSheet {
     if (parentId) item.parentId = parentId; // assign parentId when it's defined
     await Item.create(item, { parent: this.actor }); // create the item
   }
+
+	activateListeners(html) {
+		super.activateListeners(html);
+         
+    // dicePool interactions
+    html.on('click', '.dicepoolPlus', this._onDicepoolPlus.bind(this));
+    html.on('click', '.dicepoolMinus', this._onDicepoolMinus.bind(this));
+    html.on('click', '.dicepoolRoll', this._onDicepoolRoll.bind(this));
+  }
+  
+  async _onDicepoolPlus(event) {
+    let div = $(event.currentTarget).parents('div.rolling');
+    let type = div.data('type');
+    await this.actor.update({['system.'+type]: this.actor.system[type] +1 });
+  }
+  async _onDicepoolMinus(event) {
+    let div = $(event.currentTarget).parents('div.rolling');
+    let type = div.data('type');
+    await this.actor.update({['system.'+type]: this.actor.system[type] - 1 });
+  }
+  async _onDicepoolRoll(event) {
+    let div = $(event.currentTarget).parents('div.rolling');
+    let type = div.data('type');
+    let formula = this.actor.system[type] + 'd6kh'; // (kh = keep highest)
+    
+    // add conditional +1's
+    let count = 0;
+    //$(div).find('.conditional').each(function (i) {
+    //  if ($(this).is(':checked')) count++;
+    //});
+    //if (count > 0) formula += '+'+count;
+    
+    // roll it!
+    let roll = new Roll(formula, this.actor.getRollData());
+		roll.toMessage({
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      flavor: 'Rolling...',
+      rollMode: game.settings.get('core', 'rollMode'),
+    });
+    
+    // roll
+    await this.actor.update({['system.'+type]: 1 });
+  }
+
   
   _onEdit(event) {
     let li = $(event.currentTarget).parents('li');
