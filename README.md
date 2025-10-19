@@ -34,4 +34,4 @@ With Mikey's permission I've added a bunch of information from the official Slug
 * 0.1 - Initial release (not finished)
 * 0.2 - Improved functionality
 * 0.3 - Added Compendium packs
-
+* 0.3.1 - All Signature devices (incl. mods) added
