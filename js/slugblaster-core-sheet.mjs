@@ -36,10 +36,10 @@ export class SlugblasterCoreSheet extends ActorSheet {
     
     // add conditional +1's
     let count = 0;
-    //$(div).find('.conditional').each(function (i) {
-    //  if ($(this).is(':checked')) count++;
-    //});
-    //if (count > 0) formula += '+'+count;
+    $(div).find('.conditional').each(function (i) {
+      if ($(this).is(':checked')) count++;
+    });
+    if (count > 0) formula += '+'+count;
     
     // roll it!
     let roll = new Roll(formula, this.actor.getRollData());

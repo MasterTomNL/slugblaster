@@ -209,9 +209,6 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
     // Delete Trait / BeatArc / Beat
 		html.on('click', '.delete', this._onDelete.bind(this));
     
-    // save conditional checkboxes
-    //html.on('change', '.conditional', this._onCondional.bind(this));
-    
     // save changes in traits, beatArcs and beats
     html.on('change', '.valChange', this._onValueChange.bind(this));
     
