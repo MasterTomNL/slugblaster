@@ -428,3 +428,41 @@
 .fameName { font-size: 1.2em; font-weight: bold; clear: both; }
 .perkName { clear: both; }
 
+.btn-group button { width: auto; margin: 0; }
+.btn-group .dicepoolRoll { padding: 0 6px; }
+.btn-group button:first-child { border-right: 0px; }
+.btn-group button:last-child { border-left: 0px; }
+/*.btn-group button { border-left: 0px; border-right: 0px; }*/
+
+li.standingLevel { padding: 4px; }
+.standingsName { line-height: 32px; text-indent: 6px; }
+.standingLevel.enemy { background-color: darkred; color: white; }
+.standingLevel.rivals { background-color: red; color: white; }
+.standingLevel.unfriendly { background-color: orange; }
+.standingLevel.unstable { background-color: darkgrey; }
+.standingLevel.unstable .standingsName { text-indent: 12px; }
+.standingLevel.friendly { background-color: green; color: white; }
+.standingLevel.tight { background-color: darkgreen; color: white; }
+.standingLevel.ally { background-color: purple; color: white; }
+
+.draggable-container { height: 32px; border: 1px solid white; flex-grow: 4; display: inline-block; }
+.drag-handle {
+  cursor: grab;           /* Change cursor to indicate draggable */
+  display: inline-block;  /* Make handle area compact */
+  margin-right: 8px;     /* Space between handle and item name */
+}
+
+.drag-handle:hover {
+  cursor: grabbing;       /* Change cursor when hovering over handle */
+}
+
+.draggable-item {
+  padding: 5px 6px;
+  border: 1px solid #ccc;
+  cursor: move; 
+  width: fit-content;  /* Indicate that the item is movable */
+}
+
+.draggable-item:hover {
+  background-color: rgba(255,255,255,.25);
+}

@@ -12,6 +12,7 @@
   
   {{!-- Character Sheet Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="navitem" data-tab="dicepool">{{ localize "SB.dicepool" }}</a>
     <a class="navitem" data-tab="gear">{{ localize "SB.gear" }}</a>
     <a class="navitem" data-tab="signature">{{ localize "SB.signature" }}</a>
     <a class="navitem" data-tab="legacy">{{ localize "SB.legacy_tab" }}</a>
@@ -21,6 +22,11 @@
   </nav>
   
   <section class="sheet-body">
+    <!-- DICEPOOL -->
+    <div class="tab dicepool" data-group="primary" data-tab="dicepool">
+      {{> "systems/slugblaster/template/parts/dicepool.hbs" }}
+    </div>
+    
     <!-- GEAR -->
     <div class="tab gear" data-group="primary" data-tab="gear">
       {{> "systems/slugblaster/template/parts/gear.hbs" }}

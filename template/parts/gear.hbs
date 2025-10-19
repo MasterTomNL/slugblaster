@@ -19,7 +19,7 @@
   </h3>
   <ul>
     {{#each gear as |item key|}}
-    <li class="itemRow" data-item-id="{{item._id}}" data-type="gear" data-sType="gear">
+    <li class="itemRow valChangeParent" data-item-id="{{item._id}}" data-type="gear" data-sType="gear">
       <p class="{{ isUnlocked item.system.active }} not-editable">
         <span class="itemName">{{ item.name }}</span>
         {{#unless item.system.active }}
@@ -38,8 +38,6 @@
       <div class="editable hidden">
         <div class="flexrow">
           <span class="load flex0" data-value="{{item.system.active}}"></span>
-          {{!--<input type="text" class="valChange" data-name="type" value="{{item.type}}">
-          <input type="text" class="valChange" data-name="system.type" value="{{item.system.type}}">--}}
           <input data-name="name" class="valChange itemName flex2" type="text" value="{{item.name}}" />
           <a class="delete flex0" title="{{ localize 'SB.delete' }}" data-item-id="{{item._id}}">
             <i class="fas fa-trash"></i>

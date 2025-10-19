@@ -89,7 +89,6 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
     context.playbookBeats = playbookBeats;
     context.traits = traits;
     context.traitBeats = traitBeats;
-    
     context.gear = gear;
     
     // bind mods to signatures...
@@ -101,11 +100,12 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
       }
     }
     context.signatures = signatures;
-    console.log(signatures);
     
     context.doom = doom;
     context.legacy = legacy;
     context.slams = slams;
+    
+    context.dicePool = 1;
     
     return context;
   }
@@ -117,6 +117,11 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
 		// Rollable abilities.
 		html.on('click', '.rollable', this._onRoll.bind(this));
     html.on('click', '.rollableTable', this._onRollableTable.bind(this));
+    
+    // dicePool interactions
+    html.on('click', '.dicepoolPlus', this._onDicepoolPlus.bind(this));
+    html.on('click', '.dicepoolMinus', this._onDicepoolMinus.bind(this));
+    html.on('click', '.dicepoolRoll', this._onDicepoolRoll.bind(this));
 
 		// Add Gear / Trait / BeatArc / Beat
 		html.on('click', '.addBtn', this._onAdd.bind(this));
@@ -161,6 +166,25 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
 		});
 	}
   
+  async _onDicepoolPlus(event) {
+    await this.actor.update({['system.dicePool']: this.actor.system.dicePool+1 });
+  }
+  async _onDicepoolMinus(event) {
+    await this.actor.update({['system.dicePool']: this.actor.system.dicePool-1 });
+  }
+  async _onDicepoolRoll(event) {
+    let formula = this.actor.system.dicePool + 'd6kh';
+    let roll = new Roll(formula, this.actor.getRollData());
+		roll.toMessage({
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      flavor: 'Rolling...',
+      rollMode: game.settings.get('core', 'rollMode'),
+    });
+    
+    // roll
+    await this.actor.update({['system.dicePool']: 1 });
+  }
+  
   async _addStyleBonus(event) {
     await this.actor.update({['system.style']: Number(this.actor.system.style)+1 });
   }
@@ -188,9 +212,9 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
     // spend components
     await this.actor.update({
       ['system.coil']: Number(aSys.coil) - (iSys.coilCost ? Number(iSys.coilCost) : 0),
-      ['system.disc']: Number(aSys.disc) - (iSys.coilCost ? Number(iSys.discCost) : 0),
-      ['system.gem']: Number(aSys.gem) - (iSys.coilCost ? Number(iSys.gemCost) : 0),
-      ['system.lens']: Number(aSys.lens) - (iSys.coilCost ? Number(iSys.lensCost) : 0) });
+      ['system.disc']: Number(aSys.disc) - (iSys.discCost ? Number(iSys.discCost) : 0),
+      ['system.gem']: Number(aSys.gem) - (iSys.gemCost ? Number(iSys.gemCost) : 0),
+      ['system.lens']: Number(aSys.lens) - (iSys.lensCost ? Number(iSys.lensCost) : 0) });
     // activate the mod
     await item.update({['system.active']: true });
   }
@@ -327,8 +351,9 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
     if (src.type == 'signature') {
       let parentSig = await Item.create({
         name: src.name,
-        type: 'signature',
+        type: 'gear',
         img: src.img,
+        ['system.type']: 'signature',
         ['system.active']: "true",
         ['system.boosts']: sys.boosts,
         ['system.kicks']: sys.kicks,
@@ -340,7 +365,8 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
       for (let i of src.items) {
         await Item.create({
           name: i.name,
-          type: 'signatureMod',
+          type: 'gear',
+          ['system.type']: 'signatureMod',
           ['system.active']: "",
           ['system.coilCost']: i.system.coilCost,
           ['system.discCost']: i.system.discCost,

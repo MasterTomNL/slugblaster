@@ -12,14 +12,14 @@ export class SlugblasterCoreSheet extends ActorSheet {
   
   _onEdit(event) {
     let li = $(event.currentTarget).parents('li');
-    let label = li.find('.not-editable').addClass("hidden");
-    let editable = li.find('.editable').removeClass("hidden");
+    li.find('.not-editable').addClass("hidden");
+    li.find('.editable').removeClass("hidden");
   }
   
   async _onValueChange(event) {
     event.preventDefault();
     // get closest li parent for details
-    let li = $(event.currentTarget).parents('li');
+    let li = $(event.currentTarget).parents('.valChangeParent');
     let itemId = li.data('itemId');
     // process value
     let field = $(event.currentTarget);

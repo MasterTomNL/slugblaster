@@ -11,6 +11,7 @@ export class SlugblasterActorData extends foundry.abstract.TypeDataModel {
       vibes: new StringField(),
       attitude: new StringField(),
       stickers: new StringField(),
+      dicePool: new NumberField({ integer: true, min: 1, initial: 1, max: 9 }),
       boosts: new NumberField({ required: true, integer: true, min: -1, max: 9, initial: 0 }),
       kicks: new NumberField({ required: true, integer: true, min: -1, max: 9, initial: 0 }),
       boostsRemaining: new NumberField({ required: true, integer: true, min: -1, max: 9, initial: 0 }),

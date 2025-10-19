@@ -49,6 +49,7 @@ Hooks.on("init", () => {
     "systems/slugblaster/template/parts/crew.hbs",
     "systems/slugblaster/template/parts/crew-details.hbs",
     "systems/slugblaster/template/parts/details.hbs",
+    "systems/slugblaster/template/parts/dicepool.hbs",
     "systems/slugblaster/template/parts/factions.hbs",
     "systems/slugblaster/template/parts/fame.hbs",
     "systems/slugblaster/template/parts/gear.hbs",

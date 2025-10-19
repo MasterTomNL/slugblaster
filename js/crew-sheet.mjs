@@ -7,9 +7,6 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
   /** @override */
   async getData() {
     const context = await super.getData();
-
-    // Prepare scoundrel data and items.
-    this._prepareItems(context);
     
     context.fame = [
     {
@@ -122,6 +119,29 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
       'cost': 11,
       'desc': 'You did it. You’re slugblasting icons and the scene will never forget you. Even your mom’s friend Deborah knows you’re famous for “hockey or rapping or something” and no one can say you didn’t do something with your lives not that you were trying to prove that, right?)'
     }];
+    
+    context.standings = [
+      { 'name': 'enemy', 'value': '-3', 'factions':[], 'desc': 'Let me at ‘em. Should trigger an event like Hunted or Smear Tactics.' },
+      { 'name': 'rivals', 'value': '-2', 'factions':[], 'desc': 'Resentful, angry, threatened, petty.' },
+      { 'name': 'unfriendly', 'value': '-1', 'factions':[], 'desc': 'Annoyed, skeptical, or wary.' },
+      { 'name': 'unstable', 'value': '0', 'factions':[], 'desc': 'The relationship is on the verge of changing dramatically. Anything could tip it.' },
+      { 'name': 'friendly', 'value': '+1', 'factions':[], 'desc': 'Agreeable, interested, encouraging.' },
+      { 'name': 'tight', 'value': '+2', 'factions':[], 'desc': 'Helpful, close, caring, enthusiastic.' },
+      { 'name': 'ally', 'value': '+3', 'factions':[], 'desc': 'Ride or Die. Should trigger a perk or event, such as Diehard Fans, Collab, or Swag.'}
+    ];
+
+    // Prepare scoundrel data and items.
+    this._prepareItems(context);
+
+    for (const i of context.standings) {
+      for (const f of context.factions) {
+        if (f.system.level == i.value) {
+          i.factions.push(f);
+        }
+      }
+    }
+    
+    this._activateDragDrop(context);
 
     return context;
   }
@@ -135,13 +155,49 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
       if (i.type == 'faction') factions.push(i);
       if (i.type == 'fracture') fractures.push(i);
     }
-    console.log(factions);
     context.factions = factions;
     context.fractures = fractures;
   }
   
+  _activateDragDrop(context) {
+    // find the containers
+    const containers = this.element.find('.draggable-container');
+    containers.each((index, container) => {
+      const containerId = $(container).data('container-id');
+      const dragDrop = new DragDrop({
+        dragSelector: ".draggable-item",
+        dropZone: container,
+        callback: (data) => {
+          console.log(`Dropped in container ${containerId}:`, data);
+        }
+      });
+      
+      // Manually manage drag-and-drop functionality
+      $(container).on('dragstart', '.draggable-item', (event) => {
+        const draggedItemId = $(event.currentTarget).data('item-id');
+        event.originalEvent.dataTransfer.setData('item-id', draggedItemId);
+      });
+      
+      $(container).on('drop', (event) => {
+        event.preventDefault();
+        const itemId = event.originalEvent.dataTransfer.getData('item-id');
+        let item = this.actor.items.get(itemId);
+        let levelId = event.target.dataset.containerId;
+        item.update({ ['system.level']: levelId });
+      });
+
+      // Prevent default behavior on dragover
+      $(container).on('dragover', (event) => {
+          event.preventDefault();
+      });
+    });
+  }
+  
+  
   activateListeners(html) {
 		super.activateListeners(html);
+    
+    this._activateDragDrop(this);
     
     // Add Trait / BeatArc / Beat
 		html.on('click', '.addBtn', this._onAdd.bind(this));
@@ -190,20 +246,6 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
       await item.update({['system.'+key]: new_val});
     else
       await this.actor.update({['system.'+key]: new_val});
-  }
-  
-  async _onValueChange(event) {
-    event.preventDefault();
-    // get closest li parent for details
-    let li = $(event.currentTarget).parents('li');
-    let itemId = li.data('itemId');
-    // process value
-    let field = $(event.currentTarget);
-    let newVal = field.val();
-    let valName = field.data('name');
-    // update the item
-    let item = this.actor.items.get(itemId);
-    await item.update({ [valName]: newVal });
   }
   
   async _onDelete(event) {
