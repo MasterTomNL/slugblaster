@@ -43,12 +43,28 @@ export class SlugblasterCoreSheet extends ActorSheet {
     
     // roll it!
     let roll = new Roll(formula, this.actor.getRollData());
-		roll.toMessage({
-      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      flavor: 'Rolling...',
-      rollMode: game.settings.get('core', 'rollMode'),
-    });
-    
+    if (type=='challengesPool') {
+      // Challenges 1: Compendium.slugblaster.rollable-tables.RollTable.P8uleIWeJ35rQyrz
+      let table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.P8uleIWeJ35rQyrz");
+      await table.draw({ roll: roll });
+      // Challenges 2: Compendium.slugblaster.rollable-tables.RollTable.EYYxINLHCQRpMg8F
+      table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.EYYxINLHCQRpMg8F");
+      await table.draw({ roll: roll });
+    }
+    else if (type == 'opportunitiesPool') {
+      // Opportunities 1: Compendium.slugblaster.rollable-tables.RollTable.N8u3b8CR1LcYO7Vi
+      let table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.N8u3b8CR1LcYO7Vi");
+      await table.draw({roll: roll});
+      // Opportunities 2: Compendium.slugblaster.rollable-tables.RollTable.2C9VsTKDo9UMZZie
+      table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.2C9VsTKDo9UMZZie");
+      await table.draw({roll: roll});
+    } else {
+      await roll.toMessage({
+        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+        flavor: 'Rolling...',
+        rollMode: game.settings.get('core', 'rollMode'),
+      });
+    }
     // roll
     await this.actor.update({['system.'+type]: 1 });
   }

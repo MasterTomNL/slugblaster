@@ -1,10 +1,5 @@
 <section class="crewDicePool {{cssClass}}">
   <h2>{{ localize 'SB.opportunities' }}</h2>
-	<div class="opportunitiesPool" data-value="actor.system.opportunitiesPool" data-key="opportunitiesPool">
-    {{#numLoop actor.system.opportunitiesPool}}
-			<i class="icon icon-dice" data-index="{{this}}"></i>
-    {{/numLoop}}
-  </div>
   <div class="rolling" data-type="opportunitiesPool">
     <p><input type="checkbox" class="conditional" name="system.oc_friend" {{checked actor.system.oc_friend}}> +1 if friendly or better with five or more factions</p>
     <p><input type="checkbox" class="conditional" name="system.oc_allied" {{checked actor.system.oc_allied}}> +1 if allied with one or more factions</p>
@@ -15,5 +10,10 @@
       <button class="btn dicepoolRoll">Roll {{ actor.system.opportunitiesPool}} Di{{#if (gt actor.system.opportunitiesPool 1) }}c{{/if}}e!</button>
       <button class="btn dicepoolPlus">+</button>
     </div>
+  </div>
+  <div class="opportunitiesPool" data-value="actor.system.opportunitiesPool" data-key="opportunitiesPool">
+    {{#numLoop actor.system.opportunitiesPool}}
+			<i class="icon icon-dice" data-index="{{this}}"></i>
+    {{/numLoop}}
   </div>
 </section>

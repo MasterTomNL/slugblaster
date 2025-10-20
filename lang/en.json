@@ -23,6 +23,8 @@
     "craft": "Craft:",
     "type": "Type",
     "dicepool": "Dicepool",
+    "challenges": "Challenges",
+    "opportunities": "Opportunities",
     
     "board": "Your Board",
     "board_placeholder": "...",

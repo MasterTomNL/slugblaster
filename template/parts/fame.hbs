@@ -4,7 +4,7 @@
     <li class="fameRow data-item-id="{{f._id}}">
       <div class="fameName" title="{{ f.desc }}">
         <input name="system.fame" type="checkbox" value="{{ key }}">
-        {{ key }}: {{ f.name }}
+        {{ key }}: {{ f.name }} {{#if f.cost }}({{ f.cost }} style){{/if}}
       </div>
       {{#each f.perks as |p key|}}
       <div class="perk">

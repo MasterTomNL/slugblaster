@@ -142,8 +142,6 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
     }
     this._activateDragDrop(context);
 
-    console.log(context);
-
     return context;
   }
   
