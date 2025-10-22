@@ -9,7 +9,7 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
     const context = await super.getData();
     
     context.fame = [
-    {
+      {
       'name': 'Nobodies',
       'desc': 'You’ve been casually slugblasting a little while. You know how to hoverboard, you know how to get into a couple worlds, but no one knows who you are.',
       'perks': [

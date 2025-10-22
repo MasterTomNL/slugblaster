@@ -96,6 +96,8 @@ export class SlugblasterCrewData extends foundry.abstract.TypeDataModel {
       kick: new NumberField({ required: false, integer: true, min: 0, max: 5, initial: 0 }),
       boost: new NumberField({ required: false, integer: true, min: 0, max: 5, initial: 0 }),
       challengesPool: new NumberField({ required: false, integer: true, min: 1, max: 9, initial: 1 }),
+      fame_level: new NumberField({ required: false, integer: true, min: 0, max: 5, initial: 0 }),
+      fame_perks: new ArrayField(new StringField()),
       cc_rival: new BooleanField(),
       cc_enemy: new BooleanField(),
       cc_upandc: new BooleanField(),

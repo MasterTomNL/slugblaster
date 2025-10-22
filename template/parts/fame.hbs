@@ -1,9 +1,9 @@
 <section class="slugblasterFame">
   <ul>
     {{#each fame as |f key|}}
-    <li class="fameRow data-item-id="{{f._id}}">
+    <li class="fameRow">
       <div class="fameName" title="{{ f.desc }}">
-        <input name="system.fame" type="checkbox" value="{{ key }}">
+        <input type="radio" name="system.fame_level" value="{{ key }}" {{checked (eq key ../actor.system.fame_level) }}>
         {{ key }}: {{ f.name }} {{#if f.cost }}({{ f.cost }} style){{/if}}
       </div>
       {{#each f.perks as |p key|}}
