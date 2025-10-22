@@ -8,7 +8,7 @@ export const registerHandlebarsHelpers = function() {
   });
   Handlebars
   Handlebars.registerHelper("isUnlocked", function(unlocked) {
-    return unlocked ? "" : "disabled";
+    return unlocked ? "" : "inactive";
   });
   Handlebars.registerHelper("isNotActive", function(el) {
     return el.system.active ? false : true;
