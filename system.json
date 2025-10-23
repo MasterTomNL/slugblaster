@@ -2,7 +2,7 @@
   "id": "slugblaster",
   "title": "Slugblaster",
   "description": "A Slugblaster system.",
-  "version": "0.4.3",
+  "version": "0.5",
   "compatibility": {
     "minimum": 12,
     "verified": 13

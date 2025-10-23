@@ -98,6 +98,7 @@
 .actor-img .attitude { text-align: center; width: 100%; }
 .actor-img .attitude i { float: none; width: 42px; height: 42px; margin: 0px; }
 .actor-img .sbResources, .slugblasterHype .sbResources { display: inline; }
+.slugblasterHype .icon { margin: 0px 2px 0px 0px; float: left; }
 .actor-img img { border: 0px; width: 100%; height: auto; }
 .actor-details {
   float: left;
@@ -123,6 +124,7 @@
 .slugblaster li {
   list-style: none;
   padding: 0;
+  margin-bottom: 10px;
 }
 .slugblaster .half-width {
   display: inline-block;

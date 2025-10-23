@@ -38,3 +38,4 @@ With Mikey's permission I've added a bunch of information from the official Slug
 * 0.4 - Signature bugfix, better factions and action rolls
 * 0.4.1 - Small update to factions
 * 0.4.2 - Small update to fame levels
+* 0.5 - More improvements and small visual fixes
