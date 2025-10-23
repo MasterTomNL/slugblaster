@@ -452,7 +452,7 @@
 .btn-group button:last-child { border-left: 0px; }
 /*.btn-group button { border-left: 0px; border-right: 0px; }*/
 
-li.standingLevel { padding: 4px; }
+li.standingLevel { padding: 4px; margin: 0; }
 .standingsName { line-height: 32px; text-indent: 6px; }
 .standingLevel.enemy { background-color: darkred; color: white; }
 .standingLevel.rivals { background-color: red; color: white; }

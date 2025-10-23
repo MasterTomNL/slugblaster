@@ -14,6 +14,7 @@
   <nav class="sheet-tabs tabs" data-group="primary">
     <a class="navitem" data-tab="factions">{{ localize "SB.factions" }}</a>
     <a class="navitem" data-tab="fame">{{ localize "SB.fame" }}</a>
+    <a class="navitem" data-tab="traits">{{ localize "SB.traits" }}</a>
     <a class="navitem" data-tab="challenges">{{ localize "SB.challenges" }}</a>
     <a class="navitem" data-tab="notes">{{ localize "SB.notes" }}</a>
   </nav>
@@ -27,6 +28,11 @@
     <!-- FAME -->
     <div class="tab fame" data-group="primary" data-tab="fame">
       {{> "systems/slugblaster/template/parts/fame.hbs" }}
+    </div>
+    
+    <!-- TRAITS -->
+    <div class="tab traits" data-group="primary" data-tab="traits">
+      {{> "systems/slugblaster/template/parts/crew.hbs" }}
     </div>
     
     <!-- CHALLENGES -->
