@@ -9,10 +9,10 @@ With Mikey's permission I've added a bunch of information from the official Slug
 
 ## Features
 ### Slugblaster actor sheet
-<img width="592" height="661" alt="Schermafbeelding 2025-10-17 232537" src="https://github.com/user-attachments/assets/6efeb634-4891-42f0-8f6a-034d23048429" />
+<img width="591" height="662" alt="Schermafbeelding 2025-10-23 172148" src="https://github.com/user-attachments/assets/e912e57d-70ae-4ed3-a2b6-879e59fe9e2c" />
 
 ### Signature devices (incl. craft/salvage mods)
-<img width="646" height="616" alt="Schermafbeelding 2025-10-17 232719" src="https://github.com/user-attachments/assets/7a923dc9-2385-4838-a481-6427a4d1e2be" />
+<img width="614" height="638" alt="Schermafbeelding 2025-10-23 172333" src="https://github.com/user-attachments/assets/35b32e66-822e-47e3-9c2f-3076108545f1" />
 
 ### Crew (actor) sheet
 <img width="634" height="574" alt="Schermafbeelding 2025-10-17 233003" src="https://github.com/user-attachments/assets/06591c15-e5fe-4054-af0a-a113af497a54" />
