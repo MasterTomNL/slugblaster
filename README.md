@@ -27,8 +27,6 @@ With Mikey's permission I've added a bunch of information from the official Slug
 * rollable tables for the GM (challenges, opportunities, etc.)
 * A compendium with Playbooks (Chill, Smarts, etc.), Signature Devices, and more...
 
-## TODO
-* finish Crew sheet
 
 ## Version history
 * 0.1 - Initial release (not finished)
