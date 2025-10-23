@@ -17,5 +17,8 @@
       <i class="icon icon-dice"></i>
       <span>{{ localize 'SB.inTheLabComponents' }}</span>
     </a>
+    {{#if actor.system.styleFree }}
+    <span class="free">(FREE)</span>
+    {{/if}}
   </div>
 </section>

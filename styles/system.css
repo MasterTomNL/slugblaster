@@ -300,6 +300,10 @@
 .slugblasterGearSheet textarea {
   height: 92px;
 }
+.signature .free {
+  color: darkred;
+  font-size: 0.8em;
+}
 
 /* ICONS */
 .icon {
@@ -439,6 +443,7 @@
 .fameName { font-size: 1.2em; font-weight: bold; clear: both; }
 .perkName { clear: both; }
 
+.flexcontainer { display: flex; }
 .btn-group button { width: auto; margin: 0; }
 .btn-group .dicepoolRoll { padding: 0 6px; }
 .btn-group button:first-child { border-right: 0px; }

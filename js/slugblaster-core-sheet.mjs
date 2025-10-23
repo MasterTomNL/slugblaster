@@ -115,9 +115,10 @@ export class SlugblasterCoreSheet extends ActorSheet {
         
         // roll it!
         result = await table.draw();
+        console.log(result);
         // add item to stash
-        if (result.results[0].type == "pack") {
-          let itemName = result.results[0].text.toLowerCase();
+        if (result.results[0].type == "document") {
+          let itemName = result.results[0].name.toLowerCase();
           let curCount = Number(this.actor.system[itemName]);
           await this.actor.update({['system.'+itemName]: curCount + 1 });
         }
