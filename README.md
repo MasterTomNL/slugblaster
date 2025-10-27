@@ -16,12 +16,13 @@ With Mikey's permission I've added a bunch of information from the official Slug
 ### Crew (actor) sheet
 <img width="648" height="730" alt="Schermafbeelding 2025-10-27 142911" src="https://github.com/user-attachments/assets/5780e394-cd27-4a77-8dd4-83fa74c41ccc" />
 <img width="652" height="442" alt="Schermafbeelding 2025-10-27 142955" src="https://github.com/user-attachments/assets/149a5e20-e719-48c0-9a4a-16ef387ff60a" />
+<img width="654" height="437" alt="Schermafbeelding 2025-10-27 143353" src="https://github.com/user-attachments/assets/1e1b774f-0e7b-4fdf-af76-f2b7e11fa5ec" />
 
 
 ## Other features
 * rollable tables for customizing your slugblaster (your board, gun, background, etc.)
-* rollable tables for the GM (challenges, opportunities, etc.)
-* A compendium with Playbooks (Chill, Smarts, etc.), Signature Devices, and more...
+* rollable tables for the GM (challenges, opportunities, runs, etc.)
+* A compendium with Playbooks (Chill, Smarts, etc.), Signature Devices, Monsters, Factions and more...
 
 
 ## Version history
