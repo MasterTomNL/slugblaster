@@ -25,21 +25,21 @@
       <label for="look">{{ localize 'SB.look' }}</label>
       <input id="look" type="text" name="system.look"
        value="{{actor.system.look}}" placeholder="{{ localize 'SB.look_placeholder' }}" />
-      <a class="rollableTable" title="{{ localize 'SB.randomize' }}" data-action="look"><i class="icon icon-dice"></i></a>
+      {{#if editable }}<a class="rollableTable" title="{{ localize 'SB.randomize' }}" data-action="look"><i class="icon icon-dice"></i></a>{{/if}}
     </div>
 
     <div>
       <label for="family">{{ localize 'SB.family' }}</label>
       <input id="family" type="text" name="system.family"
        value="{{actor.system.family}}" placeholder="{{ localize 'SB.family_placeholder' }}"/>
-      <a class="rollableTable" title="{{ localize 'SB.randomize' }}" data-action="family"><i class="icon icon-dice"></i></a>
+      {{#if editable }}<a class="rollableTable" title="{{ localize 'SB.randomize' }}" data-action="family"><i class="icon icon-dice"></i></a>{{/if}}
     </div>
     
     <div>
       <label for="bond">{{ localize 'SB.bond' }}</label>
       <input id="bond" type="text" name="system.bond"
        value="{{actor.system.bond}}" placeholder="{{ localize 'SB.bond_placeholder' }}"/>
-      <a class="rollableTable" title="{{ localize 'SB.randomize' }}" data-action="bond"><i class="icon icon-dice"></i></a>
+      {{#if editable }}<a class="rollableTable" title="{{ localize 'SB.randomize' }}" data-action="bond"><i class="icon icon-dice"></i></a>{{/if}}
     </div>
 
     <div>
@@ -47,7 +47,7 @@
       <input id="vibes" type="text" name="system.vibes"
        value="{{actor.system.vibes}}" placeholder="{{ localize 'SB.vibes_placeholder' }}"/>
       {{#if actor.system.playbook }}
-      <a class="rollableTable" title="{{ localize 'SB.randomize' }}" data-action="vibes"><i class="icon icon-dice"></i></a>
+      {{#if editable }}<a class="rollableTable" title="{{ localize 'SB.randomize' }}" data-action="vibes"><i class="icon icon-dice"></i></a>{{/if}}
       {{/if}}
     </div>
     
@@ -55,7 +55,7 @@
       <label for="stickers">{{ localize 'SB.stickers' }}</label>
       <input id="stickers" type="text" name="system.stickers"
        value="{{actor.system.stickers}}" placeholder="{{ localize 'SB.stickers_placeholder' }}"/>
-      <a class="rollableTable" title="{{ localize 'SB.randomize' }}" data-action="stickers"><i class="icon icon-dice"></i></a>
+      {{#if editable }}<a class="rollableTable" title="{{ localize 'SB.randomize' }}" data-action="stickers"><i class="icon icon-dice"></i></a>{{/if}}
     </div>
   </div>
 </section>

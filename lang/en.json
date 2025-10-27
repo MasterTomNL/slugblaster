@@ -1,5 +1,5 @@
 {
-	"SB": {
+ 	"SB": {
 		"name": "Name",
     "ph_name": "Name...",
 		"name_placeholder": "Your name...",
@@ -18,14 +18,16 @@
     "randomize": "Randomize",
     "boosts-and-kicks": "Boosts and Kicks",
     "notes": "Notes",
+    "gmnotes": "Notes (GM only)",
     "ph_itemDesc": "What does it look like and do?",
     "unlock": "Unlock:",
     "craft": "Craft:",
     "type": "Type",
     "dicepool": "Dicepool",
+    "runs": "Runs",
     "challenges": "Challenges",
     "opportunities": "Opportunities",
-    
+    "actions": "Actions",
     "board": "Your Board",
     "board_placeholder": "...",
     "raygun": "Your Raygun",
@@ -47,6 +49,7 @@
     "newMod": "New Mod",
     "newSignatureModCost": "...",
     "newSignatureModDesc": "...",
+    "ally": "Ally",
     
     "attitude": "Attitude",
     "attitude_placeholder": "Attitude description...",
@@ -162,5 +165,12 @@
   "familyBeat": "Family Arc",
   "angstBeat": "Angst Arc",
   "crewBeat": "Crew Beats",
-  "otherBeat": "Other Beats"
+  "otherBeat": "Other Beats",
+  "ally": "Ally",
+  "tight": "Tight",
+  "friendly": "Friendly",
+  "unstable": "Unstable",
+  "unfriendly": "Unfriendly",
+  "rivals": "Rival",
+  "enemy": "Enemy"
 }

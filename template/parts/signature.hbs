@@ -20,12 +20,12 @@
     <div class="flexrow">
       <div class="sbResources" data-value="{{item.system.boosts}}" data-key="boosts" data-item-id="{{item._id}}">
         {{#numLoop 5}}
-          <i class="icon icon-boost" data-index="{{this}}"></i>
+          {{{my_icon "boost" 'SB.boost' this}}}
         {{/numLoop}}
       </div>
       <div class="sbResources" data-value="{{item.system.kicks}}" data-key="kicks" data-item-id="{{item._id}}">
         {{#numLoop 5}}
-          <i class="icon icon-kick" data-index="{{this}}"></i>
+          {{{my_icon "kick" 'SB.kick' this}}}
         {{/numLoop}}
       </div>
     </div>
@@ -48,19 +48,19 @@
         <span>(</span>
         <span class="{{ hideIfZero mod.system.coilCost 0 0 0 }}">
           <span>{{mod.system.coilCost}}</span>
-          <i class="icon icon-coil" title="{{ localize 'SB.coils' }}"></i>
+          {{{my_icon "coil" 'SB.coils' 0}}}
         </span>
         <span class="{{ hideIfZero mod.system.discCost 0 0 0 }}">
           <span>{{mod.system.discCost}}</span>
-          <i class="icon icon-disc" title="{{ localize 'SB.discs' }}"></i>
+          {{{my_icon "disc" 'SB.discs' 0}}}
         </span>
         <span class="{{ hideIfZero mod.system.gemCost 0 0 0 }}">
           <span>{{mod.system.gemCost}}</span>
-          <i class="icon icon-gem" title="{{ localize 'SB.gems' }}"></i>
+          {{{my_icon "gem" 'SB.gems' 0}}}
         </span>
         <span class="{{ hideIfZero mod.system.lensCost 0 0 0 }}">
           <span>{{mod.system.lensCost}}</span>
-          <i class="icon icon-lens" title="{{ localize 'SB.lenses' }}"></i>
+          {{{my_icon "lens" 'SB.lenses' 0}}}
         </span>
         <span>)</span>
         

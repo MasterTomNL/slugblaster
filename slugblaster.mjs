@@ -2,7 +2,6 @@ import { registerHandlebarsHelpers } from "./js/handlebar-helpers.mjs";
 import { SlugblasterCoreSheet } from "./js/slugblaster-core-sheet.mjs"; // methods to add, delete and/or change items
 import { SlugblasterActorData, SlugblasterCrewData, SlugblasterFameData, SlugblasterPlaybookData, SlugblasterSignatureData, SlugblasterGearData } from "./js/datamodels.mjs";
 import { SlugblasterActor } from "./js/documents.mjs";
-
 import { SlugblasterActorSheet, SlugblasterSignatureSheet } from "./js/sheets.mjs";
 import { SlugblasterPlaybookSheet } from "./js/playbook-sheet.mjs";
 import { SlugblasterBeatSheet } from  "./js/beat-sheet.mjs";
@@ -41,8 +40,6 @@ Hooks.on("init", () => {
   
   // template files
 	loadTemplates([
-		"systems/slugblaster/template/parts/attitude.hbs",
-    "systems/slugblaster/template/parts/avatars.hbs",
     "systems/slugblaster/template/parts/beats.hbs",
     "systems/slugblaster/template/parts/beatsNoLoad.hbs",
     "systems/slugblaster/template/parts/beatsPlaybook.hbs",
@@ -58,6 +55,7 @@ Hooks.on("init", () => {
     "systems/slugblaster/template/parts/legacy.hbs",
     "systems/slugblaster/template/parts/notes.hbs",
     "systems/slugblaster/template/parts/opportunities.hbs",
+    "systems/slugblaster/template/parts/runs.hbs",
     "systems/slugblaster/template/parts/signature.hbs",
     "systems/slugblaster/template/parts/stash.hbs",
     "systems/slugblaster/template/parts/style.hbs",

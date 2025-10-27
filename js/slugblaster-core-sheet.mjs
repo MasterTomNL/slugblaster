@@ -1,4 +1,4 @@
-export class SlugblasterCoreSheet extends ActorSheet {
+export class SlugblasterCoreSheet extends foundry.appv1.sheets.ActorSheet {
   async _onAdd(event) {
     event.preventDefault();
     let type = $(event.currentTarget).data('type'); // item.type
@@ -11,14 +11,14 @@ export class SlugblasterCoreSheet extends ActorSheet {
   }
 
 	activateListeners(html) {
-		super.activateListeners(html);
-         
+    super.activateListeners(html);
+        
     // dicePool interactions
     html.on('click', '.dicepoolPlus', this._onDicepoolPlus.bind(this));
     html.on('click', '.dicepoolMinus', this._onDicepoolMinus.bind(this));
     html.on('click', '.dicepoolRoll', this._onDicepoolRoll.bind(this));
   }
-  
+
   async _onDicepoolPlus(event) {
     let div = $(event.currentTarget).parents('div.rolling');
     let type = div.data('type');
@@ -44,19 +44,23 @@ export class SlugblasterCoreSheet extends ActorSheet {
     // roll it!
     let roll = new Roll(formula, this.actor.getRollData());
     if (type=='challengesPool') {
-      // Challenges 1: Compendium.slugblaster.rollable-tables.RollTable.P8uleIWeJ35rQyrz
+      // Challenges 1
       let table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.P8uleIWeJ35rQyrz");
       await table.draw({ roll: roll });
-      // Challenges 2: Compendium.slugblaster.rollable-tables.RollTable.EYYxINLHCQRpMg8F
+      // Challenges 2
       table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.EYYxINLHCQRpMg8F");
       await table.draw({ roll: roll });
     }
     else if (type == 'opportunitiesPool') {
-      // Opportunities 1: Compendium.slugblaster.rollable-tables.RollTable.N8u3b8CR1LcYO7Vi
+      // Opportunities 1
       let table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.N8u3b8CR1LcYO7Vi");
       await table.draw({roll: roll});
-      // Opportunities 2: Compendium.slugblaster.rollable-tables.RollTable.2C9VsTKDo9UMZZie
+      // Opportunities 2
       table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.2C9VsTKDo9UMZZie");
+      await table.draw({roll: roll});
+    } else if (type == 'runsPool') {
+      // Runs
+      let table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.yIm5j0p9Y7NvzZzT");
       await table.draw({roll: roll});
     } else {
       await roll.toMessage({

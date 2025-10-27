@@ -3,12 +3,14 @@
     {{#each fame as |f key|}}
     <li class="fameRow">
       <div class="fameName" title="{{ f.desc }}">
-        <input type="radio" name="system.fame_level" value="{{ key }}" {{checked (eq key ../actor.system.fame_level) }}>
-        {{ key }}: {{ f.name }} {{#if f.cost }}({{ f.cost }} style){{/if}}
+        <input id="fame_{{key}}" type="radio" name="system.fame_level" value="{{ key }}" {{checked (eq key ../actor.system.fame_level) }}>
+        <label for="fame_{{key}}">{{ key }}: {{ f.name }} {{#if f.cost }}({{ f.cost }} style){{/if}}</label>
       </div>
-      {{#each f.perks as |p key|}}
+      {{#each f.perks as |p pKey|}}
       <div class="perk">
-        <div class="perkName" title="{{ p.desc }}">{{ p.name }} <span="perkCost">({{ p.cost }} style)</span></div>
+        <div class="perkName" title="{{ p.desc }}">
+          <input type="checkbox" name="system.fame_perk_{{key}}_{{pKey}}" {{isPerkUnlocked ../../actor key pKey }}>
+          {{ p.name }} <span="perkCost">({{ p.cost }} style)</span></div>
       </div>
       {{/each}}
     </li>

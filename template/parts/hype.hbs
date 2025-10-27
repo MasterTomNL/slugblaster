@@ -2,12 +2,12 @@
   <h2>{{ localize 'SB.hype' }}</h2>
 	<div class="sbResources" data-value="{{actor.system.boost}}" data-key="boost">
     {{#numLoop boostMax}}
-			<i class="icon icon-boost" title="{{ localize 'SB.boost' }}" data-index="{{this}}"></i>
+			{{{my_icon "boost" 'SB.boost' this}}}
     {{/numLoop}}
   </div>
   <div class="sbResources" data-value="{{actor.system.kick}}" data-key="kick">
     {{#numLoop kickMax}}
-			<i class="icon icon-kick" title="{{ localize 'SB.kick' }}" data-index="{{this}}"></i>
+			{{{my_icon "kick" 'SB.kick' this}}}
     {{/numLoop}}
   </div>
 </section>

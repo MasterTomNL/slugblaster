@@ -1,19 +1,19 @@
 <section class="flex1 crewDicePool {{cssClass}}">
   <h2>{{ localize 'SB.opportunities' }}</h2>
   <div class="rolling" data-type="opportunitiesPool">
-    <p><input type="checkbox" class="conditional" name="system.oc_friend" {{checked actor.system.oc_friend}}> +1 if friendly or better with five or more factions</p>
-    <p><input type="checkbox" class="conditional" name="system.oc_allied" {{checked actor.system.oc_allied}}> +1 if allied with one or more factions</p>
-    <p><input type="checkbox" class="conditional" name="system.oc_upandc" {{checked actor.system.oc_upandc}}> +1 for being Up & Comers tier or higher</p>
-    <p><input type="checkbox" class="conditional" name="system.oc_rising" {{checked actor.system.oc_rising}}> +1 for being Rising Stars tier or higher</p>
     <div class="btn-group">
       <button class="btn dicepoolMinus">-</button>
       <button class="btn dicepoolRoll">Roll {{ actor.system.opportunitiesPool}} Di{{#if (gt actor.system.opportunitiesPool 1) }}c{{/if}}e!</button>
       <button class="btn dicepoolPlus">+</button>
     </div>
-  </div>
   <div class="opportunitiesPool" data-value="actor.system.opportunitiesPool" data-key="opportunitiesPool">
     {{#numLoop actor.system.opportunitiesPool}}
-			<i class="icon icon-dice" data-index="{{this}}"></i>
+			{{{my_icon "dice" 'SB.dice' this}}}
     {{/numLoop}}
+  </div>
+    <p><input type="checkbox" class="conditional" name="system.oc_friend" {{checked actor.system.oc_friend}}> +1 if friendly or better with five or more factions</p>
+    <p><input type="checkbox" class="conditional" name="system.oc_allied" {{checked actor.system.oc_allied}}> +1 if allied with one or more factions</p>
+    <p><input type="checkbox" class="conditional" name="system.oc_upandc" {{checked actor.system.oc_upandc}}> +1 for being Up & Comers tier or higher</p>
+    <p><input type="checkbox" class="conditional" name="system.oc_rising" {{checked actor.system.oc_rising}}> +1 for being Rising Stars tier or higher</p>
   </div>
 </section>

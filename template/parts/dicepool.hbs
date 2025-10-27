@@ -1,4 +1,4 @@
-<section class="flex1 slugblasterDicePool {{cssClass}}">
+<section class="slugblasterDicePool {{cssClass}}">
   <h2>{{ localize 'SB.dicepool' }}</h2>
   <div class="btn-group rolling" data-type="dicePool">
     <button class="btn dicepoolMinus">-</button>
@@ -7,7 +7,7 @@
   </div>
   <div class="dicePool" data-value="actor.system.dicePool" data-key="dicePool">
     {{#numLoop actor.system.dicePool}}
-			<i class="icon icon-dice" data-index="{{this}}"></i>
+			{{{my_icon "dice" 'SB.dice' this}}}
     {{/numLoop}}
   </div>
 </section>

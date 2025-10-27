@@ -1,0 +1,15 @@
+<section class="crewDicePool {{cssClass}}">
+  <h2>{{ localize 'SB.runs' }}</h2>
+  <div class="rolling" data-type="runsPool">
+    <div class="btn-group">
+      <button class="btn dicepoolMinus">-</button>
+      <button class="btn dicepoolRoll">Roll {{ actor.system.runsPool}} Di{{#if (gt actor.system.runsPool 1) }}c{{/if}}e!</button>
+      <button class="btn dicepoolPlus">+</button>
+    </div>
+  </div>
+  <div class="dicePool" data-value="actor.system.runsPool" data-key="runsPool">
+    {{#numLoop actor.system.runsPool}}
+			<i class="icon icon-dice" data-index="{{this}}"></i>
+    {{/numLoop}}
+  </div>
+</section>

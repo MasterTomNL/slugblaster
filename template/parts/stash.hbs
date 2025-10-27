@@ -13,10 +13,10 @@
     <input id="stashLens" type="number" name="system.lens" value="{{actor.system.lens}}" title="{{ localize 'SB.lenses' }}" />
     <label for="stashLens"><i class="icon icon-lens" title="{{ localize 'SB.lenses' }}"></i></label>
     
-    <a class="rollableTable" data-table-id="RollTable.OCxESGRjaa3Uoc0D" data-action="getComponents">
+    {{#if editable }}<a class="rollableTable" data-table-id="RollTable.OCxESGRjaa3Uoc0D" data-action="getComponents">
       <i class="icon icon-dice"></i>
       <span>{{ localize 'SB.inTheLabComponents' }}</span>
-    </a>
+    </a>{{/if}}
     {{#if actor.system.styleFree }}
     <span class="free">(FREE)</span>
     {{/if}}

@@ -37,7 +37,15 @@
     
     <!-- CHALLENGES -->
     <div class="tab challenges" data-group="primary" data-tab="challenges">
-      {{> "systems/slugblaster/template/parts/challenges.hbs" }}
+      <div class="flexcontainer">
+        <div>
+          {{> "systems/slugblaster/template/parts/runs.hbs" }}
+          {{> "systems/slugblaster/template/parts/dicepool.hbs" }}
+        </div>
+        <div class="flex1">
+          {{> "systems/slugblaster/template/parts/challenges.hbs" }}
+        </div>
+      </div>
     </div>
     
     <!-- NOTES -->

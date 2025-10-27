@@ -9,7 +9,7 @@
   <ul>
     {{#each standings as |standing key|}}
     <li class="standingLevel flexrow {{ standing.name }}">
-      <div class="standingsName flex1" title="{{ standing.desc }}">{{ standing.value }}: {{ standing.name }}</div>
+      <div class="standingsName flex1" title="{{ standing.desc }}">{{ standing.value }}: {{ localize standing.name }}</div>
       <div class="draggable-container flex" data-container-id="{{ standing.value }}">
         {{#each factions as |faction key|}}
         <div class="draggable-item valChangeParent" data-item-id="{{ faction._id }}" draggable="true">

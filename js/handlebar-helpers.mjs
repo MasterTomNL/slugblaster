@@ -6,9 +6,12 @@ export const registerHandlebarsHelpers = function() {
     }
     return result;
   });
-  Handlebars
   Handlebars.registerHelper("isUnlocked", function(unlocked) {
     return unlocked ? "" : "inactive";
+  });
+  Handlebars.registerHelper("isPerkUnlocked", function(actor, fKey, pKey) {
+    let pName = `system.fame_perk_${fKey}_${pKey}`;
+    return (actor[pName] ? "checked": "");
   });
   Handlebars.registerHelper("isNotActive", function(el) {
     return el.system.active ? false : true;
@@ -21,5 +24,8 @@ export const registerHandlebarsHelpers = function() {
   });
   Handlebars.registerHelper("CostLabel", function(val, name) {
     return val ? val + " " + game.i18n.localize(name) : "";
+  });
+  Handlebars.registerHelper("my_icon", function(style,title,index) {
+    return `<i class="icon icon-${style}" title="${game.i18n.localize(title)}" data-index="${index}"></i>`;
   });
 };

@@ -1,26 +1,22 @@
 <section class="crew-details flexrow">
   <div class="actor-img">
     <img class="profile-img flex0" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
-    <div class="attitude">
-      <div class="sbResources" data-value="{{actor.system.boostsRemaining}}" data-key="boostsRemaining">
-        {{#numLoop actor.system.boosts }}<i class="icon icon-boost" data-index="{{this}}"></i>{{/numLoop}}
-      </div>
-      <div class="sbResources" data-value="{{actor.system.kicksRemaining}}" data-key="kicksRemaining">
-        {{#numLoop actor.system.kicks }}<i class="icon icon-kick" data-index="{{this}}"></i>{{/numLoop}}
-      </div>
-    </div>
   </div>
   <div class="crew-details">
     <label for="name">
       {{ localize 'SB.name' }}
+      {{#if editable }}
       <a class="rollableTable" title="{{ localize 'SB.randomize' }}" data-action="crew"><i class="icon icon-dice"></i></a>
+      {{/if}}
     </label>
     <input id="name" name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'SB.ph_name'}}" />
     
     <div>
       <label for="brands">
         {{ localize 'SB.brands' }}
+        {{#if editable }}
         <a class="rollableTable" title="{{ localize 'SB.randomize' }}" data-action="brands"><i class="icon icon-dice"></i></a>
+        {{/if}}
       </label>
       <input id="brands" type="text" name="system.brands" value="{{actor.system.brands}}" placeholder="{{ localize 'SB.ph_brands' }}" />
     </div>
@@ -28,7 +24,9 @@
     <div>
       <label for="hangouts">
         {{ localize 'SB.hangouts' }}
+        {{#if editable }}
         <a class="rollableTable" title="{{ localize 'SB.randomize' }}" data-action="hangouts"><i class="icon icon-dice"></i></a>
+        {{/if}}
       </label>
       <input id="hangouts" type="text" name="system.hangouts" value="{{actor.system.hangouts}}" placeholder="{{ localize 'SB.ph_hangouts' }}" />
     </div>

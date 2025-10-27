@@ -18,6 +18,10 @@
   src: url('../fonts/OneDirection.ttf');
 }
 
+.flex1 {
+  flex-grow: 1;
+}
+
 /* GENERAL styles */
 .slugblaster .window-title, .slugblaster .header-button, .slugblaster input, .slugblaster label, .slugblaster h2, .slugblaster h3, .slugblaster textarea {
   font-family: Tahoma;
@@ -25,7 +29,6 @@
 .slugblaster h2, .slugblaster h3, .slugblaster #signature-name {
   font-family: OneDirection;
   border-bottom-color: #a3a3a3;
-  width: calc(100% - 17px);
 }
 .actor-details input#name, .slugblaster-crew-sheet #name, .slugblaster .sb-name-input {
   font-family: OneDirection;
@@ -55,6 +58,7 @@
 	margin-bottom: 10px;
   display: inline-block;
 	width: 100%;
+  padding-right: 10px;
 }
 .slugblaster .addBtn {
   display: inline-block;
@@ -94,6 +98,7 @@
   border-radius: 10px;
   box-shadow: 0px 0px 10px;
   border: 4px solid #fff;
+  overflow: hidden;
 }
 .actor-img .attitude { text-align: center; width: 100%; }
 .actor-img .attitude i { float: none; width: 42px; height: 42px; margin: 0px; }
@@ -121,7 +126,7 @@
 
 
 /* GEAR list */
-.slugblaster li {
+.slugblaster-actor-sheet li {
   list-style: none;
   padding: 0;
   margin-bottom: 10px;
@@ -281,7 +286,6 @@
   font-size: 1.1em;
 }
 
-
 /* STASH */
 .slugblasterStash input[type=number], .sb_itemCost input[type=number] {
   text-align: center;
@@ -308,7 +312,7 @@
 }
 
 /* ICONS */
-.icon {
+.slugblaster .icon {
   display: inline-block;
   height: 24px;
   width: 24px;
@@ -441,47 +445,38 @@
 /* CREW */
 .slugblaster-crew-sheet .crew-details .rollableTable .icon { height: 16px; width: 16px; }
 
+/* FAME */
 .fameRow { width: 50%; display: inline-block; float: left; }
 .fameName { font-size: 1.2em; font-weight: bold; clear: both; }
 .perkName { clear: both; }
+.slugblasterFame .icon { height: 16px; width: 16px; }
+.slugblasterFame input[type='checkbox'] { height: 16px; margin: 0; margin-left: 20px; vertical-align: middle; }
 
+/* DICEPOOL */
 .flexcontainer { display: flex; }
-.btn-group button { width: auto; margin: 0; }
-.btn-group .dicepoolRoll { padding: 0 6px; }
+.btn-group { clear: both; }
+.btn-group button { width: auto; margin: 0; float: left; padding: 0 6px; }
+.dicePool, .opportunitiesPool, .challengesPool { clear: both; padding-top:4px; }
+.dicePool .icon, .opportunitiesPool .icon, .challengesPool .icon { height: 24px; width:24px; margin: 0; }
 .btn-group button:first-child { border-right: 0px; }
 .btn-group button:last-child { border-left: 0px; }
-/*.btn-group button { border-left: 0px; border-right: 0px; }*/
+input.conditional { height: 16px; margin: 0; vertical-align: middle; }
+input.conditional { height: 16px; margin: 0; vertical-align: middle; }
 
+/* FACTIONS */
+.slugblasterFactions ul { border-radius: 3px; box-shadow: 0px 0px 5px #000 inset; border: 1px solid; border-color: #777 #fff #fff #777; }
 li.standingLevel { padding: 4px; margin: 0; }
 .standingsName { line-height: 32px; text-indent: 6px; }
-.standingLevel.enemy { background-color: darkred; color: white; }
-.standingLevel.rivals { background-color: red; color: white; }
-.standingLevel.unfriendly { background-color: orange; }
-.standingLevel.unstable { background-color: darkgrey; }
+.standingLevel.ally { background: rgba(61,108,172,.5); background: linear-gradient(0, rgba(34,182,141,.5) 0%, rgba(61,108,172,.5) 100%); }
+.standingLevel.tight { background: rgba(34,182,141,.5); background: linear-gradient(0, rgba(184,216,93,.5) 0%, rgba(34,182,141,.5) 100%); }
+.standingLevel.friendly { background: rgba(184,216,93,.5); background: linear-gradient(0, rgba(184,216,93,0) 0%, rgba(184,216,93,.5) 100%); }
 .standingLevel.unstable .standingsName { text-indent: 12px; }
-.standingLevel.friendly { background-color: green; color: white; }
-.standingLevel.tight { background-color: darkgreen; color: white; }
-.standingLevel.ally { background-color: purple; color: white; }
-
-.draggable-container { height: 32px; border: 1px solid white; flex-grow: 4; display: inline-block; }
-.drag-handle {
-  cursor: grab;           /* Change cursor to indicate draggable */
-  display: inline-block;  /* Make handle area compact */
-  margin-right: 8px;     /* Space between handle and item name */
-}
-
-.drag-handle:hover {
-  cursor: grabbing;       /* Change cursor when hovering over handle */
-}
-
-.draggable-item {
-  padding: 0px 6px;
-  border: 1px solid #ccc;
-  cursor: move; 
-  width: fit-content;  /* Indicate that the item is movable */
-  display: inline-block;
-}
-
-.draggable-item:hover {
-  background-color: rgba(255,255,255,.25);
-}
+.standingLevel.unfriendly { background: rgba(249,194,62,.5); background: linear-gradient(0, rgba(249,194,62,.5) 0%, rgba(249,194,62,0) 100%); }
+.standingLevel.rivals { background: rgba(255,64,0,.5); background: linear-gradient(0, rgba(255,64,0,.5) 0%, rgba(249,194,62,.5) 100%); }
+.standingLevel.enemy { background: rgba(150,0,0,.5); background: linear-gradient(0, rgba(150,0,0,.5) 0%, rgba(255,64,0,.5) 100%); }
+/* draggable factions */
+.draggable-container { min-height: 32px; border: 1px dashed #dbd9cd; flex-grow: 4; display: inline-block; }
+.drag-handle { cursor: grab; display: inline-block; margin-right: 8px; }
+.drag-handle:hover { cursor: grabbing; }
+.draggable-item { padding: 0px 6px; cursor: move; width: fit-content; display: inline-block; }
+.draggable-item:hover { background-color: rgba(255,255,255,.25); }
