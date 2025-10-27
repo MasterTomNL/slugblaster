@@ -2,20 +2,13 @@
   <header>
     <!-- AVATARS + details -->
     {{> "systems/slugblaster/template/parts/crew-details.hbs" }}
-    
-    <!-- STYLE -->
-    {{> "systems/slugblaster/template/parts/style.hbs" styleMax=10 }}
-    
-    <!-- HYPE -->
-    {{> "systems/slugblaster/template/parts/hype.hbs" boostMax=5 kickMax=3 }}
   </header>
   
   {{!-- Character Sheet Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
     <a class="navitem" data-tab="factions">{{ localize "SB.factions" }}</a>
     <a class="navitem" data-tab="fame">{{ localize "SB.fame" }}</a>
-    <a class="navitem" data-tab="traits">{{ localize "SB.traits" }}</a>
-    <a class="navitem" data-tab="challenges">{{ localize "SB.challenges" }}</a>
+    <a class="navitem" data-tab="dicepool">{{ localize "SB.dicepool" }}</a>
     <a class="navitem" data-tab="notes">{{ localize "SB.notes" }}</a>
   </nav>
   
@@ -27,16 +20,15 @@
     
     <!-- FAME -->
     <div class="tab fame" data-group="primary" data-tab="fame">
+      <!-- STYLE -->
+      {{> "systems/slugblaster/template/parts/style.hbs" styleMax=10 }}
       {{> "systems/slugblaster/template/parts/fame.hbs" }}
     </div>
     
-    <!-- TRAITS -->
-    <div class="tab traits" data-group="primary" data-tab="traits">
-      {{> "systems/slugblaster/template/parts/crew.hbs" }}
-    </div>
-    
-    <!-- CHALLENGES -->
-    <div class="tab challenges" data-group="primary" data-tab="challenges">
+    <!-- DICEPOOL -->
+    <div class="tab dicepool" data-group="primary" data-tab="dicepool">
+      <!-- HYPE -->
+      {{> "systems/slugblaster/template/parts/hype.hbs" boostMax=5 kickMax=3 }}
       <div class="flexcontainer">
         <div>
           {{> "systems/slugblaster/template/parts/runs.hbs" }}
