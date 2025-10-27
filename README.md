@@ -15,7 +15,8 @@ With Mikey's permission I've added a bunch of information from the official Slug
 <img width="646" height="616" alt="Schermafbeelding 2025-10-17 232719" src="https://github.com/user-attachments/assets/7a923dc9-2385-4838-a481-6427a4d1e2be" />
 
 ### Crew (actor) sheet
-<img width="634" height="574" alt="Schermafbeelding 2025-10-17 233003" src="https://github.com/user-attachments/assets/06591c15-e5fe-4054-af0a-a113af497a54" />
+<img width="648" height="730" alt="Schermafbeelding 2025-10-27 142911" src="https://github.com/user-attachments/assets/5780e394-cd27-4a77-8dd4-83fa74c41ccc" />
+<img width="652" height="442" alt="Schermafbeelding 2025-10-27 142955" src="https://github.com/user-attachments/assets/149a5e20-e719-48c0-9a4a-16ef387ff60a" />
 
 ### Character traits
 ![Slugblaster-traits](https://github.com/user-attachments/assets/a95b20f2-26fc-49d4-8d11-05a0050d2798)
