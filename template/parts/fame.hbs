@@ -9,8 +9,9 @@
       {{#each f.perks as |p pKey|}}
       <div class="perk">
         <div class="perkName" title="{{ p.desc }}">
-          <input type="checkbox" name="system.fame_perk_{{key}}_{{pKey}}" {{isPerkUnlocked ../../actor key pKey }}>
-          {{ p.name }} <span="perkCost">({{ p.cost }} style)</span></div>
+          <input type="checkbox" name="system.fame_perk_{{key}}_{{pKey}}" {{isPerkUnlocked ../../actor key pKey }} id="fame_perk_{{key}}_{{pKey}}">
+          <label for="fame_perk_{{key}}_{{pKey}}">{{ p.name }} <span="perkCost">({{ p.cost }} style)</span></label>
+        </div>
       </div>
       {{/each}}
     </li>

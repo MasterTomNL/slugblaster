@@ -3,11 +3,10 @@
     <!-- AVATARS + details -->
     {{> "systems/slugblaster/template/parts/details.hbs" }}
     
-    <!-- STYLE -->
-    {{> "systems/slugblaster/template/parts/style.hbs" styleMax=8 cssClass='half-width'}}
-    
-    <!-- TROUBLE -->
-    {{> "systems/slugblaster/template/parts/trouble.hbs" }}
+    <div class="flexcontainer">
+      {{> "systems/slugblaster/template/parts/style.hbs" styleMax=8}}
+      {{> "systems/slugblaster/template/parts/trouble.hbs" }}
+    </div>
   </header>
   
   {{!-- Character Sheet Navigation --}}

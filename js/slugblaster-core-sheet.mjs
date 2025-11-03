@@ -1,3 +1,7 @@
+//const { HandlebarsApplicationMixin } = foundry.applications.api
+//const { ActorSheetV2 } = foundry.applications.sheets
+
+//export class SlugblasterCoreSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 export class SlugblasterCoreSheet extends foundry.appv1.sheets.ActorSheet {
   async _onAdd(event) {
     event.preventDefault();
