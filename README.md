@@ -9,14 +9,14 @@ With Mikey's permission I've added a bunch of information from the official Slug
 
 ## Features
 ### Slugblaster actor sheet
-<img width="654" height="731" alt="Schermafbeelding 2025-10-27 143113" src="https://github.com/user-attachments/assets/e70e96b2-616a-4a68-a47c-c539c4d889ab" />
-<img width="674" height="541" alt="Schermafbeelding 2025-10-27 143129" src="https://github.com/user-attachments/assets/1dceab9b-0d04-4381-bed6-4b2e9649dff1" />
-<img width="675" height="550" alt="Schermafbeelding 2025-10-27 143140" src="https://github.com/user-attachments/assets/0570f615-30a3-4539-b2c3-8185c5da529f" />
+<img width="654" height="731" alt="Slugblaster (actor) sheet" src="https://vanderlek.nl/img/slugblaster/slugblaster-actor.png" />
+<img width="674" height="541" alt="Manage components, devices and mods" src="https://vanderlek.nl/img/slugblaster/slugblaster-actor-signature-device.png" />
+<img width="675" height="550" alt="Slugblaster Beats, Traits, etc," src="https://vanderlek.nl/img/slugblaster/slugblaster-actor-traits.png" />
 
 ### Crew (actor) sheet
-<img width="648" height="730" alt="Schermafbeelding 2025-10-27 142911" src="https://github.com/user-attachments/assets/5780e394-cd27-4a77-8dd4-83fa74c41ccc" />
-<img width="652" height="442" alt="Schermafbeelding 2025-10-27 142955" src="https://github.com/user-attachments/assets/149a5e20-e719-48c0-9a4a-16ef387ff60a" />
-<img width="654" height="437" alt="Schermafbeelding 2025-10-27 143353" src="https://github.com/user-attachments/assets/1e1b774f-0e7b-4fdf-af76-f2b7e11fa5ec" />
+<img width="648" height="730" alt="Slugblaster Crew" src="https://vanderlek.nl/img/slugblaster/slugblaster-crew.png" />
+<img width="652" height="442" alt="Dicepool" src="https://vanderlek.nl/img/slugblaster/slugblaster-crew-dicepool.png" />
+<img width="654" height="437" alt="Crew Fame" src="https://vanderlek.nl/img/slugblaster/slugblaster-crew-fame.png" />
 
 
 ## Other features
