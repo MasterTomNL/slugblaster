@@ -9,23 +9,20 @@ With Mikey's permission I've added a bunch of information from the official Slug
 
 ## Features
 ### Slugblaster actor sheet
-<img width="592" height="661" alt="Schermafbeelding 2025-10-17 232537" src="https://github.com/user-attachments/assets/6efeb634-4891-42f0-8f6a-034d23048429" />
-
-### Signature devices (incl. craft/salvage mods)
-<img width="646" height="616" alt="Schermafbeelding 2025-10-17 232719" src="https://github.com/user-attachments/assets/7a923dc9-2385-4838-a481-6427a4d1e2be" />
+<img width="654" height="731" alt="Schermafbeelding 2025-10-27 143113" src="https://github.com/user-attachments/assets/e70e96b2-616a-4a68-a47c-c539c4d889ab" />
+<img width="674" height="541" alt="Schermafbeelding 2025-10-27 143129" src="https://github.com/user-attachments/assets/1dceab9b-0d04-4381-bed6-4b2e9649dff1" />
+<img width="675" height="550" alt="Schermafbeelding 2025-10-27 143140" src="https://github.com/user-attachments/assets/0570f615-30a3-4539-b2c3-8185c5da529f" />
 
 ### Crew (actor) sheet
-<img width="634" height="574" alt="Schermafbeelding 2025-10-17 233003" src="https://github.com/user-attachments/assets/06591c15-e5fe-4054-af0a-a113af497a54" />
-
-### Character traits
-![Slugblaster-traits](https://github.com/user-attachments/assets/a95b20f2-26fc-49d4-8d11-05a0050d2798)
-
+<img width="648" height="730" alt="Schermafbeelding 2025-10-27 142911" src="https://github.com/user-attachments/assets/5780e394-cd27-4a77-8dd4-83fa74c41ccc" />
+<img width="652" height="442" alt="Schermafbeelding 2025-10-27 142955" src="https://github.com/user-attachments/assets/149a5e20-e719-48c0-9a4a-16ef387ff60a" />
+<img width="654" height="437" alt="Schermafbeelding 2025-10-27 143353" src="https://github.com/user-attachments/assets/1e1b774f-0e7b-4fdf-af76-f2b7e11fa5ec" />
 
 
 ## Other features
 * rollable tables for customizing your slugblaster (your board, gun, background, etc.)
-* rollable tables for the GM (challenges, opportunities, etc.)
-* A compendium with Playbooks (Chill, Smarts, etc.), Signature Devices, and more...
+* rollable tables for the GM (challenges, opportunities, runs, etc.)
+* A compendium with Playbooks (Chill, Smarts, etc.), Signature Devices, Monsters, Factions and more...
 
 
 ## Version history
