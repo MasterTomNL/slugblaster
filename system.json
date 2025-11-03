@@ -2,7 +2,7 @@
   "id": "slugblaster",
   "title": "Slugblaster",
   "description": "A Slugblaster system.",
-  "version": "0.6.3",
+  "version": "0.6.4",
   "compatibility": {
     "minimum": 12,
     "verified": 13
@@ -98,6 +98,18 @@
       "type": "Item",
       "name": "traits-and-beats",
       "path": "packs/traits-and-beats",
+      "system": "slugblaster",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    },
+    {
+      "label": "Scenes",
+      "type": "Scene",
+      "name": "scenes",
+      "path": "packs/scenes",
       "system": "slugblaster",
       "ownership": {
         "PLAYER": "OBSERVER",
