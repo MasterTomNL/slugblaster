@@ -36,6 +36,6 @@ With Mikey's permission I've added a bunch of information from the official Slug
 * 0.5 - More improvements and small visual fixes
 * 0.6 - Runs, Monsters, Factions and more
 * 0.6.1 - Crew traits restored to PC
-* 0.6.2 - Small fixe to delete factions and save perks
+* 0.6.2 - Small fixes to delete factions and save perks
 * 0.6.3 - Remove existing traits and gear when drag-dropping playbooks
-* 0.6.4 - Added Scnes (multiverse and welcome) to the Compedium
+* 0.6.4 - Added Scenes (multiverse and welcome) to the Compedium
