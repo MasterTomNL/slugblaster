@@ -37,3 +37,4 @@ With Mikey's permission I've added a bunch of information from the official Slug
 * 0.6 - Runs, Monsters, Factions and more
 * 0.6.1 - Crew traits restored to PC
 * 0.6.2 - Small fixe to delete factions and save perks
+* 0.6.3 - Remove existing traits and gear when drag-dropping playbooks

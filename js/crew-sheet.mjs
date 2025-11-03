@@ -204,9 +204,6 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
     // edit (factions)
     html.on('click', '.edit', this._onEdit.bind(this));
     
-    // Delete Trait / BeatArc / Beat
-		html.on('click', '.delete', this._onDelete.bind(this));
-    
     // save changes in traits, beatArcs and beats
     html.on('change', '.valChange', this._onValueChange.bind(this));
     
@@ -245,14 +242,6 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
       await item.update({['system.'+key]: new_val});
     else
       await this.actor.update({['system.'+key]: new_val});
-  }
-  
-  async _onDelete(event) {
-    let itemId = $(event.currentTarget).data('itemId');
-    let item = this.actor.items.get(itemId);
-    if (!item) return;
-    // delete the item
-    await item.delete();
   }
   
   // default module window settings

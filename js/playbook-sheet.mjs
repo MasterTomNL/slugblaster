@@ -55,9 +55,6 @@ export class SlugblasterPlaybookSheet extends SlugblasterCoreSheet {
     // Add Trait / BeatArc / Beat
 		html.on('click', '.addBtn', this._onAdd.bind(this));
     
-    // Delete Trait / BeatArc / Beat
-		html.on('click', '.delete', this._onDelete.bind(this));
-    
     // save changes in traits, beatArcs and beats
     html.on('change', '.valChange', this._onValueChange.bind(this));
   }

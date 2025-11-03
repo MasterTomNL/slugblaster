@@ -121,9 +121,6 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
 		// Add Gear / Trait / BeatArc / Beat
 		html.on('click', '.addBtn', this._onAdd.bind(this));
     
-    // Delete Gear / Trait / BeatArc / Beat
-		html.on('click', '.delete', this._onDelete.bind(this));
-    
     // save changes in gear, traits, beatArcs and beats
     html.on('change', '.valChange', this._onValueChange.bind(this));
     html.on('click', '.itemImg', this._onItemImg.bind(this));
@@ -299,6 +296,11 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
     
     // system values
     if (src.type == 'playbook') {
+      // remove existing traits and gear
+      for (let i of this.actor.items) {
+        await i.delete();
+      }
+      
       this.actor.update({['system.playbook']: src.name });
       this.actor.update({['system.attitude']: sys.attitude });
       this.actor.update({['system.styleBonus']: sys.styleBonus });
@@ -372,9 +374,6 @@ export class SlugblasterSignatureSheet extends ActorSheet {
     // Add a mod
 		html.on('click', '.addBtn', this._onAdd.bind(this));
     
-    // Delete a mod
-		html.on('click', '.delete', this._onDelete.bind(this));
-    
     // save changes in mods
     html.on('change', '.valChange', this._onValueChange.bind(this));
   }
@@ -398,15 +397,6 @@ export class SlugblasterSignatureSheet extends ActorSheet {
     // update the item
     let item = this.actor.items.get(itemId);
     await item.update({ [valName]: newVal });
-  }
-  
-  async _onDelete(event) {
-    let li = $(event.currentTarget).parents('li');
-    let itemId = li.data('itemId');
-    let item = this.actor.items.get(itemId);
-    // delete the item
-    await item.delete();
-    li.slideUp(200, () => this.render(false));
   }
   
   // default module window settings

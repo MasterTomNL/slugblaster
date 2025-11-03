@@ -13,7 +13,7 @@
     </li>
       
     {{#each beats as |beat bId|}}
-    <li class="beatRow" data-item-id="{{beat._id}}" data-type="beat" data-system-type="{{beatName}}">
+    <li class="beatRow valChangeParent" data-item-id="{{beat._id}}" data-type="beat" data-system-type="{{beatName}}">
       <div class="flexrow">
         <input data-name="name" class="valChange beatName flex2" type="text" value="{{beat.name}}" />
         <input data-name="system.troubleCost" class="valChange al-c" type="text" value="{{beat.system.troubleCost}}" />

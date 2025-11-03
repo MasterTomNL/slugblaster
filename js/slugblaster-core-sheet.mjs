@@ -16,11 +16,21 @@ export class SlugblasterCoreSheet extends foundry.appv1.sheets.ActorSheet {
 
 	activateListeners(html) {
     super.activateListeners(html);
-        
+    
+    // delete item from actor
+    html.on('click', '.delete', this._onDelete.bind(this));
+    
     // dicePool interactions
     html.on('click', '.dicepoolPlus', this._onDicepoolPlus.bind(this));
     html.on('click', '.dicepoolMinus', this._onDicepoolMinus.bind(this));
     html.on('click', '.dicepoolRoll', this._onDicepoolRoll.bind(this));
+  }
+
+  async _onDelete(event) {
+    let itemId = $(event.currentTarget).data('itemId');
+    let item = this.actor.items.get(itemId);
+    if (!item) return;
+    await item.delete();
   }
 
   async _onDicepoolPlus(event) {
@@ -96,19 +106,6 @@ export class SlugblasterCoreSheet extends foundry.appv1.sheets.ActorSheet {
     // update the item
     let item = this.actor.items.get(itemId);
     await item.update({ [valName]: newVal });
-  }
-  
-  async _onDelete(event) {
-    event.preventDefault();
-    // get closest li parent for details
-    let li = $(event.currentTarget).parents('li');
-    let itemId = li.data('itemId');
-    // find the item by itemId
-    let item = this.actor.items.get(itemId);
-    // delete the item
-    await item.delete();
-    // slide the li away!
-    li.slideUp(200, () => this.render(false));
   }
   
   async _onRollableTable(event) {
