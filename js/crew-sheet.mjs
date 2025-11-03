@@ -248,12 +248,11 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
   }
   
   async _onDelete(event) {
-    let li = $(event.currentTarget).parents('li');
-    let itemId = li.data('itemId');
+    let itemId = $(event.currentTarget).data('itemId');
     let item = this.actor.items.get(itemId);
+    if (!item) return;
     // delete the item
     await item.delete();
-    li.slideUp(200, () => this.render(false));
   }
   
   // default module window settings
