@@ -22,7 +22,7 @@ With Mikey's permission I've added a bunch of information from the official Slug
 ## Other features
 * rollable tables for customizing your slugblaster (your board, gun, background, etc.)
 * rollable tables for the GM (challenges, opportunities, runs, etc.)
-* A compendium with Playbooks (Chill, Smarts, etc.), Signature Devices, Monsters, Factions and more...
+* A compendium with Playbooks (Chill, Smarts, etc.), Signature Devices, Monsters, Factions, World generation and more...
 
 
 ## Version history
@@ -36,3 +36,4 @@ With Mikey's permission I've added a bunch of information from the official Slug
 * 0.5 - More improvements and small visual fixes
 * 0.6 - Runs, Monsters, Factions and more
 * 0.6.1 - Crew traits restored to PC
+* 0.6.2 - Small fixe to delete factions and save perks
