@@ -358,7 +358,7 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
   }
 }
 
-export class SlugblasterSignatureSheet extends ActorSheet {
+export class SlugblasterSignatureSheet extends SlugblasterCoreSheet {
   get template() {
     return 'systems/slugblaster/template/signature-sheet.hbs';
   }
