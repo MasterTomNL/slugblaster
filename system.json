@@ -2,7 +2,7 @@
   "id": "slugblaster",
   "title": "Slugblaster",
   "description": "A Slugblaster system.",
-  "version": "0.6.5",
+  "version": "0.6.6",
   "compatibility": {
     "minimum": 12,
     "verified": 13
@@ -125,4 +125,5 @@
   "manifest": "https://raw.githubusercontent.com/MasterTomNL/slugblaster/refs/heads/main/system.json",
   "download": "https://github.com/MasterTomNL/slugblaster/archive/refs/heads/main.zip"
 }
+
 
