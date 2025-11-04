@@ -2,7 +2,7 @@
   "id": "slugblaster",
   "title": "Slugblaster",
   "description": "A Slugblaster system.",
-  "version": "0.6.4",
+  "version": "0.6.5",
   "compatibility": {
     "minimum": 12,
     "verified": 13
@@ -29,7 +29,8 @@
       "legacy": {},
       "loot": {},
       "slam": {},
-      "faction": {}
+      "faction": {},
+      "signatureMod": {}
     }
   },
   "packs": [
@@ -124,3 +125,4 @@
   "manifest": "https://raw.githubusercontent.com/MasterTomNL/slugblaster/refs/heads/main/system.json",
   "download": "https://github.com/MasterTomNL/slugblaster/archive/refs/heads/main.zip"
 }
+
