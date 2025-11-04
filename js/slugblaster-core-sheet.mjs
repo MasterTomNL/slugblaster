@@ -120,9 +120,8 @@ export class SlugblasterCoreSheet extends foundry.appv1.sheets.ActorSheet {
         
         // roll it!
         result = await table.draw();
-        console.log(result);
         // add item to stash
-        if (result.results[0].type == "document") {
+        if (result.roll._total <= 4) {
           let itemName = result.results[0].name.toLowerCase();
           let curCount = Number(this.actor.system[itemName]);
           await this.actor.update({['system.'+itemName]: curCount + 1 });
