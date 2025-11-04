@@ -39,3 +39,5 @@ With Mikey's permission I've added a bunch of information from the official Slug
 * 0.6.2 - Small fixes to delete factions and save perks
 * 0.6.3 - Remove existing traits and gear when drag-dropping playbooks
 * 0.6.4 - Added Scenes (multiverse and welcome) to the Compedium
+* 0.6.5 - Bugfix: allow deleting and adding of SignatureMods
+* 0.6.6 - Bugfix: add components on "In the Lab" rolls to player
