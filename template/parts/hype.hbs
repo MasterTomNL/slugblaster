@@ -1,10 +1,16 @@
 <section class="slugblasterHype">
   <h2>{{ localize 'SB.hype' }}</h2>
+  <p>{{ actor.system.attitude }}</p>
 	<div class="sbResources" data-value="{{actor.system.boost}}" data-key="boost">
     {{#numLoop boostMax}}
 			{{{my_icon "boost" 'SB.boost' this}}}
     {{/numLoop}}
   </div>
+  {{#if (eq actor.system.boosts -1) }}
+  <div class="boosting">
+    {{{my_icon "boost active" 'SB.boost' -1}}}
+  </div>
+  {{/if}}
   <div class="sbResources" data-value="{{actor.system.kick}}" data-key="kick">
     {{#numLoop kickMax}}
 			{{{my_icon "kick" 'SB.kick' this}}}

@@ -22,6 +22,7 @@
   <section class="sheet-body">
     <!-- DICEPOOL -->
     <div class="tab dicepool" data-group="primary" data-tab="dicepool">
+      {{> "systems/slugblaster/template/parts/hype.hbs" boostMax=actor.system.boosts kickMax=actor.system.kicks }}
       <div class="flexcontainer">
         {{> "systems/slugblaster/template/parts/dicepool.hbs" }}
         {{> "systems/slugblaster/template/parts/opportunities.hbs" }}
