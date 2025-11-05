@@ -1,8 +1,15 @@
-2025/11/05-11:35:33.556935 7f7e7cf080 Recovering log #265
-2025/11/05-11:35:33.572198 7f7e7cf080 Delete type=0 #265
-2025/11/05-11:35:33.572269 7f7e7cf080 Delete type=3 #263
-2025/11/05-14:27:56.610741 7f6d2ff080 Level-0 table #270: started
-2025/11/05-14:27:56.610880 7f6d2ff080 Level-0 table #270: 0 bytes OK
-2025/11/05-14:27:56.617930 7f6d2ff080 Delete type=0 #268
-2025/11/05-14:27:56.643102 7f6d2ff080 Manual compaction at level-0 from '!actors!TUpW6pw9wZazLL2C' @ 72057594037927935 : 1 .. '!actors.items!qIzHv9dJ2q0MQ8UK.qpdfemCvyPQ3esoP' @ 0 : 0; will stop at (end)
-2025/11/05-14:27:56.643394 7f6d2ff080 Manual compaction at level-1 from '!actors!TUpW6pw9wZazLL2C' @ 72057594037927935 : 1 .. '!actors.items!qIzHv9dJ2q0MQ8UK.qpdfemCvyPQ3esoP' @ 0 : 0; will stop at (end)
+2025/11/05-14:28:00.471558 7f7f7ef080 Recovering log #269
+2025/11/05-14:28:00.484333 7f7f7ef080 Delete type=0 #269
+2025/11/05-14:28:00.484394 7f7f7ef080 Delete type=3 #267
+2025/11/05-15:15:51.014727 7f6d2ff080 Level-0 table #274: started
+2025/11/05-15:15:51.023455 7f6d2ff080 Level-0 table #274: 11286 bytes OK
+2025/11/05-15:15:51.027449 7f6d2ff080 Delete type=0 #272
+2025/11/05-15:15:51.049111 7f6d2ff080 Manual compaction at level-0 from '!actors!TUpW6pw9wZazLL2C' @ 72057594037927935 : 1 .. '!actors.items!qIzHv9dJ2q0MQ8UK.qpdfemCvyPQ3esoP' @ 0 : 0; will stop at (end)
+2025/11/05-15:15:51.049361 7f6d2ff080 Manual compaction at level-1 from '!actors!TUpW6pw9wZazLL2C' @ 72057594037927935 : 1 .. '!actors.items!qIzHv9dJ2q0MQ8UK.qpdfemCvyPQ3esoP' @ 0 : 0; will stop at '!actors.items!qIzHv9dJ2q0MQ8UK.mKhn2o9EtAgsMZVE' @ 2030 : 0
+2025/11/05-15:15:51.049390 7f6d2ff080 Compacting 1@1 + 1@2 files
+2025/11/05-15:15:51.059314 7f6d2ff080 Generated table #275@1: 135 keys, 42535 bytes
+2025/11/05-15:15:51.059392 7f6d2ff080 Compacted 1@1 + 1@2 files => 42535 bytes
+2025/11/05-15:15:51.062711 7f6d2ff080 compacted to: files[ 0 0 2 0 0 0 0 ]
+2025/11/05-15:15:51.062951 7f6d2ff080 Delete type=2 #260
+2025/11/05-15:15:51.063274 7f6d2ff080 Delete type=2 #274
+2025/11/05-15:15:51.084945 7f6d2ff080 Manual compaction at level-1 from '!actors.items!qIzHv9dJ2q0MQ8UK.mKhn2o9EtAgsMZVE' @ 2030 : 0 .. '!actors.items!qIzHv9dJ2q0MQ8UK.qpdfemCvyPQ3esoP' @ 0 : 0; will stop at (end)

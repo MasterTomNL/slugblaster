@@ -9,9 +9,9 @@ With Mikey's permission I've added a bunch of information from the official Slug
 
 ## Features
 ### Slugblaster actor sheet
-<img width="654" height="731" alt="Slugblaster (actor) sheet" src="https://vanderlek.nl/img/slugblaster/slugblaster-actor-v2.png" />
-<img width="674" height="541" alt="Manage components, devices and mods" src="https://vanderlek.nl/img/slugblaster/slugblaster-actor-signature-device.png" />
-<img width="675" height="550" alt="Slugblaster Beats, Traits, etc," src="https://vanderlek.nl/img/slugblaster/slugblaster-actor-traits.png" />
+<img width="654" height="731" alt="Slugblaster (actor) sheet" src="https://vanderlek.nl/img/slugblaster/slugblaster-actor-v3.png" />
+<img width="674" height="541" alt="Manage components, devices and mods" src="https://vanderlek.nl/img/slugblaster/slugblaster-actor-signature-device-v2.png" />
+<img width="675" height="550" alt="Slugblaster Beats, Traits, etc," src="https://vanderlek.nl/img/slugblaster/slugblaster-actor-traits-v2.png" />
 
 ### Crew (actor) sheet
 <img width="648" height="730" alt="Slugblaster Crew" src="https://vanderlek.nl/img/slugblaster/slugblaster-crew.png" />
@@ -36,10 +36,11 @@ With Mikey's permission I've added a bunch of information from the official Slug
 * 0.5 - More improvements and small visual fixes
 * 0.6 - Runs, Monsters, Factions and more
 * 0.6.1 - Crew traits restored to PC
-* 0.6.2 - Bugfix: to delete factions and save perks
+* 0.6.2 - Small fixes to delete factions and save perks
 * 0.6.3 - Remove existing traits and gear when drag-dropping playbooks
 * 0.6.4 - Added Scenes (multiverse and welcome) to the Compedium
 * 0.6.5 - Bugfix: allow deleting and adding of SignatureMods
 * 0.6.6 - Bugfix: add components on "In the Lab" rolls to player
 * 0.6.7 - Add Boost and Kick to player sheet
 * 0.7 - Added Portal Discovery and tweaked some character sheet visuals
+* 0.8 - Added "Being Good" to downtime section and improved beats and signature mods

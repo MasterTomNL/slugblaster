@@ -110,7 +110,7 @@ export class SlugblasterCoreSheet extends foundry.appv1.sheets.ActorSheet {
   
   async _onRollableTable(event) {
     const action = $(event.currentTarget).data('action');
-    let table; let result; let value; let type;
+    let table; let result; let value; let type; let curStyle; let curTrouble;
     
     switch (action) {
       case 'getComponents':
@@ -250,8 +250,15 @@ export class SlugblasterCoreSheet extends foundry.appv1.sheets.ActorSheet {
           table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.03GIOofAlLH35kyf");
           result = await table.draw();
         }
-        let curStyle = Number(this.actor.system.style);
+        curStyle = Number(this.actor.system.style);
         await this.actor.update({['system.style']: curStyle - 2 });
+        break;
+      
+      case 'being_good':
+        curStyle = Number(this.actor.system.style);
+        curTrouble = Number(this.actor.system.trouble);
+        await this.actor.update({['system.style']: curStyle - 1});
+        await this.actor.update({['system.trouble']: curTrouble - 2});
         break;
     }
   }

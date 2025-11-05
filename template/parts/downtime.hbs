@@ -2,4 +2,6 @@
   <h2>{{ localize 'SB.downtime' }}</h2>
   
 	<a class="rollableTable {{#if (lt actor.system.style 2) }}disabled{{/if}}" title="{{ localize 'SB.portal_discovery' }}" data-action="portal_discovery">{{{my_icon "style active" 'SB.style' }}}{{{my_icon "style active" 'SB.style' }}} => {{ localize 'SB.portal_discovery' }}</a>
+  <hr>
+  <a class="rollableTable {{#if (lt actor.system.style 1) }}disabled{{/if}}" title="{{ localize 'SB.being_good' }}" data-action="being_good">{{{my_icon "style active" 'SB.style' }}} => {{ localize 'SB.being_good' }} => -{{{my_icon "trouble active" 'SB.trouble' }}}{{{my_icon "trouble active" 'SB.trouble' }}}</a>
 </section>

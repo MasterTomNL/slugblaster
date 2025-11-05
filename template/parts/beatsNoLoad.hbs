@@ -6,12 +6,15 @@
     {{#each beats as |beat bId|}}
     <li class="beatRow active" data-item-id="{{beat._id}}" data-type="{{beatName}}">
       <span class="beatName">{{ beat.name }}</span>
-      {{#unless beat.system.active }}
-      <span class="beatCostBlock {{hideIfZero beat.system.styleCost beat.system.troubleCost 0 0 }}">
-        ( {{ CostLabel beat.system.styleCost "SB.style" }}{{ CostLabel beat.system.troubleCost "SB.trouble" }} )
-      </span>
-      {{/unless }}
+      {{#if (or (gt beat.system.styleCost 0) (gt beat.system.troubleCost 0)) }}
+        <span>(
+        {{#numLoop beat.system.styleCost}}{{{my_icon "style active" 'SB.style' 0}}}{{/numLoop}}
+        {{#numLoop beat.system.troubleCost}}{{{my_icon "trouble active" 'SB.trouble' 0}}}{{/numLoop}}
+        )</span>
+      {{/if}}
+      {{#if beat.system.reward}}
       <span class="beatReward">{{ beat.system.reward }}</span>
+      {{/if}}
       <span class="beatDesc">{{ beat.system.description }}</span>
     </li>
     {{/each}}
