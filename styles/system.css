@@ -347,7 +347,7 @@
 .sigMod .cost .icon, .perks .styleCost .icon-style { position: absolute; top: 0px; left: 48px; }
 .sigMod .name { font-weight: bold; padding-right: 12px; }
 .sigMod .desc { color: #777; }
-.sigMod .icon { height: 16px; width: 16px; position: relative; top: 4px; margin-left: -1px; margin-right: 6px; }
+.sigMod .icon { height: 16px; width: 16px; position: relative; top: 4px; margin-left: -1px; }
 
 /* FAME */
 .fameRow { width: 50%; display: inline-block; float: left; }
