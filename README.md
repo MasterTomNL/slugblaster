@@ -9,7 +9,7 @@ With Mikey's permission I've added a bunch of information from the official Slug
 
 ## Features
 ### Slugblaster actor sheet
-
+<img width="654" height="731" alt="Slugblaster (actor) sheet" src="https://vanderlek.nl/img/slugblaster/slugblaster-actor.png" />
 <img width="674" height="541" alt="Manage components, devices and mods" src="https://vanderlek.nl/img/slugblaster/slugblaster-actor-signature-device.png" />
 <img width="675" height="550" alt="Slugblaster Beats, Traits, etc," src="https://vanderlek.nl/img/slugblaster/slugblaster-actor-traits.png" />
 
