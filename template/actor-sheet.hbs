@@ -24,8 +24,13 @@
     <div class="tab dicepool" data-group="primary" data-tab="dicepool">
       {{> "systems/slugblaster/template/parts/hype.hbs" boostMax=actor.system.boosts kickMax=actor.system.kicks }}
       <div class="flexcontainer">
-        {{> "systems/slugblaster/template/parts/dicepool.hbs" }}
-        {{> "systems/slugblaster/template/parts/opportunities.hbs" }}
+        <div class="flex1">
+          {{> "systems/slugblaster/template/parts/dicepool.hbs" }}
+          {{> "systems/slugblaster/template/parts/downtime.hbs" }}
+        </div>
+        <div class="flex1">
+          {{> "systems/slugblaster/template/parts/opportunities.hbs" }}
+        </div>
       </div>
     </div>
     

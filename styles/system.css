@@ -72,8 +72,10 @@
   .editable .rollableTable {
     display: inline-block;
     &:hover { color: white; }
-    .icon { width: 16px; height: 16px; margin: 0; float: none; opacity: .3; }
-    .icon:hover { opacity: 1; }
+    .icon { width: 16px; height: 16px; margin: 0; float: none; }
+    .icon-dice { opacity: .3; }
+    .icon-dice:hover { opacity: 1; }
+    &.disabled { opacity: 0.5; text-decoration: line-through; }
   }
   .delete { display: none; }
   .editable .delete { display: inline-block; font-size: 1em; color: #777; cursor: pointer; opacity: 0.5; }

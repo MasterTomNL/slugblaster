@@ -121,7 +121,7 @@ export class SlugblasterCoreSheet extends foundry.appv1.sheets.ActorSheet {
         // roll it!
         result = await table.draw();
         // add item to stash
-        if (result.roll._total <= 4) {
+        if (result.roll.total <= 4) {
           let itemName = result.results[0].name.toLowerCase();
           let curCount = Number(this.actor.system[itemName]);
           await this.actor.update({['system.'+itemName]: curCount + 1 });
@@ -132,7 +132,7 @@ export class SlugblasterCoreSheet extends foundry.appv1.sheets.ActorSheet {
           await this.actor.update({['system.style']: curStyle - 1 });
         }
         // if you rolled a 6... you get a free bonus roll
-        if (result.roll._total == 6)
+        if (result.roll.total == 6)
           await this.actor.update({['system.styleFree']: 1 });
         else
           await this.actor.update({['system.styleFree']: 0 });
@@ -240,6 +240,18 @@ export class SlugblasterCoreSheet extends foundry.appv1.sheets.ActorSheet {
         result = await table.draw();
         value += ", " + result.results[0].text;
         await this.actor.update({[`system.${action}`]: value });
+        break;
+      
+      case 'portal_discovery':
+        // type
+        table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.v1hbLa743VKf8xr6");
+        result = await table.draw();
+        if ([3,4,6].includes(result.roll.total)) {
+          table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.03GIOofAlLH35kyf");
+          result = await table.draw();
+        }
+        let curStyle = Number(this.actor.system.style);
+        await this.actor.update({['system.style']: curStyle - 2 });
         break;
     }
   }

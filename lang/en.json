@@ -50,6 +50,8 @@
     "newSignatureModCost": "...",
     "newSignatureModDesc": "...",
     "ally": "Ally",
+    "downtime": "Downtime",
+    "portal_discovery": "Portal Discovery",
     
     "attitude": "Attitude",
     "attitude_placeholder": "Attitude description...",

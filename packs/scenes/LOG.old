@@ -1,2 +1,7 @@
-2025/11/04-00:03:37.237138 7f7ffff080 Delete type=3 #1
-2025/11/04-00:24:13.878222 7f6d2ff080 Manual compaction at level-0 from '!scenes!CblbhtZAh40zrxBJ' @ 72057594037927935 : 1 .. '!scenes!UcRLccQc2QUyDsTj' @ 0 : 0; will stop at (end)
+2025/11/05-11:35:33.686644 7f7ffff080 Recovering log #10
+2025/11/05-11:35:33.698368 7f7ffff080 Delete type=0 #10
+2025/11/05-11:35:33.698429 7f7ffff080 Delete type=3 #7
+2025/11/05-14:27:56.681311 7f6d2ff080 Level-0 table #16: started
+2025/11/05-14:27:56.681366 7f6d2ff080 Level-0 table #16: 0 bytes OK
+2025/11/05-14:27:56.687308 7f6d2ff080 Delete type=0 #14
+2025/11/05-14:27:56.708132 7f6d2ff080 Manual compaction at level-0 from '!scenes!CblbhtZAh40zrxBJ' @ 72057594037927935 : 1 .. '!scenes!UcRLccQc2QUyDsTj' @ 0 : 0; will stop at (end)

@@ -12,8 +12,8 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
     // sheet window options
     foundry.utils.mergeObject(options, {
       classes: ["slugblaster", "sheet", "actor"],
-      width: 640,
-      height: 720,
+      width: 680,
+      height: 780,
       tabs: [{
         navSelector: ".sheet-tabs",
         contentSelector: ".sheet-body",
