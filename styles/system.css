@@ -187,12 +187,10 @@
 
 
 /* HOVERBOARD AND RAYGUN */
-.slugblasterBoardAndRaygun label {
-  width: 100px;
-  text-align: right;
-}
-.slugblasterBoardAndRaygun input {
-  width: calc(100% - 124px);
+.slugblasterBoardAndRaygun {
+  img.profile-img { border: 0px; }
+  label { width: 100px; text-align: right; }
+  input { width: calc(100% - 124px); }
 }
 
 

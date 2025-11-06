@@ -44,3 +44,4 @@ With Mikey's permission I've added a bunch of information from the official Slug
 * 0.6.7 - Add Boost and Kick to player sheet
 * 0.7 - Added Portal Discovery and tweaked some character sheet visuals
 * 0.8 - Added "Being Good" to downtime section and improved beats and signature mods
+* 0.8.1 - Added board visuals and updated rollable tables for Foundry Appv2

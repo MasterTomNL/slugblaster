@@ -17,6 +17,7 @@ export class SlugblasterActorData extends foundry.abstract.TypeDataModel {
       boosts: new NumberField({ required: true, integer: true, min: -1, max: 9, initial: 0 }),
       kicks: new NumberField({ required: true, integer: true, min: -1, max: 9, initial: 0 }),
       hoverboard: new StringField(),
+      board_img: new StringField(),
       raygun: new StringField(),
       playbook: new StringField(),
       styleBonus: new StringField(),

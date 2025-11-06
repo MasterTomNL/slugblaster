@@ -142,12 +142,12 @@ export class SlugblasterCoreSheet extends foundry.appv1.sheets.ActorSheet {
         // colour
         table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.vyuWcWbTMZ6FmGyC");
         result = await table.draw();
-        value = result.results[0].text;
+        value = result.results[0].name;
         
         // suffix
         table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.MXGae0Bkncgfw0GX");
         result = await table.draw();
-        value += " " + result.results[0].text;
+        value += " " + result.results[0].name;
         
         await this.actor.update({['name']: value });
         break;
@@ -156,22 +156,25 @@ export class SlugblasterCoreSheet extends foundry.appv1.sheets.ActorSheet {
         // type
         table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.9SK6fHCLI7iTajxx");
         result = await table.draw();
-        type = result.results[0].text;
+        type = result.results[0].name;
+        
+        // board_img
+        await this.actor.update({['system.board_img']: 'systems/slugblaster/assets/boards/'+type.toLowerCase()+'.webp' });
         
         // deck graphic
         table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.Vq0qzyqMYC8YmrC8");
         result = await table.draw();
-        value = type + ": " + result.results[0].text;
+        value = type + ": " + result.results[0].name;
         // add grip colour and cut when its a "Deck"
         if (type.indexOf("Deck") !== -1) {
           // grip-colour
           table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.j5kPRYmMqV86BDdp");
           result = await table.draw();
-          value += " and " + result.results[0].text;
+          value += " and " + result.results[0].name;
           // grip-cut
           table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.6lDtG5SjEYNJhHSg");
           result = await table.draw();
-          value += " " + result.results[0].text + " Grip";
+          value += " " + result.results[0].name + " Grip";
         }
         await this.actor.update({['system.hoverboard']: value });
         break;
@@ -180,11 +183,11 @@ export class SlugblasterCoreSheet extends foundry.appv1.sheets.ActorSheet {
         // style
         table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.cqXhmWc40Mh4J15S");
         result = await table.draw();
-        value = result.results[0].text;
+        value = result.results[0].name;
         // type
         table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.DM7cmXnk66Djpw6b");
         result = await table.draw();
-        value += " " + result.results[0].text;
+        value += " " + result.results[0].name;
         await this.actor.update({['system.raygun']: value });
         break;
       
@@ -233,12 +236,12 @@ export class SlugblasterCoreSheet extends foundry.appv1.sheets.ActorSheet {
         // form
         table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.yvUtuUgAsiQwpGrG");
         result = await table.draw();
-        value = result.results[0].text;
+        value = result.results[0].name;
         
         // origin
         table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.3Zc5TFURrDCgaYJF");
         result = await table.draw();
-        value += ", " + result.results[0].text;
+        value += ", " + result.results[0].name;
         await this.actor.update({[`system.${action}`]: value });
         break;
       
@@ -265,7 +268,7 @@ export class SlugblasterCoreSheet extends foundry.appv1.sheets.ActorSheet {
   
   async _processTable(table, action) {
     let result = await table.draw();
-    let value = result.results[0].text;
+    let value = result.results[0].name;
     let curVal = this.actor.system[action];
     value = curVal ? curVal + ", " + value : value;
     await this.actor.update({[`system.${action}`]: value });

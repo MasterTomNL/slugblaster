@@ -1,13 +1,16 @@
-<section class="slugblasterBoardAndRaygun {{cssClass}}">
-  <div>
-    <label for="hoverboard">{{ localize 'SB.board' }}</label>
-    <input id="hoverboard" type="text" name="system.hoverboard" value="{{actor.system.hoverboard}}" placeholder="{{ localize 'SB.board_placeholder' }}" />
-    <a class="rollableTable" data-table-id="RollTable.9smIg5zqyaSItNpE" data-action="hoverboard" title="{{ localize 'SB.randomize' }}"><i class="icon icon-dice"></i></a>
-  </div>
-  <div>
-    <label for="raygun">{{ localize 'SB.raygun' }}</label>
-    <input id="raygun" type="text" name="system.raygun" value="{{actor.system.raygun}}" placeholder="{{ localize 'SB.raygun_placeholder' }}" />
-    <a class="rollableTable" data-action="raygun" title="{{ localize 'SB.randomize' }}"><i class="icon icon-dice"></i></a>
+<section class="slugblasterBoardAndRaygun flexcontainer {{cssClass}}">
+  <img class="profile-img flex0" src="{{actor.system.board_img}}" data-edit="img" height="100" width="100" />
+  <div class="flex1">
+    <div>
+      <label for="hoverboard">{{ localize 'SB.board' }}</label>
+      <input id="hoverboard" type="text" name="system.hoverboard" value="{{actor.system.hoverboard}}" placeholder="{{ localize 'SB.board_placeholder' }}" />
+      <a class="rollableTable" data-table-id="RollTable.9smIg5zqyaSItNpE" data-action="hoverboard" title="{{ localize 'SB.randomize' }}"><i class="icon icon-dice"></i></a>
+    </div>
+    <div>
+      <label for="raygun">{{ localize 'SB.raygun' }}</label>
+      <input id="raygun" type="text" name="system.raygun" value="{{actor.system.raygun}}" placeholder="{{ localize 'SB.raygun_placeholder' }}" />
+      <a class="rollableTable" data-action="raygun" title="{{ localize 'SB.randomize' }}"><i class="icon icon-dice"></i></a>
+    </div>
   </div>
 </section>
 <section class="slugblasterGear">
