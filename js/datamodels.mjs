@@ -36,10 +36,10 @@ export class SlugblasterActorData extends foundry.abstract.TypeDataModel {
       legacy: new ArrayField(new StringField()),
       doom: new ArrayField(new StringField()),
       slams: new ArrayField(new StringField()),
-      coil: new NumberField({ integer: true, min: 0, initial: 0 }),
-      disc: new NumberField({ integer: true, min: 0, initial: 0 }),
-      gem: new NumberField({ integer: true, min: 0, initial: 0 }),
-      lens: new NumberField({ integer: true, min: 0, initial: 0 }),
+      coil: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
+      disc: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
+      gem: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
+      lens: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
       notes: new HTMLField(),
     };
   }
@@ -80,10 +80,10 @@ export class SlugblasterGearData extends foundry.abstract.TypeDataModel {
       parentId: new StringField(),
       boosts: new NumberField({ required: true, integer: true, min: -1, max: 5, initial: 0 }),
       kicks: new NumberField({ required: true, integer: true, min: -1, max: 5, initial: 0 }),
-      coilCost: new NumberField({ required: false, integer: true, min: 0, max: 5, initial: 0 }),
-      discCost: new NumberField({ required: false, integer: true, min: 0, max: 5, initial: 0 }),
-      gemCost: new NumberField({ required: false, integer: true, min: 0, max: 5, initial: 0 }),
-      lensCost: new NumberField({ required: false, integer: true, min: 0, max: 5, initial: 0 }),
+      coil: new NumberField({ required: true, integer: true, min: 0, max: 5, initial: 0 }),
+      disc: new NumberField({ required: true, integer: true, min: 0, max: 5, initial: 0 }),
+      gem: new NumberField({ required: true, integer: true, min: 0, max: 5, initial: 0 }),
+      lens: new NumberField({ required: true, integer: true, min: 0, max: 5, initial: 0 }),
     };
   }
 }

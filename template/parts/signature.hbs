@@ -38,7 +38,7 @@
         <span class="name">{{mod.name}}</span>
         
         {{#unless mod.system.active }}
-        <i class="fas fa-download install" title="{{ localize 'SB.install' }}"></i>
+        <i class="fas fa-download install {{ hideOrDisable ../../actor.system mod.system }}" title="{{ localize 'SB.install' }}"></i>
         {{/unless }}
         
         {{#unless (not mod.system.active) }}
@@ -46,23 +46,23 @@
         {{/unless}}
         
         <span>(</span>
-        <span class="{{ hideIfZero mod.system.coilCost 0 0 0 }}">
-          {{#numLoop mod.system.coilCost}}
+        <span class="{{#if (eq mod.system.coil 0)}}hidden{{/if}}">
+          {{#numLoop mod.system.coil}}
             {{{my_icon "coil" 'SB.coil' 0}}}
           {{/numLoop}}
         </span>
-        <span class="{{ hideIfZero mod.system.discCost 0 0 0 }}">
-          {{#numLoop mod.system.discCost}}
+        <span class="{{#if (eq mod.system.disc 0)}}hidden{{/if}}">
+          {{#numLoop mod.system.disc}}
             {{{my_icon "disc" 'SB.disc' 0}}}
           {{/numLoop}}
         </span>
-        <span class="{{ hideIfZero mod.system.gemCost 0 0 0 }}">
-          {{#numLoop mod.system.gemCost}}
+        <span class="{{#if (eq mod.system.gem 0)}}hidden{{/if}}">
+          {{#numLoop mod.system.gem}}
             {{{my_icon "gem" 'SB.gem' 0}}}
           {{/numLoop}}
         </span>
-        <span class="{{ hideIfZero mod.system.lensCost 0 0 0 }}">
-          {{#numLoop mod.system.lensCost}}
+        <span class="{{#if (eq mod.system.lens 0)}}hidden{{/if}}">
+          {{#numLoop mod.system.lens}}
             {{{my_icon "lens" 'SB.lens' 0}}}
           {{/numLoop}}
         </span>

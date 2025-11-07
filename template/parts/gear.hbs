@@ -26,12 +26,15 @@
       <p class="{{ isUnlocked item.system.active }} not-editable">
         <span class="itemName">{{ item.name }}</span>
         {{#unless item.system.active }}
-        <span class="itemCost {{ hideIfZero item.system.coilColst item.system.discCost item.system.gemCost item.system.lensCost }}"> ({{ localize 'SB.craft'}}</span>
-        {{#numLoop item.system.coilCost }}<i class="icon icon-coil" title="{{ localize 'SB.coil' }}"></i>{{/numLoop}}
-        {{#numLoop item.system.discCost }}<i class="icon icon-disc" title="{{ localize 'SB.disc' }}"></i>{{/numLoop}}
-        {{#numLoop item.system.gemCost }}<i class="icon icon-gem" title="{{ localize 'SB.gem' }}"></i>{{/numLoop}}
-        {{#numLoop item.system.lensCost }}<i class="icon icon-lens" title="{{ localize 'SB.lens' }}"></i>{{/numLoop}}
-        <span class="{{ hideIfZero item.system.coilColst item.system.discCost item.system.gemCost item.system.lensCost }}">)</span>
+        <span class="gearCosts {{ hideOrDisable ../actor.system item.system }}">
+          <i title="{{ localize 'SB.craft'}}" class="fas fa-hammer install"></i>
+          (
+          {{#numLoop item.system.coil }}{{{my_icon "coil" 'SB.coil' 0}}}{{/numLoop}}
+          {{#numLoop item.system.disc }}{{{my_icon "disc" 'SB.disc' 0}}}{{/numLoop}}
+          {{#numLoop item.system.gem }}{{{my_icon "gem" 'SB.gem' 0}}}{{/numLoop}}
+          {{#numLoop item.system.lens }}{{{my_icon "lens" 'SB.lens' 0}}}{{/numLoop}}
+          )
+        </span>
         {{/unless}}
         <a class="edit" title="{{ localize 'SB.edit' }}"><i class="fas fa-edit"></i></a>
         <span class="itemDesc">

@@ -171,23 +171,23 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
     let iSys = item.system;
     let aSys = this.actor.system;
     // check coilCost against stash
-    if (item.system.coilCost > 0 && item.system.coilCost > aSys.coil)
+    if (item.system.coil > 0 && item.system.coil > aSys.coil)
       return;
     // check discCost against stash
-    if (item.system.discCost > 0 && item.system.discCost > aSys.disc)
+    if (item.system.disc > 0 && item.system.disc > aSys.disc)
       return;
     // check gemCost against stash
-    if (item.system.gemCost > 0 && item.system.gemCost > aSys.gem)
+    if (item.system.gem > 0 && item.system.gem > aSys.gem)
       return;
     // check discCost against stash
-    if (item.system.lensCost > 0 && item.system.lensCost > aSys.lens)
+    if (item.system.lens > 0 && item.system.lens > aSys.lens)
       return;
     // spend components
     await this.actor.update({
-      ['system.coil']: Number(aSys.coil) - (iSys.coilCost ? Number(iSys.coilCost) : 0),
-      ['system.disc']: Number(aSys.disc) - (iSys.discCost ? Number(iSys.discCost) : 0),
-      ['system.gem']: Number(aSys.gem) - (iSys.gemCost ? Number(iSys.gemCost) : 0),
-      ['system.lens']: Number(aSys.lens) - (iSys.lensCost ? Number(iSys.lensCost) : 0) });
+      ['system.coil']: Number(aSys.coil) - Math.max(Number(iSys.coil), 0),
+      ['system.disc']: Number(aSys.disc) - Math.max(Number(iSys.disc), 0),
+      ['system.gem']:  Number(aSys.gem) -  Math.max(Number(iSys.gem),  0),
+      ['system.lens']: Number(aSys.lens) - Math.max(Number(iSys.lens), 0) });
     // activate the mod
     await item.update({['system.active']: true });
   }
@@ -199,10 +199,10 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
     let aSys = this.actor.system;
     // salvage components
     await this.actor.update({
-      ['system.coil']: Number(aSys.coil) + (iSys.coilCost ? Number(iSys.coilCost) : 0),
-      ['system.disc']: Number(aSys.disc) + (iSys.discCost ? Number(iSys.discCost) : 0),
-      ['system.gem']: Number(aSys.gem) + (iSys.gemCost ? Number(iSys.gemCost) : 0),
-      ['system.lens']: Number(aSys.lens) + (iSys.lensCost ? Number(iSys.lensCost) : 0) });
+      ['system.coil']: Number(aSys.coil) + Math.max(Number(iSys.coil), 0),
+      ['system.disc']: Number(aSys.disc) + Math.max(Number(iSys.disc), 0),
+      ['system.gem']:  Number(aSys.gem)  + Math.max(Number(iSys.gem),  0),
+      ['system.lens']: Number(aSys.lens) + Math.max(Number(iSys.lens), 0) });
     // deactivate the mod
     await item.update({['system.active']: false });
   }
@@ -301,11 +301,12 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
         await i.delete();
       }
       
-      this.actor.update({['system.playbook']: src.name });
-      this.actor.update({['system.attitude']: sys.attitude });
-      this.actor.update({['system.styleBonus']: sys.styleBonus });
-      this.actor.update({['system.boosts']: sys.boosts });
-      this.actor.update({['system.kicks']: sys.kicks });
+      this.actor.update({
+        ['system.playbook']: src.name,
+        ['system.attitude']: sys.attitude,
+        ['system.styleBonus']: sys.styleBonus,
+        ['system.boosts']: sys.boosts,
+        ['system.kicks']: sys.kicks });
       
       // add phone and specialGear
       await Item.create({ name: 'your phone', type: 'gear', ['system.active']: true }, { parent: this.actor });
@@ -346,10 +347,10 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
           type: 'gear',
           ['system.type']: 'signatureMod',
           ['system.active']: "",
-          ['system.coilCost']: i.system.coilCost,
-          ['system.discCost']: i.system.discCost,
-          ['system.gemCost']: i.system.gemCost,
-          ['system.lensCost']: i.system.lensCost,
+          ['system.coil']: i.system.coil,
+          ['system.disc']: i.system.disc,
+          ['system.gem']: i.system.gem,
+          ['system.lens']: i.system.lens,
           ['system.description']: i.system.description,
           ['system.parentId']: parentSig._id
         }, { parent: this.actor });

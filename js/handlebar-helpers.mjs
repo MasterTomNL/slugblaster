@@ -16,11 +16,15 @@ export const registerHandlebarsHelpers = function() {
   Handlebars.registerHelper("isNotActive", function(el) {
     return el.system.active ? false : true;
   });
-  Handlebars.registerHelper("hideIfZero", function(first, second, third, fourth) {
-    return (!first || first == null || first == 0) &&
-     (!second || second == null || second == 0) && 
-     (!third || third == null || third == 0) && 
-     (!fourth || fourth == null || fourth == 0) ? "hidden": "";
+  Handlebars.registerHelper("hideOrDisable", function(a, i) {
+    let cls = "";
+    // hide when there's no component cost
+    if (Number(i.coil) == 0 && Number(i.disc) == 0 && Number(i.gem) == 0 && Number(i.lens) == 0)
+      cls += " hidden";
+    // disable when actor does not have enough resources
+    if (Number(a.coil) < Number(i.coil) || Number(a.disc) < Number(i.disc) || Number(a.gem) < Number(i.gem) || Number(a.lens) < Number(i.lens))
+      cls += " disabled";
+    return cls;
   });
   Handlebars.registerHelper("CostLabel", function(val, name) {
     return val ? val + " " + game.i18n.localize(name) : "";

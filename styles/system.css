@@ -189,8 +189,8 @@
 /* HOVERBOARD AND RAYGUN */
 .slugblasterBoardAndRaygun {
   img.profile-img { border: 0px; }
-  label { width: 100px; text-align: right; }
-  input { width: calc(100% - 124px); }
+  label { width: 100%; display: block; }
+  input { width: calc(100% - 20px); margin-bottom: 6px; }
 }
 
 
@@ -259,6 +259,11 @@
   font-size: 1.1em;
 }
 
+/* GEAR */
+.slugblasterGear {
+  .disabled { color: #aaa; opacity: 0.5; }
+}
+
 /* STASH */
 .slugblasterStash .rollableTable .icon { width: 24px; height: 24px; }
 .slugblasterStash input[type=number], .sb_itemCost input[type=number] {
@@ -269,13 +274,6 @@
 .slugblasterStash label, .sb_itemCost label {
   float: left;
   margin-right: 16px;
-}
-.slugblasterGear .gearLi,
-.slugblasterStash .lootLi,
-.signatureTurbo .dots {
-  width: 50%;
-  padding-right: 10px;
-  float: left;
 }
 .slugblasterGearSheet textarea { height: 92px; }
 .signature .free { color: darkred; font-size: 0.8em; }
@@ -345,7 +343,8 @@
 .sigMod .cost .icon, .perks .styleCost .icon-style { position: absolute; top: 0px; left: 48px; }
 .sigMod .name { font-weight: bold; padding-right: 12px; }
 .sigMod .desc { color: #777; }
-.sigMod .icon { height: 16px; width: 16px; position: relative; top: 4px; margin-left: -1px; }
+.sigMod .icon { height: 16px; width: 16px; position: relative; top: 4px; margin: 0px -1px; }
+.sigMod .disabled { color: #aaa; }
 
 /* FAME */
 .fameRow { width: 50%; display: inline-block; float: left; }

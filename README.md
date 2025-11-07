@@ -45,3 +45,4 @@ With Mikey's permission I've added a bunch of information from the official Slug
 * 0.7 - Added Portal Discovery and tweaked some character sheet visuals
 * 0.8 - Added "Being Good" to downtime section and improved beats and signature mods
 * 0.8.1 - Added board visuals and updated rollable tables for Foundry Appv2
+* 0.8.2 - Added gear crafting and improved some visuals for signature devices and mods
