@@ -3,16 +3,14 @@
   <ul>
     {{#each beats as |beat bId|}}
     <li class="beatRow {{ isUnlocked beat.system.active }}" data-item-id="{{beat._id}}">
-      <span class="load flex0" data-value="{{beat.system.active}}"></span>
+      <span class="load flex0 {{ haveStyleOrTrouble ../actor.system beat.system }}" data-value="{{beat.system.active}}"></span>
       <span class="beatName">{{ beat.name }}</span>
-      {{#unless beat.system.active }}
       {{#if (or (gt beat.system.styleCost 0) (gt beat.system.troubleCost 0)) }}
-        <span>(
+        <span class="beatCosts">(
         {{#numLoop beat.system.styleCost}}{{{my_icon "style active" 'SB.style' 0}}}{{/numLoop}}
         {{#numLoop beat.system.troubleCost}}{{{my_icon "trouble active" 'SB.trouble' 0}}}{{/numLoop}}
         )</span>
       {{/if}}
-      {{/unless}}
       {{#if beat.system.reward}}
       <span class="beatReward">{{ beat.system.reward }}</span>
       {{/if}}

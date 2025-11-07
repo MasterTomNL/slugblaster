@@ -318,9 +318,19 @@
 .slugblaster .inactive { opacity: 0.5; }
 .slugblaster .inactive:hover { opacity: 0.9; }
 
-.beatRow, .itemRow { clear: both; margin-bottom: 4px; }
-.itemRow p, .beatRow p { display: inline; }
-.beatRow .delete { margin-right: 6px; }
+.itemRow {
+  clear: both; margin-bottom: 4px;
+  p { display: inline; }
+}
+
+.beatRow {
+  clear: both; margin-bottom: 4px;
+  p { display: inline; }
+  .delete { margin-right: 6px; }
+  .load.disabled { opacity: 0.2; }
+  &.active .beatCosts { display: none; }
+}
+
 .beatReward { font-weight: bold; margin-right: 6px; }
 .slugblasterTrait { opacity: 0.5; }
 .slugblasterTrait:hover, .beatRow:hover { opacity: 1; }

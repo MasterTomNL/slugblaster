@@ -7,7 +7,7 @@ export const registerHandlebarsHelpers = function() {
     return result;
   });
   Handlebars.registerHelper("isUnlocked", function(unlocked) {
-    return unlocked ? "" : "inactive";
+    return unlocked ? "active" : "inactive";
   });
   Handlebars.registerHelper("isPerkUnlocked", function(actor, fKey, pKey) {
     let pName = `fame_perk_${fKey}_${pKey}`;
@@ -26,6 +26,13 @@ export const registerHandlebarsHelpers = function() {
       cls += " disabled";
     return cls;
   });
+  Handlebars.registerHelper("haveStyleOrTrouble", function(a, b) {
+    // when the trait is already acquired... we good.
+    if (b.active) return;
+    // if not... check if we have sufficient style or trouble
+    return (Number(a.style) < Number(b.styleCost) || Number(a.trouble) < Number(b.troubleCost)) ? "disabled": "";
+  });
+  
   Handlebars.registerHelper("CostLabel", function(val, name) {
     return val ? val + " " + game.i18n.localize(name) : "";
   });
