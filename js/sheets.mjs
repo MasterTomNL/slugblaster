@@ -284,6 +284,17 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
     event.preventDefault();
     let itemId = $(event.currentTarget).parents('li').data('itemId');
     let active = $(event.currentTarget).data('value');
+    
+    // styleCost
+    let styleCost = Number($(event.currentTarget).data('style'));
+    let troubleCost = Number($(event.currentTarget).data('trouble'));
+    if (active) {
+      if (styleCost > 0) await this.actor.update({['system.style']: this.actor.system.style + styleCost });
+      if (troubleCost > 0) await this.actor.update({['system.trouble']: this.actor.system.trouble + troubleCost });
+    } else {
+      if (styleCost > 0) await this.actor.update({['system.style']: this.actor.system.style - styleCost });
+      if (troubleCost > 0) await this.actor.update({['system.trouble']: this.actor.system.trouble - troubleCost });
+    }
     active = active ? "" : "true"; // inverse it
     let item = this.actor.items.get(itemId);
     await item.update({['system.active']: active });
