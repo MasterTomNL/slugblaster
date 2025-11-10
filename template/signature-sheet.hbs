@@ -2,65 +2,65 @@
   <section>
     <img class="profile-img flex0" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
     <div>
-      <label for="name">{{ localize 'SB.name' }}</label>
+      <label for="name">{{ localize 'Slugblaster.Actor.SignatureDevice.Name' }}</label>
       <input id="name" name="name" type="text" value="{{actor.name}}" class="sb-name-input" placeholder="{{ localize 'SB.name_placeholder'}}" />
     </div>
     
     <div>
-      <label for="description">{{ localize 'SB.description' }}</label>
+      <label for="description">{{ localize 'Slugblaster.Actor.SignatureDevice.Description' }}</label>
       <textarea id="boosts" name="system.description" placeholder="{{ localize 'SB.signatureDesc_placeholder'}}">{{actor.system.description}}</textarea>
     </div>
     
     <div>
-      <label for="effect">{{ localize 'SB.effect' }}</label>
+      <label for="effect">{{ localize 'Slugblaster.Actor.SignatureDevice.Effect' }}</label>
       <textarea id="effect" name="system.effect" placeholder="{{ localize 'SB.effect_placeholder'}}">{{actor.system.effect}}</textarea>
     </div>
     
     <div>
-      <label for="look">{{ localize 'SB.look' }}</label>
+      <label for="look">{{ localize 'Slugblaster.Actor.SignatureDevice.Look' }}</label>
       <input id="look" name="system.look" type="text" value="{{actor.system.look}}" placeholder="{{ localize 'SB.ph_sigMod_look'}}" />
     </div>
   </section>
   <section>
-    <h3>{{ localize 'SB.turbo' }}</h3>
-    <div class="flexrow">
-      <div>
-        <label for="boosts">{{ localize 'SB.boosts' }}</label>
+    <h3>{{ localize 'Slugblaster.Actor.SignatureDevice.Turbo' }}</h3>
+    <div class="flexcontainer">
+      <div class="flex1">
+        <label for="boosts">{{ localize 'Slugblaster.Boost' }}</label>
         <input id="boosts" name="system.boosts" type="number" value="{{actor.system.boosts}}" placeholder="{{ localize 'SB.boosts_placeholder'}}" />
       </div>
-      <div>
-        <label for="kicks">{{ localize 'SB.kicks' }}</label>
+      <div class="flex1">
+        <label for="kicks">{{ localize 'Slugblaster.Kick' }}</label>
         <input id="kicks" name="system.kicks" type="number" value="{{actor.system.kicks}}" placeholder="{{ localize 'SB.kicks_placeholder'}}" />
       </div>
     </div>
   </section>
   <section>
-    <h3>{{ localize 'SB.signatureMods' }}
-      <a class="addBtn" title="{{ localize 'SB.addSignatureMod' }}" data-type="signatureMod"><i class="item-control fas fa-plus"></i></a>
+    <h3>{{ localize 'Slugblaster.Actor.SignatureDevice.Mods' }}
+      <a class="addBtn" title="{{ localize 'Slugblaster.Add' }}" data-type="signatureMod"><i class="item-control fas fa-plus"></i></a>
     </h3>
     <ul>
       {{#each items as |item tId|}}
       <li class="sigMod flexrow" data-item-id="{{item._id}}" data-type="signatureMod">
         <input data-name="name" class="valChange" type="text" value="{{item.name}}" placeholder="{{ localize 'SB.newSignatureMod' }}" />
         <div class="cost flex0">
-          <input data-name="system.coil" class="valChange" type="number" value="{{item.system.coil}}" placeholder="{{ localize 'SB.newSignatureModCost' }}" title="{{ localize 'SB.coils' }}" />
-          <i class="icon icon-coil" title="{{ localize 'SB.coils' }}"></i>
+          <input data-name="system.coil" class="valChange" type="number" value="{{item.system.coil}}" placeholder="{{ localize 'Slugblaster.Actor.SignatureDevice.ModCost' }}" title="{{ localize 'SB.coils' }}" />
+          <i class="icon icon-coil" title="{{ localize 'Slugblaster.Coil' }}"></i>
         </div>
         <div class="cost flex0">
-          <input data-name="system.disc" class="valChange" type="number" value="{{item.system.disc}}" placeholder="{{ localize 'SB.newSignatureModCost' }}" title="{{ localize 'SB.discs' }}" />
-          <i class="icon icon-disc" title="{{ localize 'SB.discs' }}"></i>
+          <input data-name="system.disc" class="valChange" type="number" value="{{item.system.disc}}" placeholder="{{ localize 'Slugblaster.Actor.SignatureDevice.ModCost' }}" title="{{ localize 'SB.discs' }}" />
+          <i class="icon icon-disc" title="{{ localize 'Slugblaster.Disc' }}"></i>
         </div>
         <div class="cost flex0">
-          <input data-name="system.gem" class="valChange" type="number" value="{{item.system.gem}}" placeholder="{{ localize 'SB.newSignatureModCost' }}" title="{{ localize 'SB.gems' }}" />
-          <i class="icon icon-gem" title="{{ localize 'SB.gems' }}"></i>
+          <input data-name="system.gem" class="valChange" type="number" value="{{item.system.gem}}" placeholder="{{ localize 'Slugblaster.Actor.SignatureDevice.ModCost' }}" title="{{ localize 'SB.gems' }}" />
+          <i class="icon icon-gem" title="{{ localize 'Slugblaster.Gem' }}"></i>
         </div>
         <div class="cost flex0">
-          <input data-name="system.lens" class="valChange" type="number" value="{{item.system.lens}}" placeholder="{{ localize 'SB.newSignatureModCost' }}" title="{{ localize 'SB.lenses' }}" />
-          <i class="icon icon-lens" title="{{ localize 'SB.lenses' }}"></i>
+          <input data-name="system.lens" class="valChange" type="number" value="{{item.system.lens}}" placeholder="{{ localize 'Slugblaster.Actor.SignatureDevice.ModCost' }}" title="{{ localize 'SB.lenses' }}" />
+          <i class="icon icon-lens" title="{{ localize 'Slugblaster.Lens' }}"></i>
         </div>
         
-        <input data-name="system.description" class="valChange flex3" type="text" value="{{item.system.description}}" placeholder="{{ localize 'SB.newSignatureModDesc' }}" />
-        <a class="delete flex0" title="{{ localize 'SB.delete' }}" data-item-id="{{item._id}}">
+        <input data-name="system.description" class="valChange flex3" type="text" value="{{item.system.description}}" placeholder="{{ localize 'Slugblaster.Actor.SignatureDevice.ModDesc' }}" />
+        <a class="delete flex0" title="{{ localize 'Slugblaster.Delete' }}" data-item-id="{{item._id}}">
           <i class="fas fa-trash"></i>
         </a>
       </li>

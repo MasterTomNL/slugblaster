@@ -1,33 +1,33 @@
 <form class="slugblasterGearSheet {{cssClass}}" autocomplete="off">
   <section>
     <div>
-      <label for="name">{{ localize 'SB.name' }}</label>
-      <input id="name" name="name" type="text" value="{{item.name}}" placeholder="{{ localize 'SB.ph_name'}}" />
+      <label for="name">{{ localize 'Slugblaster.Actor.Gear.Name' }}</label>
+      <input id="name" name="name" type="text" value="{{item.name}}" placeholder="{{ localize 'Slugblaster.Actor.Gear.NamePlaceholder'}}" />
     </div>
     
     <div class="hidden">
-      <label for="type">{{ localize 'SB.type' }}</label>
-      <input id="type" name="system.type" type="text" value="gear" placeholder="{{ localize 'SB.ph_type'}}" />
+      <label for="type">{{ localize 'Slugblaster.Actor.Gear.Type' }}</label>
+      <input id="type" name="system.type" type="text" value="gear" placeholder="{{ localize 'Slugblaster.Actor.Gear.Type'}}" />
     </div>
     
     <div>
-      <label for="description">{{ localize 'SB.description' }}</label>
-      <textarea id="description" name="system.description" placeholder="{{ localize 'SB.ph_description' }}">{{item.system.description}}</textarea>
+      <label for="description">{{ localize 'Slugblaster.Actor.Gear.Description' }}</label>
+      <textarea id="description" name="system.description" placeholder="{{ localize 'Slugblaster.Actor.Gear.DescriptionPlaceholder' }}">{{item.system.description}}</textarea>
     </div>
     
     <div class="sb_itemCost">
-      <label style="line-height: 26px;">{{ localize 'SB.cost' }}:</label>
-      <input id="itemCoil" type="number" name="system.coil" value="{{item.system.coil}}" title="{{ localize 'SB.coils' }}" />
-      <label for="itemCoil"><i class="icon icon-coil" title="{{ localize 'SB.coils' }}"></i></label>
+      <label style="line-height: 26px;">{{ localize 'Slugblaster.Actor.Gear.Cost' }}:</label>
+      <input id="itemCoil" type="number" name="system.coil" value="{{item.system.coil}}" title="{{ localize 'Slugblaster.Coil' }}" />
+      <label for="itemCoil"><i class="icon icon-coil" title="{{ localize 'Slugblaster.Coil' }}"></i></label>
       
-      <input id="itemDisc" type="number" name="system.disc" value="{{item.system.disc}}" title="{{ localize 'SB.discs' }}" />
-      <label for="itemDisc"><i class="icon icon-disc" title="{{ localize 'SB.discs' }}"></i></label>
+      <input id="itemDisc" type="number" name="system.disc" value="{{item.system.disc}}" title="{{ localize 'Slugblaster.Disc' }}" />
+      <label for="itemDisc"><i class="icon icon-disc" title="{{ localize 'Slugblaster.Disc' }}"></i></label>
       
-      <input id="itemGem" type="number" name="system.gem" value="{{item.system.gem}}" title="{{ localize 'SB.gems' }}" />
-      <label for="itemGem"><i class="icon icon-gem" title="{{ localize 'SB.gems' }}"></i></label>
+      <input id="itemGem" type="number" name="system.gem" value="{{item.system.gem}}" title="{{ localize 'Slugblaster.Gem' }}" />
+      <label for="itemGem"><i class="icon icon-gem" title="{{ localize 'Slugblaster.Gem' }}"></i></label>
       
-      <input id="itemLens" type="number" name="system.lens" value="{{item.system.lens}}" title="{{ localize 'SB.lenses' }}" />
-      <label for="itemLens"><i class="icon icon-lens" title="{{ localize 'SB.lenses' }}"></i></label>
+      <input id="itemLens" type="number" name="system.lens" value="{{item.system.lens}}" title="{{ localize 'Slugblaster.Lens' }}" />
+      <label for="itemLens"><i class="icon icon-lens" title="{{ localize 'Slugblaster.Lens' }}"></i></label>
     </div>
   </section>
 </form>

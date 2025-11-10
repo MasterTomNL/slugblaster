@@ -1,22 +1,28 @@
 {
 	"Slugblaster": {
     "Add": "Add",
+    "Beats": "Beats",
     "Boost": "Boost",
     "Coil": "Coil",
+    "Cost": "Cost",
     "Delete": "Delete",
+    "Description": "Description",
     "Dicepool": "Dicepool",
     "Disc": "Disc",
     "Edit": "Edit",
     "Gem": "Gem",
     "Kick": "Kick",
     "Lens": "Lens",
+    "Name": "Name",
     "Notes": "Notes",
     "Randomize": "Randomize",
     "Reward": "Reward",
     "Style": "Style",
     "StyleBonus": "Show {this} for +1 style on a run",
+    "Traits": "Traits",
     "Trouble": "Trouble",
     "TroubleSpendToNope": "Spend 2 Trouble to Nope!",
+    "Type": "Type",
     
     "factionPlaceholder": "...",
     "gearPlaceholder": "...",
@@ -59,21 +65,35 @@
         "TabName": "Gear",
         "Board": "Your Board",
         "BoardPlaceholder": "...",
+        "Cost": "Cost",
         "Craft": "Craft",
+        "Description": "Description",
+        "DescriptionPlaceholder": "...",
         "ItemNamePlaceholder": "...",
         "ItemDescPlaceholder": "...",
+        "Name": "Name",
+        "NamePlaceholder": "...",
         "Raygun": "Your Raygun",
-        "RaygunPlaceholder": "..."
+        "RaygunPlaceholder": "...",
+        "Type": "Type",
+        "TypePlaceholder": "..."
       },
       "SignatureDevice": {
         "TabName": "Signature Device",
         "Components": "Components",
+        "Description": "Description",
+        "Effect": "Effect",
         "FindComponents": "Find Components (In The Lab)",
         "Free": "FREE",
         "Install": "Install",
+        "Look": "Look",
         "LookPlaceholder": "...",
+        "ModCost": "",
+        "ModDesc": "",
         "Mods": "Mods",
-        "Salvage": "Salvage"
+        "Name": "Name",
+        "Salvage": "Salvage",
+        "Turbo": "Turbo"
       },
       "LegacyDoomSlam": {
         "TabName": "Slam, Doom and Legacy",
@@ -113,11 +133,19 @@
       "Runs": "Runs"
     },
     "Playbook": {
-      "specialGear": "Special Gear this Playbook character has",
-      "specialGear_placeholder": "something whack",
-      "specialTrait": "Special Playbook Trait",
-      "specialTraitNamePlaceholder": "Passion, Quirk, etc.",
-      "specialTraitDescPlaceholder": "Somehow you're great at ..."
+      "Attitude": "Attitude",
+      "AttitudePlaceholder": "...",
+      "BoostPlaceholder": "",
+      "Description": "Description",
+      "KickPlaceholder": "",
+      "NamePlaceholder": "...",
+      "SpecialGear": "Special Gear this Playbook character has",
+      "SpecialGearPlaceholder": "something whack",
+      "SpecialTrait": "Special Playbook Trait",
+      "SpecialTraitNamePlaceholder": "Passion, Quirk, etc.",
+      "SpecialTraitDescPlaceholder": "Somehow you're great at ...",
+      "StyleBonus": "Style Bonus",
+      "StyleBonusPlaceholder": ""
     }
 	},
  	"SB": {

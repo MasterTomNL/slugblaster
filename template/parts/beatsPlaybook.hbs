@@ -1,14 +1,14 @@
 <section class="slugblasterBeats">
   <h3>
     {{ localize beatName }}
-    <a class="addBtn" title="{{ localize 'SB.addBeat' }}" data-type="beat" data-system-type="{{beatName}}"><i class="item-control fas fa-plus"></i></a>
+    <a class="addBtn" title="{{ localize 'Slugblaster.Add' }}" data-type="beat" data-system-type="{{beatName}}"><i class="item-control fas fa-plus"></i></a>
   </h3>
   <ul>
     <li class="flexrow">
-      <label class="flex2">{{ localize 'SB.name' }}</label>
-      <label class="al-c">{{ localize 'SB.trouble' }}</label>
-      <label class="al-c">{{ localize 'SB.style' }}</label>
-      <label class="flex2">{{ localize 'SB.reward' }}</label>
+      <label class="flex2">{{ localize 'Slugblaster.Name' }}</label>
+      <label class="al-c">{{ localize 'Slugblaster.Trouble' }}</label>
+      <label class="al-c">{{ localize 'Slugblaster.Style' }}</label>
+      <label class="flex2">{{ localize 'Slugblaster.Reward' }}</label>
       <div class="flex0"></div>
     </li>
       
@@ -19,7 +19,7 @@
         <input data-name="system.troubleCost" class="valChange al-c" type="text" value="{{beat.system.troubleCost}}" />
         <input data-name="system.styleCost" class="valChange al-c" type="text" value="{{beat.system.styleCost}}" />
         <input data-name="system.reward" class="valChange flex2" type="text" value="{{beat.system.reward}}" placeholder="{{ localize 'SB.newBeatReward' }}" />
-        <a class="delete flex0" title="{{ localize 'SB.delete' }}" data-item-id="{{beat._id}}">
+        <a class="delete flex0" title="{{ localize 'Slugblaster.Delete' }}" data-item-id="{{beat._id}}">
           <i class="fas fa-trash"></i>
         </a>
       </div>

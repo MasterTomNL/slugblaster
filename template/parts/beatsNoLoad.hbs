@@ -8,8 +8,8 @@
       <span class="beatName">{{ beat.name }}</span>
       {{#if (or (gt beat.system.styleCost 0) (gt beat.system.troubleCost 0)) }}
         <span>(
-        {{#numLoop beat.system.styleCost}}{{{my_icon "style active" 'SB.style' 0}}}{{/numLoop}}
-        {{#numLoop beat.system.troubleCost}}{{{my_icon "trouble active" 'SB.trouble' 0}}}{{/numLoop}}
+        {{#numLoop beat.system.styleCost}}{{{my_icon "style active" 'Slugblaster.Style' 0}}}{{/numLoop}}
+        {{#numLoop beat.system.troubleCost}}{{{my_icon "trouble active" 'Slugblaster.Trouble' 0}}}{{/numLoop}}
         )</span>
       {{/if}}
       {{#if beat.system.reward}}
