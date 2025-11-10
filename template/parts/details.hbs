@@ -12,50 +12,45 @@
   </div>
   <div class="actor-details">
     <div>
-      <label for="name">{{ localize 'SB.name' }}</label>
-      <input id="name" name="name" type="text" value="{{actor.name}}" class="sb-name-input" placeholder="{{ localize 'sb.name_placeholder'}}" />
+      <label for="name">{{ localize 'Slugblaster.Actor.Details.Name' }}</label>
+      <input id="name" name="name" type="text" value="{{actor.name}}" class="sb-name-input" placeholder="{{ localize 'Slugblaster.Actor.Details.NamePlaceholder' }}" />
     </div>
     
     <div class="sb_playbook">
-      <label for="playbook">{{ localize 'SB.playbook' }}</label>
-      <span class="actorPlaybook">{{ actor.system.playbook }}</span>
+      <label for="playbook">{{ localize 'Slugblaster.Actor.Details.Playbook' }}</label>
+      <span class="actorPlaybook">{{ localize actor.system.playbook }}</span>
     </div>
     
     <div>
-      <label for="look">{{ localize 'SB.look' }}</label>
-      <input id="look" type="text" name="system.look"
-       value="{{actor.system.look}}" placeholder="{{ localize 'SB.look_placeholder' }}" />
-      {{#if editable }}<a class="rollableTable" title="{{ localize 'SB.randomize' }}" data-action="look"><i class="icon icon-dice"></i></a>{{/if}}
+      <label for="look">{{ localize 'Slugblaster.Actor.Details.Look' }}</label>
+      <input id="look" type="text" name="system.look" value="{{actor.system.look}}" placeholder="{{ localize 'Slugblaster.Actor.Details.LookPlaceholder' }}" />
+      {{#if editable }}<a class="rollableTable" title="{{ localize 'Slugblaster.Randomize' }}" data-action="look"><i class="icon icon-dice"></i></a>{{/if}}
     </div>
 
     <div>
-      <label for="family">{{ localize 'SB.family' }}</label>
-      <input id="family" type="text" name="system.family"
-       value="{{actor.system.family}}" placeholder="{{ localize 'SB.family_placeholder' }}"/>
-      {{#if editable }}<a class="rollableTable" title="{{ localize 'SB.randomize' }}" data-action="family"><i class="icon icon-dice"></i></a>{{/if}}
+      <label for="family">{{ localize 'Slugblaster.Actor.Details.Family' }}</label>
+      <input id="family" type="text" name="system.family" value="{{actor.system.family}}" placeholder="{{ localize 'Slugblaster.Actor.Details.FamilyPlaceholder' }}"/>
+      {{#if editable }}<a class="rollableTable" title="{{ localize 'Slugblaster.Randomize' }}" data-action="family"><i class="icon icon-dice"></i></a>{{/if}}
     </div>
     
     <div>
-      <label for="bond">{{ localize 'SB.bond' }}</label>
-      <input id="bond" type="text" name="system.bond"
-       value="{{actor.system.bond}}" placeholder="{{ localize 'SB.bond_placeholder' }}"/>
-      {{#if editable }}<a class="rollableTable" title="{{ localize 'SB.randomize' }}" data-action="bond"><i class="icon icon-dice"></i></a>{{/if}}
+      <label for="bond">{{ localize 'Slugblaster.Actor.Details.Bond' }}</label>
+      <input id="bond" type="text" name="system.bond" value="{{actor.system.bond}}" placeholder="{{ localize 'Slugblaster.Actor.Details.BondPlaceholder' }}"/>
+      {{#if editable }}<a class="rollableTable" title="{{ localize 'Slugblaster.Randomize' }}" data-action="bond"><i class="icon icon-dice"></i></a>{{/if}}
     </div>
 
     <div>
-      <label for="vibes">{{ localize 'SB.vibes' }}</label>
-      <input id="vibes" type="text" name="system.vibes"
-       value="{{actor.system.vibes}}" placeholder="{{ localize 'SB.vibes_placeholder' }}"/>
+      <label for="vibes">{{ localize 'Slugblaster.Actor.Details.Vibes' }}</label>
+      <input id="vibes" type="text" name="system.vibes" value="{{actor.system.vibes}}" placeholder="{{ localize 'Slugblaster.Actor.Details.VibesPlaceholder' }}"/>
       {{#if actor.system.playbook }}
-      {{#if editable }}<a class="rollableTable" title="{{ localize 'SB.randomize' }}" data-action="vibes"><i class="icon icon-dice"></i></a>{{/if}}
+      {{#if editable }}<a class="rollableTable" title="{{ localize 'Slugblaster.Randomize' }}" data-action="vibes"><i class="icon icon-dice"></i></a>{{/if}}
       {{/if}}
     </div>
     
     <div>
-      <label for="stickers">{{ localize 'SB.stickers' }}</label>
-      <input id="stickers" type="text" name="system.stickers"
-       value="{{actor.system.stickers}}" placeholder="{{ localize 'SB.stickers_placeholder' }}"/>
-      {{#if editable }}<a class="rollableTable" title="{{ localize 'SB.randomize' }}" data-action="stickers"><i class="icon icon-dice"></i></a>{{/if}}
+      <label for="stickers">{{ localize 'Slugblaster.Actor.Details.Stickers' }}</label>
+      <input id="stickers" type="text" name="system.stickers" value="{{actor.system.stickers}}" placeholder="{{ localize 'Slugblaster.Actor.Details.StickersPlaceholder' }}"/>
+      {{#if editable }}<a class="rollableTable" title="{{ localize 'Slugblaster.Randomize' }}" data-action="stickers"><i class="icon icon-dice"></i></a>{{/if}}
     </div>
   </div>
 </section>

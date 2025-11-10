@@ -1,9 +1,19 @@
 <section class="flex1 crewDicePool {{cssClass}}">
-  <h2>{{ localize 'SB.opportunities' }}</h2>
+  <h2>{{ localize 'Slugblaster.Actor.Dicepool.Opportunities' }}</h2>
   <div class="rolling" data-type="opportunitiesPool">
     <div class="btn-group">
       <button class="btn dicepoolMinus">-</button>
-      <button class="btn dicepoolRoll">Roll {{ actor.system.opportunitiesPool}} Di{{#if (gt actor.system.opportunitiesPool 1) }}c{{/if}}e!</button>
+      <button class="btn dicepoolRoll">
+        {{ localize 'Slugblaster.Actor.Dicepool.Roll' }}
+        {{ actor.system.opportunitiesPool }}
+        {{#if (eq actor.system.opportunitiesPool 1) }}
+          {{ localize 'Slugblaster.Actor.Dicepool.Die' }}
+        {{/if}}
+        {{#if (gt actor.system.opportunitiesPool 1) }}
+          {{ localize 'Slugblaster.Actor.Dicepool.Dice' }}
+        {{/if}}
+        !
+      </button>
       <button class="btn dicepoolPlus">+</button>
     </div>
   <div class="opportunitiesPool" data-value="actor.system.opportunitiesPool" data-key="opportunitiesPool">
@@ -11,9 +21,21 @@
 			{{{my_icon "dice" "" this}}}
     {{/numLoop}}
   </div>
-    <p><input type="checkbox" class="conditional" name="system.oc_friend" {{checked actor.system.oc_friend}}> +1 if friendly or better with five or more factions</p>
-    <p><input type="checkbox" class="conditional" name="system.oc_allied" {{checked actor.system.oc_allied}}> +1 if allied with one or more factions</p>
-    <p><input type="checkbox" class="conditional" name="system.oc_upandc" {{checked actor.system.oc_upandc}}> +1 for being Up & Comers tier or higher</p>
-    <p><input type="checkbox" class="conditional" name="system.oc_rising" {{checked actor.system.oc_rising}}> +1 for being Rising Stars tier or higher</p>
+    <p>
+      <input id="oc_friend" type="checkbox" class="conditional" name="system.oc_friend" {{checked actor.system.oc_friend}}>
+      <label for="oc_friend">{{ localize 'Slugblaster.Actor.Dicepool.OpportunityPlusOneIfFriendly' }}</label>
+    </p>
+    <p>
+      <input id="oc_ally" type="checkbox" class="conditional" name="system.oc_allied" {{checked actor.system.oc_allied}}>
+      <label for="oc_ally">{{ localize 'Slugblaster.Actor.Dicepool.OpportunityPlusOneIfAllied' }}</label>
+    </p>
+    <p>
+      <input id="oc_upandc" type="checkbox" class="conditional" name="system.oc_upandc" {{checked actor.system.oc_upandc}}>
+      <label for="oc_upandc">{{ localize 'Slugblaster.Actor.Dicepool.OpportunityPlusOneIfUpAndComers' }}</label>
+    </p>
+    <p>
+      <input id="oc_rising" type="checkbox" class="conditional" name="system.oc_rising" {{checked actor.system.oc_rising}}>
+      <label for="oc_rising">{{ localize 'Slugblaster.Actor.Dicepool.OpportunityPlusOneIfRisingStars' }}</label>
+    </p>
   </div>
 </section>

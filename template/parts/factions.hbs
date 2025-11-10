@@ -1,7 +1,7 @@
 <section class="slugblasterFactions">
   <h3>
-    {{ localize 'SB.factions' }}
-    <a class="addBtn" title="{{ localize 'SB.addFaction' }}" data-type="faction" data-system-type="faction">
+    {{ localize 'Slugblaster.Crew.Factions' }}
+    <a class="addBtn" title="{{ localize 'Slugblaster.Add' }}" data-type="faction" data-system-type="faction">
       <i class="item-control fas fa-plus"></i>
     </a>
   </h3>
@@ -15,13 +15,13 @@
         <div class="draggable-item valChangeParent" data-item-id="{{ faction._id }}" draggable="true">
           <p class="not-editable">
             <span class="factionName">{{ faction.name }}</span>
-            <a class="edit" title="{{ localize 'SB.edit' }}"><i class="fas fa-edit"></i></a>
+            <a class="edit" title="{{ localize 'Slugblaster.Edit' }}"><i class="fas fa-edit"></i></a>
           </p>
       
           <div class="editable hidden">
             <div class="flexrow">
               <input data-name="name" class="valChange factionName flex2" type="text" value="{{faction.name}}" />
-              <a class="delete flex0" title="{{ localize 'SB.delete' }}" data-item-id="{{faction._id}}">
+              <a class="delete flex0" title="{{ localize 'Slugblaster.Delete' }}" data-item-id="{{faction._id}}">
                 <i class="fas fa-trash"></i>
               </a>
             </div>

@@ -1,25 +1,25 @@
 <section class="slugblasterStash">
-  <h2>{{ localize 'SB.components' }}</h2>
+  <h2>{{ localize 'Slugblaster.Actor.SignatureDevice.Components' }}</h2>
   <div>
-    <input id="stashCoil" type="number" name="system.coil" value="{{actor.system.coil}}" title="{{ localize 'SB.coils' }}" />
-    <label for="stashCoil"><i class="icon icon-coil" title="{{ localize 'SB.coils' }}"></i></label>
+    <input id="stashCoil" type="number" name="system.coil" value="{{actor.system.coil}}" title="{{ localize 'Slugblaster.Coil' }}" />
+    <label for="stashCoil"><i class="icon icon-coil" title="{{ localize 'Slugblaster.Coil' }}"></i></label>
     
-    <input id="stashDisc" type="number" name="system.disc" value="{{actor.system.disc}}" title="{{ localize 'SB.discs' }}" />
-    <label for="stashDisc"><i class="icon icon-disc" title="{{ localize 'SB.discs' }}"></i></label>
+    <input id="stashDisc" type="number" name="system.disc" value="{{actor.system.disc}}" title="{{ localize 'Slugblaster.Disc' }}" />
+    <label for="stashDisc"><i class="icon icon-disc" title="{{ localize 'Slugblaster.Disc' }}"></i></label>
     
-    <input id="stashGem" type="number" name="system.gem" value="{{actor.system.gem}}" title="{{ localize 'SB.gems' }}" />
-    <label for="stashGem"><i class="icon icon-gem" title="{{ localize 'SB.gems' }}"></i></label>
+    <input id="stashGem" type="number" name="system.gem" value="{{actor.system.gem}}" title="{{ localize 'Slugblaster.Gem' }}" />
+    <label for="stashGem"><i class="icon icon-gem" title="{{ localize 'Slugblaster.Gem' }}"></i></label>
     
-    <input id="stashLens" type="number" name="system.lens" value="{{actor.system.lens}}" title="{{ localize 'SB.lenses' }}" />
-    <label for="stashLens"><i class="icon icon-lens" title="{{ localize 'SB.lenses' }}"></i></label>
+    <input id="stashLens" type="number" name="system.lens" value="{{actor.system.lens}}" title="{{ localize 'Slugblaster.Lens' }}" />
+    <label for="stashLens"><i class="icon icon-lens" title="{{ localize 'Slugblaster.Lens' }}"></i></label>
     
     {{#if editable }}
     <a class="rollableTable {{#if (and (lt actor.system.style 1) (eq actor.system.styleFree false)) }}disabled{{/if}}" data-action="getComponents">
       {{#if actor.system.styleFree }}
-        <b>(FREE)</b>
+        <b>({{ localize 'Slugblaster.Actor.SignatureDevice.Free' }})</b>
       {{else}}
-        {{{my_icon "style active" 'SB.style' }}}
-      {{/if}} => {{ localize 'SB.inTheLabComponents' }}
+        {{{my_icon "style active" 'Slugblaster.Style' }}}
+      {{/if}} => {{ localize 'Slugblaster.Actor.SignatureDevice.FindComponents' }}
     </a>
     {{/if}}
   </div>

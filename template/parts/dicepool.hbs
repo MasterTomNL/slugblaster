@@ -1,8 +1,18 @@
 <section class="slugblasterDicePool {{cssClass}}">
-  <h2>{{ localize 'SB.dicepool' }}</h2>
+  <h2>{{ localize 'Slugblaster.Actor.Dicepool.TabName' }}</h2>
   <div class="btn-group rolling" data-type="dicePool">
     <button class="btn dicepoolMinus">-</button>
-    <button class="btn dicepoolRoll">Roll {{ actor.system.dicePool}} Di{{#if (gt actor.system.dicePool 1) }}c{{/if}}e!</button>
+    <button class="btn dicepoolRoll">
+      {{ localize 'Slugblaster.Actor.Dicepool.Roll' }}
+      {{ actor.system.dicePool}}
+      {{#if (eq actor.system.dicePool 1) }}
+        {{ localize 'Slugblaster.Actor.Dicepool.Die' }}
+      {{/if}}
+      {{#if (gt actor.system.dicePool 1) }}
+        {{ localize 'Slugblaster.Actor.Dicepool.Dice' }}
+      {{/if}}
+      !
+    </button>
     <button class="btn dicepoolPlus">+</button>
   </div>
   <div class="dicePool" data-value="actor.system.dicePool" data-key="dicePool">

@@ -1,13 +1,13 @@
 <section class="slugblasterStyle {{cssClass}}">
-  <h2>{{ localize 'SB.style' }}</h2>
+  <h2>{{ localize 'Slugblaster.Style' }}</h2>
 	<div class="sbResources" data-value="{{actor.system.style}}" data-key="style">
     {{#numLoop styleMax}}
-			{{{my_icon "style" 'SB.style' this}}}
+			{{{my_icon "style" 'Slugblaster.Style' this}}}
     {{/numLoop}}
   </div>
   {{#if this.actor.system.styleBonus }}
   <span class="styleBonus">
-    {{ localize 'SB.styleBonus' this=actor.system.styleBonus }}
+    {{ localize 'Slugblaster.StyleBonus' this=actor.system.styleBonus }}
   </span>
   {{/if}}
 </section>

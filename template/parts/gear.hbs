@@ -2,21 +2,21 @@
   <img class="profile-img flex0" src="{{actor.system.board_img}}" data-edit="img" height="100" width="100" />
   <div class="flex1">
     <div>
-      <label for="hoverboard">{{ localize 'SB.board' }}</label>
-      <input id="hoverboard" type="text" name="system.hoverboard" value="{{actor.system.hoverboard}}" placeholder="{{ localize 'SB.board_placeholder' }}" />
+      <label for="hoverboard">{{ localize 'Slugblaster.Actor.Gear.Board' }}</label>
+      <input id="hoverboard" type="text" name="system.hoverboard" value="{{actor.system.hoverboard}}" placeholder="{{ localize 'Slugblaster.Actor.Gear.BoardPlaceholder' }}" />
       <a class="rollableTable" data-table-id="RollTable.9smIg5zqyaSItNpE" data-action="hoverboard" title="{{ localize 'SB.randomize' }}"><i class="icon icon-dice"></i></a>
     </div>
     <div>
-      <label for="raygun">{{ localize 'SB.raygun' }}</label>
-      <input id="raygun" type="text" name="system.raygun" value="{{actor.system.raygun}}" placeholder="{{ localize 'SB.raygun_placeholder' }}" />
-      <a class="rollableTable" data-action="raygun" title="{{ localize 'SB.randomize' }}"><i class="icon icon-dice"></i></a>
+      <label for="raygun">{{ localize 'Slugblaster.Actor.Gear.Raygun' }}</label>
+      <input id="raygun" type="text" name="system.raygun" value="{{actor.system.raygun}}" placeholder="{{ localize 'Slugblaster.Actor.Gear.RaygunPlaceholder' }}" />
+      <a class="rollableTable" data-action="raygun" title="{{ localize 'Slugblaster.Randomize' }}"><i class="icon icon-dice"></i></a>
     </div>
   </div>
 </section>
 <section class="slugblasterGear">
   <h3>
-    <a class="addBtn" title="{{ localize 'SB.addGear' }}" data-type="gear" data-system-type="gear">
-      {{ localize 'SB.gear' }}
+    <a class="addBtn" title="{{ localize 'Slugblaster.Add' }}" data-type="gear" data-system-type="gear">
+      {{ localize 'Slugblaster.Actor.Gear.TabName' }}
       <i class="item-control fas fa-plus"></i>
     </a>
   </h3>
@@ -27,16 +27,16 @@
         <span class="itemName">{{ item.name }}</span>
         {{#unless item.system.active }}
         <span class="gearCosts {{ hideOrDisable ../actor.system item.system }}">
-          <i title="{{ localize 'SB.craft'}}" class="fas fa-hammer install"></i>
+          <i title="{{ localize 'Slugblaster.Actor.Gear.Craft'}}" class="fas fa-hammer install"></i>
           (
-          {{#numLoop item.system.coil }}{{{my_icon "coil" 'SB.coil' 0}}}{{/numLoop}}
-          {{#numLoop item.system.disc }}{{{my_icon "disc" 'SB.disc' 0}}}{{/numLoop}}
-          {{#numLoop item.system.gem }}{{{my_icon "gem" 'SB.gem' 0}}}{{/numLoop}}
-          {{#numLoop item.system.lens }}{{{my_icon "lens" 'SB.lens' 0}}}{{/numLoop}}
+          {{#numLoop item.system.coil }}{{{my_icon "coil" 'Sluglbaster.Actor.Gear.Coil' 0}}}{{/numLoop}}
+          {{#numLoop item.system.disc }}{{{my_icon "disc" 'Slugblaster.Actor.Gear.Disc' 0}}}{{/numLoop}}
+          {{#numLoop item.system.gem }}{{{my_icon "gem" 'Slugblaster.Actor.Gear.Gem' 0}}}{{/numLoop}}
+          {{#numLoop item.system.lens }}{{{my_icon "lens" 'Slugblaster.Actor.Gear.Lens' 0}}}{{/numLoop}}
           )
         </span>
         {{/unless}}
-        <a class="edit" title="{{ localize 'SB.edit' }}"><i class="fas fa-edit"></i></a>
+        <a class="edit" title="{{ localize 'Slugblaster.Edit' }}"><i class="fas fa-edit"></i></a>
         <span class="itemDesc">
           {{ item.system.description }}
         </span>
@@ -44,12 +44,12 @@
       <div class="editable hidden">
         <div class="flexrow">
           <span class="load flex0" data-value="{{item.system.active}}"></span>
-          <input data-name="name" class="valChange itemName flex2" type="text" value="{{item.name}}" />
-          <a class="delete flex0" title="{{ localize 'SB.delete' }}" data-item-id="{{item._id}}">
+          <input data-name="name" class="valChange itemName flex2" type="text" value="{{item.name}}" placeholder="{{ localize 'Slugblaster.Actor.Gear.ItemNamePlaceholder' }}" />
+          <a class="delete flex0" title="{{ localize 'Slugblaster.Delete' }}" data-item-id="{{item._id}}">
             <i class="fas fa-trash"></i>
           </a>
         </div>
-        <textarea data-name="system.description" class="valChange flexrow" placeholder="{{ localize 'SB.ph_itemDesc' }}">{{item.system.description}}</textarea>
+        <textarea data-name="system.description" class="valChange flexrow" placeholder="{{ localize 'Slugblaster.Actor.Gear.ItemDescPlaceholder' }}">{{item.system.description}}</textarea>
       </div>
     </li>
     {{/each}}

@@ -1,7 +1,11 @@
 <section class="slugblasterDowntime {{cssClass}}">
-  <h2>{{ localize 'SB.downtime' }}</h2>
+  <h2>{{ localize 'Slugblaster.Actor.Dicepool.Downtime' }}</h2>
   
-	<a class="rollableTable {{#if (lt actor.system.style 2) }}disabled{{/if}}" title="{{ localize 'SB.portal_discovery' }}" data-action="portal_discovery">{{{my_icon "style active" 'SB.style' }}}{{{my_icon "style active" 'SB.style' }}} => {{ localize 'SB.portal_discovery' }}</a>
+	<a class="rollableTable {{#if (lt actor.system.style 2) }}disabled{{/if}}" title="{{ localize 'Slugblaster.Actor.Dicepool.PortalDiscovery' }}" data-action="portal_discovery">
+    {{{my_icon "style active" 'Slugblaster.Style' }}}{{{my_icon "style active" 'Slugblaster.Style' }}} => {{ localize 'Slugblaster.Actor.Dicepool.PortalDiscovery' }}
+  </a>
   <hr>
-  <a class="rollableTable {{#if (lt actor.system.style 1) }}disabled{{/if}}" title="{{ localize 'SB.being_good' }}" data-action="being_good">{{{my_icon "style active" 'SB.style' }}} => {{ localize 'SB.being_good' }} => -{{{my_icon "trouble active" 'SB.trouble' }}}{{{my_icon "trouble active" 'SB.trouble' }}}</a>
+  <a class="rollableTable {{#if (lt actor.system.style 1) }}disabled{{/if}}" title="{{ localize 'Slugblaster.Actor.Dicepool.BeingGood' }}" data-action="being_good">
+    {{{my_icon "style active" 'Slugblaster.Style' }}} => {{ localize 'Slugblaster.Actor.Dicepool.BeingGood' }} => -{{{my_icon "trouble active" 'Slugblaster.Trouble' }}}{{{my_icon "trouble active" 'Slugblaster.Trouble' }}}
+  </a>
 </section>

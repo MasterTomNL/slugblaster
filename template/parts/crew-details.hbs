@@ -4,38 +4,39 @@
   </div>
   <div class="crew-details">
     <label for="name">
-      {{ localize 'SB.name' }}
+      {{ localize 'Slugblaster.Crew.Name' }}
       {{#if editable }}
-      <a class="rollableTable" title="{{ localize 'SB.randomize' }}" data-action="crew"><i class="icon icon-dice"></i></a>
+      <a class="rollableTable" title="{{ localize 'Slugblaster.Randomize' }}" data-action="crew"><i class="icon icon-dice"></i></a>
       {{/if}}
     </label>
-    <input id="name" name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'SB.ph_name'}}" />
+    <input id="name" name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'Slugblaster.Crew.NamePlaceholder'}}" />
     
     <div>
       <label for="brands">
-        {{ localize 'SB.brands' }}
+        {{ localize 'Slugblaster.Crew.Brands' }}
         {{#if editable }}
-        <a class="rollableTable" title="{{ localize 'SB.randomize' }}" data-action="brands"><i class="icon icon-dice"></i></a>
+        <a class="rollableTable" title="{{ localize 'Slugblaster.Randomize' }}" data-action="brands"><i class="icon icon-dice"></i></a>
         {{/if}}
       </label>
-      <input id="brands" type="text" name="system.brands" value="{{actor.system.brands}}" placeholder="{{ localize 'SB.ph_brands' }}" />
+      <input id="brands" type="text" name="system.brands" value="{{actor.system.brands}}" placeholder="{{ localize 'Slugblaster.Crew.BrandsPlaceholder' }}" />
     </div>
     
     <div>
       <label for="hangouts">
-        {{ localize 'SB.hangouts' }}
+        {{ localize 'Slugblaster.Crew.Hangouts' }}
         {{#if editable }}
-        <a class="rollableTable" title="{{ localize 'SB.randomize' }}" data-action="hangouts"><i class="icon icon-dice"></i></a>
+        <a class="rollableTable" title="{{ localize 'Slugblaster.Randomize' }}" data-action="hangouts"><i class="icon icon-dice"></i></a>
         {{/if}}
       </label>
-      <input id="hangouts" type="text" name="system.hangouts" value="{{actor.system.hangouts}}" placeholder="{{ localize 'SB.ph_hangouts' }}" />
+      <input id="hangouts" type="text" name="system.hangouts" value="{{actor.system.hangouts}}" placeholder="{{ localize 'Slugblaster.Crew.HangoutsPlaceholder' }}" />
     </div>
     
     
-    <h3>{{ localize 'SB.fractures' }}</h3>
+    <h3>{{ localize 'Slugblaster.Crew.Fractures' }}</h3>
     <div class="crewFractures">
-      <input type="text" name="system.fracture1" value="{{actor.system.fracture1}}" placeholder="{{ localize 'SB.ph_fracture' }}" />
-      <input type="text" name="system.fracture2" value="{{actor.system.fracture2}}" placeholder="{{ localize 'SB.ph_fracture' }}" />
+      <input type="text" name="system.fracture_1" value="{{actor.system.fracture_1}}" placeholder="{{ localize 'Slugblaster.Crew.FracturePlaceholder' }}" />
+      <input type="text" name="system.fracture_2" value="{{actor.system.fracture_2}}" placeholder="{{ localize 'Slugblaster.Crew.FracturePlaceholder' }}" />
     </div>
   </div>
+
 </section>

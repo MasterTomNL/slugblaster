@@ -1,21 +1,21 @@
 <section class="slugblasterHype">
-  <h2>{{ localize 'SB.hype' }}</h2>
+  <h2>{{ localize 'Slugblaster.Actor.Dicepool.Hype' }}</h2>
   {{#if actor.system.attitude }}
   <p>{{ actor.system.attitude }}</p>
   {{/if}}
 	<div class="sbResources" data-value="{{actor.system.boost}}" data-key="boost">
     {{#numLoop boostMax}}
-			{{{my_icon "boost" 'SB.boost' this}}}
+			{{{my_icon "boost" 'Slugblaster.Boost' this}}}
     {{/numLoop}}
   </div>
   {{#if (eq actor.system.boosts -1) }}
   <div class="boosting">
-    {{{my_icon "boost active" 'SB.boost' -1}}}
+    {{{my_icon "boost active" 'Slugblaster.Boost' -1}}}
   </div>
   {{/if}}
   <div class="sbResources" data-value="{{actor.system.kick}}" data-key="kick">
     {{#numLoop kickMax}}
-			{{{my_icon "kick" 'SB.kick' this}}}
+			{{{my_icon "kick" 'Slugblaster.Kick' this}}}
     {{/numLoop}}
   </div>
 </section>

@@ -1,9 +1,19 @@
 <section class="crewDicePool {{cssClass}}">
-  <h2>{{ localize 'SB.runs' }}</h2>
+  <h2>{{ localize 'Slugblaster.Crew.Runs' }}</h2>
   <div class="rolling" data-type="runsPool">
     <div class="btn-group">
       <button class="btn dicepoolMinus">-</button>
-      <button class="btn dicepoolRoll">Roll {{ actor.system.runsPool}} Di{{#if (gt actor.system.runsPool 1) }}c{{/if}}e!</button>
+      <button class="btn dicepoolRoll">
+        {{ localize 'Slugblaster.Actor.Dicepool.Roll' }}
+        {{ actor.system.runsPool}}
+        {{#if (eq actor.system.runsPool 1) }}
+          {{ localize 'Slugblaster.Actor.Dicepool.Die' }}
+        {{/if}}
+        {{#if (gt actor.system.runsPool 1) }}
+          {{ localize 'Slugblaster.Actor.Dicepool.Dice' }}
+        {{/if}}
+        !
+      </button>
       <button class="btn dicepoolPlus">+</button>
     </div>
   </div>

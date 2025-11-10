@@ -7,10 +7,10 @@
         <div class="signature-details">
           <h2>
             {{item.name}}
-            <i class="fas fa-trash delete" title="{{ localize 'SB.delete' }}" data-item-id="{{ item._id }}""></i>
+            <i class="fas fa-trash delete" title="{{ localize 'Sluglbaster.Delete' }}" data-item-id="{{ item._id }}""></i>
           </h2>
           <p>{{item.system.description}}</p>
-          <input type="text" data-name="system.look" value="{{item.system.look}}" placeholder="{{ localize 'SB.ph_sigMod_look' }}" />
+          <input type="text" data-name="system.look" value="{{item.system.look}}" placeholder="{{ localize 'Slugblaster.Actor.Signature.LookPlaceholder' }}" />
         </div>
       </li>
     </div>
@@ -20,55 +20,55 @@
     <div class="flexrow">
       <div class="sbResources" data-value="{{item.system.boosts}}" data-key="boosts" data-item-id="{{item._id}}">
         {{#numLoop 5}}
-          {{{my_icon "boost" 'SB.boost' this}}}
+          {{{my_icon "boost" 'Slugblaster.Boost' this}}}
         {{/numLoop}}
       </div>
       <div class="sbResources" data-value="{{item.system.kicks}}" data-key="kicks" data-item-id="{{item._id}}">
         {{#numLoop 5}}
-          {{{my_icon "kick" 'SB.kick' this}}}
+          {{{my_icon "kick" 'Slugblaster.Kick' this}}}
         {{/numLoop}}
       </div>
     </div>
   </section>
   <section class="signatureMods">
-    <h3>{{ localize 'SB.signatureMods' }}</h3>
+    <h3>{{ localize 'Slugblaster.Actor.SignatureDevice.Mods' }}</h3>
     <ul>
       {{#each item.mods as |mod key|}}
       <li class="list-item sigMod {{ isUnlocked mod.system.active }}" data-item-id="{{mod._id}}">
         <span class="name">{{mod.name}}</span>
         
         {{#unless mod.system.active }}
-        <i class="fas fa-download install {{ hideOrDisable ../../actor.system mod.system }}" title="{{ localize 'SB.install' }}"></i>
+        <i class="fas fa-download install {{ hideOrDisable ../../actor.system mod.system }}" title="{{ localize 'Slugblaster.Actor.SignatureDevice.Install' }}"></i>
         {{/unless }}
         
         {{#unless (not mod.system.active) }}
-        <i class="fas fa-recycle salvage" title="{{ localize 'SB.salvage' }}"></i>
+        <i class="fas fa-recycle salvage" title="{{ localize 'Slugblaster.Actor.SignatureDevice.Salvage' }}"></i>
         {{/unless}}
         
         <span>(</span>
         <span class="{{#if (eq mod.system.coil 0)}}hidden{{/if}}">
           {{#numLoop mod.system.coil}}
-            {{{my_icon "coil" 'SB.coil' 0}}}
+            {{{my_icon "coil" 'Slugblaster.Coil' 0}}}
           {{/numLoop}}
         </span>
         <span class="{{#if (eq mod.system.disc 0)}}hidden{{/if}}">
           {{#numLoop mod.system.disc}}
-            {{{my_icon "disc" 'SB.disc' 0}}}
+            {{{my_icon "disc" 'Slugblaster.Disc' 0}}}
           {{/numLoop}}
         </span>
         <span class="{{#if (eq mod.system.gem 0)}}hidden{{/if}}">
           {{#numLoop mod.system.gem}}
-            {{{my_icon "gem" 'SB.gem' 0}}}
+            {{{my_icon "gem" 'Slugblaster.Gem' 0}}}
           {{/numLoop}}
         </span>
         <span class="{{#if (eq mod.system.lens 0)}}hidden{{/if}}">
           {{#numLoop mod.system.lens}}
-            {{{my_icon "lens" 'SB.lens' 0}}}
+            {{{my_icon "lens" 'Slugblaster.Lens' 0}}}
           {{/numLoop}}
         </span>
         <span>)</span>
         
-        <i class="fas fa-trash delete" title="{{ localize 'SB.delete' }}" data-item-id="{{ mod._id }}"></i>
+        <i class="fas fa-trash delete" title="{{ localize 'Slugblaster.Delete' }}" data-item-id="{{ mod._id }}"></i>
         
         <p class="desc">{{mod.system.description}}</p>
       </li>

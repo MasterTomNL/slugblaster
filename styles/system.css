@@ -331,6 +331,15 @@
   &.active .beatCosts { display: none; }
 }
 
+/* TRAITS */
+.slugblaster .traits {
+  h3 { margin: 4px 0px; }
+  ul { margin: 0px; }
+}
+.specialTrait {
+  input { width: 250px; display: inline-block;  }
+}
+
 .beatReward { font-weight: bold; margin-right: 6px; }
 .slugblasterTrait { opacity: 0.5; }
 .slugblasterTrait:hover, .beatRow:hover { opacity: 1; }
@@ -368,6 +377,7 @@
 .btn-group button { width: auto; margin: 0; float: left; padding: 0 6px; }
 .dicePool, .opportunitiesPool, .challengesPool { clear: both; padding-top:4px; }
 .dicePool .icon, .opportunitiesPool .icon, .challengesPool .icon { height: 24px; width:24px; margin: 0; }
+.crewDicePool label { display: inline; color: #444; }
 .btn-group button:first-child { border-right: 0px; }
 .btn-group button:last-child { border-left: 0px; }
 input.conditional { height: 16px; margin: 0; vertical-align: middle; }
