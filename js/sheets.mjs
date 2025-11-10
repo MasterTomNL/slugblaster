@@ -306,7 +306,10 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
         ['system.attitude']: sys.attitude,
         ['system.styleBonus']: sys.styleBonus,
         ['system.boosts']: sys.boosts,
-        ['system.kicks']: sys.kicks });
+        ['system.kicks']: sys.kicks,
+		['system.specialTraitName']: sys.specialTraitName,
+		['system.specialTraitDesc']: sys.specialTraitDesc,
+	  });
       
       // add phone and specialGear
       await Item.create({ name: 'your phone', type: 'gear', ['system.active']: true }, { parent: this.actor });
@@ -412,3 +415,4 @@ export class SlugblasterSignatureSheet extends SlugblasterCoreSheet {
     return options;
   }
 }
+
