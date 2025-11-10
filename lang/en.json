@@ -1,4 +1,9 @@
 {
+	"Slugblaster": {
+		"Actor": {
+			"SpecialTrait": "Special Trait"
+		}
+	},
  	"SB": {
 		"name": "Name",
     "ph_name": "Name...",
