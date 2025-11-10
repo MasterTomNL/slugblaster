@@ -58,9 +58,11 @@ Hooks.on("init", () => {
     "systems/slugblaster/template/parts/opportunities.hbs",
     "systems/slugblaster/template/parts/runs.hbs",
     "systems/slugblaster/template/parts/signature.hbs",
+    "systems/slugblaster/template/parts/special_trait.hbs",
     "systems/slugblaster/template/parts/stash.hbs",
     "systems/slugblaster/template/parts/style.hbs",
 		"systems/slugblaster/template/parts/traits.hbs",
     "systems/slugblaster/template/parts/trouble.hbs"
 	]);
 });
+
