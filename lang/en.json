@@ -2,6 +2,7 @@
 	"Slugblaster": {
 		"Actor": {
 			"SpecialTrait": "Special Trait"
+			"SpecialTraitExplainer": "If this would help you with an action, you can mark 1 trouble to upgrade a 1-3 result into a 4/5 result."
 		}
 	},
  	"SB": {
