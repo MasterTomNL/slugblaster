@@ -93,6 +93,8 @@ export class SlugblasterCrewData extends foundry.abstract.TypeDataModel {
     return {
       brands: new StringField(),
       hangouts: new StringField(),
+      fracture_1: new StringField(),
+      fracture_2: new StringField(),
       style: new NumberField({ required: false, integer: true, min: 0, max: 10, initial: 0 }),
       kick: new NumberField({ required: false, integer: true, min: 0, max: 5, initial: 0 }),
       boost: new NumberField({ required: false, integer: true, min: 0, max: 5, initial: 0 }),
@@ -137,3 +139,4 @@ export class SlugblasterFameData extends foundry.abstract.TypeDataModel {
     };
   }
 }
+
