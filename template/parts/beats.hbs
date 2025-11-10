@@ -5,6 +5,11 @@
     <li class="beatRow {{ isUnlocked beat.system.active }}" data-item-id="{{beat._id}}">
       <span class="load flex0 {{ haveStyleOrTrouble ../actor.system beat.system }}" data-value="{{beat.system.active}}"></span>
       <span class="beatName">{{ beat.name }}</span>
+      {{#if ../isGM }}
+      <a class="delete flex0" title="{{ localize 'Slugblaster.Delete' }}" data-item-id="{{item._id}}">
+        <i class="fas fa-trash"></i>
+      </a>
+      {{/if}}
       {{#if (or (gt beat.system.styleCost 0) (gt beat.system.troubleCost 0)) }}
         <span class="beatCosts">(
         {{#numLoop beat.system.styleCost}}{{{my_icon "style active" 'SB.style' 0}}}{{/numLoop}}

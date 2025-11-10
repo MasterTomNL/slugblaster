@@ -59,6 +59,7 @@
         "TabName": "Gear",
         "Board": "Your Board",
         "BoardPlaceholder": "...",
+        "Craft": "Craft",
         "ItemNamePlaceholder": "...",
         "ItemDescPlaceholder": "...",
         "Raygun": "Your Raygun",
@@ -70,7 +71,7 @@
         "FindComponents": "Find Components (In The Lab)",
         "Free": "FREE",
         "Install": "Install",
-        "LookPlaceholder": "",
+        "LookPlaceholder": "...",
         "Mods": "Mods",
         "Salvage": "Salvage"
       },

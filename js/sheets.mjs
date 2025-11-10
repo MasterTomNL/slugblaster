@@ -30,6 +30,7 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
 
     // use a safe clone of actor data
     const actorData = context.data;
+    context.isGM = game.user.isGM;
     context.system = actorData.system;
     
     // sort items by active
