@@ -1,7 +1,7 @@
 <section class="slugblasterFame">
   <ul class="fameRows">
     {{#each fame as |f key|}}
-    <li class="fameRow flexcontainer">
+    <li class="fameRow">
       <div class="w50">
         <h3 class="fameName {{#if (eq key ../actor.system.fame_level) }}selected{{/if}}" title="{{ f.desc }}">
           <input id="fame_{{key}}" type="radio" name="system.fame_level" value="{{ key }}" {{checked (eq key ../actor.system.fame_level) }}>
@@ -40,11 +40,12 @@
   </ul>
 </section>
 <section>
-  <h3>0: {{ localize 'Slugblaster.Crew.Fame.Nobodies' }}</h3>
-  <h3>1: {{ localize 'Slugblaster.Crew.Fame.UpAndComers' }}</h3>
-  <h3>2: {{ localize 'Slugblaster.Crew.Fame.WellEstablished' }}</h3>
-  <h3>3: {{ localize 'Slugblaster.Crew.Fame.MajorPlayers' }}</h3>
-  <h3>4: {{ localize 'Slugblaster.Crew.Fame.RisingStars' }}</h3>
-  <h3>5: {{ localize 'Slugblaster.Crew.Fame.Legends' }}</h3>
+  <h3>0: {{ localize 'Slugblaster.Crew.Nobodies' }}</h3>
+  <h3>1: {{ localize 'Slugblaster.Crew.UpAndComers' }}</h3>
+  <h3>2: {{ localize 'Slugblaster.Crew.WellEstablished' }}</h3>
+  <h3>3: {{ localize 'Slugblaster.Crew.MajorPlayers' }}</h3>
+  <h3>4: {{ localize 'Slugblaster.Crew.RisingStars' }}</h3>
+  <h3>5: {{ localize 'Slugblaster.Crew.Legends' }}</h3>
 </section>
+
 
