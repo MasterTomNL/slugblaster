@@ -30,7 +30,7 @@
     "doomPlaceholder": "Horrors you can’t unsee, Things that follow you into adulthood, etc.",
     "legacyPlaceholder": "Lasting accomplishments, Relationships, Trophies, Memories, etc.",
     
-		"Actor": {
+	"Actor": {
       "Details": {
         "Name": "Name",
         "NamePlaceholder": "...",
@@ -128,9 +128,15 @@
       "FracturePlaceholder": "...",
       "Hangouts": "Hangouts",
       "HangoutsPlaceholder": "...",
+	  "Legends": "Legends",
+	  "MajorPlayers": "Major Players",
       "Name": "Name",
       "NamePlaceholder": "...",
-      "Runs": "Runs"
+	  "Nobodies": "Nobodies",
+      "RisingStars": "Rising Stars",
+	  "Runs": "Runs",
+	  "UpAndComers": "Up & Comers",
+	  "WellEstablished": "Well-Established"
     },
     "Playbook": {
       "Attitude": "Attitude",
