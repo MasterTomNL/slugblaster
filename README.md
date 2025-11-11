@@ -11,12 +11,12 @@ With Mikey's permission I've added a bunch of information from the official Slug
 ### Slugblaster actor sheet
 <img width="654" height="731" alt="Slugblaster (actor) sheet" src="https://vanderlek.nl/img/slugblaster/slugblaster-actor-v3.png" />
 <img width="674" height="541" alt="Manage components, devices and mods" src="https://vanderlek.nl/img/slugblaster/slugblaster-actor-signature-device-v2.png" />
-<img width="675" height="550" alt="Slugblaster Beats, Traits, etc," src="https://vanderlek.nl/img/slugblaster/slugblaster-actor-traits-v2.png" />
+<img width="675" height="550" alt="Slugblaster Beats, Traits, etc," src="https://vanderlek.nl/img/slugblaster/slugblaster-actor-traits-v3.webp" />
 
 ### Crew (actor) sheet
 <img width="648" height="730" alt="Slugblaster Crew" src="https://vanderlek.nl/img/slugblaster/slugblaster-crew.png" />
 <img width="652" height="442" alt="Dicepool" src="https://vanderlek.nl/img/slugblaster/slugblaster-crew-dicepool.png" />
-<img width="654" height="437" alt="Crew Fame" src="https://vanderlek.nl/img/slugblaster/slugblaster-crew-fame.png" />
+<img width="654" height="437" alt="Crew Fame" src="https://vanderlek.nl/img/slugblaster/slugblaster-crew-fame-v2.webp" />
 
 
 ## Other features
