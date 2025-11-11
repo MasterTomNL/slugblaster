@@ -45,26 +45,27 @@
     0: {{ localize 'Slugblaster.Crew.Nobodies' }}
   </h3>
   <h3 title="{{ localize 'Slugblaster.Crew.UpAndComersDesc' }}">
-    <input type="checkbox" {{checked actor.fame_1 }}>
+    <input type="checkbox" {{checked (eq actor.fame_level 1 }}>
     1: {{ localize 'Slugblaster.Crew.UpAndComers' }}
   </h3>
   <h3 title="{{ localize 'Slugblaster.Crew.WellEstablishedDesc' }}">
-    <input type="checkbox" {{checked actor.fame_2 }}>
+    <input type="checkbox" {{checked (eq actor.fame_level 2) }}>
     2: {{ localize 'Slugblaster.Crew.WellEstablished' }}
   </h3>
   <h3 title="{{ localize 'Slugblaster.Crew.MajorPlayersDesc' }}">
-    <input type="checkbox" {{checked actor.fame_3 }}>
+    <input type="checkbox" {{checked (eq actor.fame_level 3) }}>
     3: {{ localize 'Slugblaster.Crew.MajorPlayers' }}
   </h3>
   <h3 title="{{ localize 'Slugblaster.Crew.RisingStarsDesc' }}">
-    <input type="checkbox" {{checked actor.fame_4 }}>
+    <input type="checkbox" {{checked (eq actor.fame_level 4) }}>
     4: {{ localize 'Slugblaster.Crew.RisingStars' }}
   </h3>
   <h3 title="{{ localize 'Slugblaster.Crew.LegendsDesc' }}">
-    <input type="checkbox" {{checked actor.fame_5 }}>
+    <input type="checkbox" {{checked (eq actor.fame_level 5) }}>
     5: {{ localize 'Slugblaster.Crew.Legends' }}
   </h3>
 </section>
+
 
 
 
