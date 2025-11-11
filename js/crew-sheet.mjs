@@ -12,26 +12,31 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
       {
       'name': 'Nobodies',
       'desc': 'You’ve been casually slugblasting a little while. You know how to hoverboard, you know how to get into a couple worlds, but no one knows who you are.',
+      'img': 'bronze.webp',
       'perks': [
         {
           'name': 'Masks',
           'cost': 2,
-          'desc': 'Colourful nanomaterial air filters. Survive in Haz 1 worlds.'
+          'desc': 'Colourful nanomaterial air filters. Survive in Haz 1 worlds.',
+          'img': '/assets/perks/masks.webp'
         }, {
           'name': 'Advanced Portal Technology',
           'cost': 2,
-          'desc': 'Portal through thicker zones.'
+          'desc': 'Portal through thicker zones.',
+          'img': '/assets/perks/advanced-portalling-tech.webp'
         }]
     }, {
       'name': 'Up & Comers',
       'cost': 5,
       'desc': 'You have people’s attention, and now they’ll decide if they care.',
+      'img': 'silver.webp',
       'rewards': ['+1 to opportunities', '+1 to challenges', 'Rebrand if needed'],
       'perks': [
       {
         'name': 'Hazwear',
         'cost': 2,
-        'desc': 'Hazwear suits in a variety of styles. Survive Haz 2 worlds.'
+        'desc': 'Hazwear suits in a variety of styles. Survive Haz 2 worlds.',
+        'img': '/assets/perks/hazwear-v2.webp'
       }, {
         'name': 'Sticker Spotted',
         'cost': 4,
@@ -49,6 +54,7 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
       'name': 'Well-Established',
       'cost': 7,
       'desc': 'The scene knows you now. You’ve earned your right to be here.',
+      'img': 'gold.webp',
       'rewards': ['+1 and -1 with two neutral factions.', 'Gain 1 free two-way portal'],
       'perks': [
       {
@@ -72,6 +78,7 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
       'name': 'Major Players',
       'cost': 9,
       'desc': 'You get name-dropped routinely and everyone has an opinion on you.',
+      'img': 'diamond.webp',
       'rewards': ['Four factions move further from neutral.', 'Gain a third brand.'],
       'perks': [
       {
@@ -95,6 +102,7 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
       'name': 'Rising Stars',
       'cost': 9,
       'desc': 'You get name-dropped routinely and everyone has an opinion on you.',
+      'img': 'master.webp',
       'rewards': ['+1 to opportunities','+1 to challenges','+1 hype'],
       'perks': [
       {
@@ -117,7 +125,8 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
     }, {
       'name': 'Legends',
       'cost': 11,
-      'desc': 'You did it. You’re slugblasting icons and the scene will never forget you. Even your mom’s friend Deborah knows you’re famous for “hockey or rapping or something” and no one can say you didn’t do something with your lives not that you were trying to prove that, right?)'
+      'desc': 'You did it. You’re slugblasting icons and the scene will never forget you. Even your mom’s friend Deborah knows you’re famous for “hockey or rapping or something” and no one can say you didn’t do something with your lives not that you were trying to prove that, right?)',
+      'img': 'grandmaster.webp'
     }];
     
     context.standings = [

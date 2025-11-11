@@ -14,4 +14,8 @@ export class SlugblasterGearSheet extends ItemSheet {
     });
     return options;
   }
+  
+  activateListeners(html) {
+		super.activateListeners(html);
+  }
 }

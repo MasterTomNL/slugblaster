@@ -120,6 +120,8 @@ export class SlugblasterCrewData extends foundry.abstract.TypeDataModel {
       fame_perk_4_1: new BooleanField(),
       fame_perk_4_2: new BooleanField(),
       fame_perk_4_3: new BooleanField(),
+      fame_legend_1: new StringField(),
+      fame_legend_2: new StringField(),
       cc_rival: new BooleanField(),
       cc_enemy: new BooleanField(),
       cc_upandc: new BooleanField(),

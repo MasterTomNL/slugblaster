@@ -99,6 +99,7 @@
   .sheet-tabs .active {
     background: #dbd9cd url('../img/active-tab.png') repeat-x top;
   }
+  .w50 { display: inline-block; width: 50%; }
 }
 .actor-details input#name, .slugblaster-crew-sheet #name, .slugblaster .sb-name-input {
   font-family: OneDirection;
@@ -366,11 +367,19 @@
 .sigMod .disabled { color: #aaa; }
 
 /* FAME */
-.fameRow { width: 50%; display: inline-block; float: left; }
-.fameName { font-size: 1.2em; font-weight: bold; clear: both; }
-.perkName { clear: both; }
-.slugblasterFame .icon { height: 16px; width: 16px; }
-.slugblasterFame input[type='checkbox'] { height: 16px; margin: 0; margin-left: 20px; vertical-align: middle; }
+.slugblasterFame {
+  ul { list-style: none; }
+  .fameImg { border: 0px; }
+  .fameName { font-size: 1.2em; font-weight: bold; clear: both; }
+  .fameName.selected label { color: #2d0281; }
+  .perkName { clear: both; }
+  .fameRow { padding-bottom: 6px; }
+  .icon { height: 16px; width: 16px; margin: 0; }
+  input[type='checkbox'] { height: 16px; margin: 0; margin-left: 20px; vertical-align: middle; }
+  input[type='text'] { margin-left: 20px; }
+  .disabled label { color: #aaa; }
+  .disabled .icon { opacity: 0.5; }
+}
 
 /* DICEPOOL */
 .btn-group { clear: both; }

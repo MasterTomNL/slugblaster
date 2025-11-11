@@ -20,7 +20,6 @@ export class SlugblasterFameSheet extends ActorSheet {
       i.img = i.img || DEFAULT_TOKEN;
       if (i.type == 'perk') perks.push(i);
     }
-    console.log(perks);
     context.perks = perks;
   }
   

@@ -11,7 +11,7 @@ export const registerHandlebarsHelpers = function() {
   });
   Handlebars.registerHelper("isPerkUnlocked", function(actor, fKey, pKey) {
     let pName = `fame_perk_${fKey}_${pKey}`;
-    return (actor.system[pName] ? "checked": "");
+    return (actor.system[pName] ? true: false);
   });
   Handlebars.registerHelper("isNotActive", function(el) {
     return el.system.active ? false : true;

@@ -1,20 +1,41 @@
 <section class="slugblasterFame">
-  <ul>
+  <ul class="fameRows">
     {{#each fame as |f key|}}
-    <li class="fameRow">
-      <div class="fameName" title="{{ f.desc }}">
-        <input id="fame_{{key}}" type="radio" name="system.fame_level" value="{{ key }}" {{checked (eq key ../actor.system.fame_level) }}>
-        <label for="fame_{{key}}">{{ key }}: {{ f.name }} {{#if f.cost }}({{ f.cost }} style){{/if}}</label>
+    <li class="fameRow flexcontainer">
+      <div class="w50">
+        <h3 class="fameName {{#if (eq key ../actor.system.fame_level) }}selected{{/if}}" title="{{ f.desc }}">
+          <input id="fame_{{key}}" type="radio" name="system.fame_level" value="{{ key }}" {{checked (eq key ../actor.system.fame_level) }}>
+          <label for="fame_{{key}}">
+            {{ key }}: {{ f.name }} 
+            {{#if (and f.cost (gt key ../actor.system.fame_level)) }}({{ f.cost }} x {{{my_icon "style active" 'Slugblaster.Style' 0 }}}){{/if}}
+          </label>
+        </h3>
+        <p></p>
       </div>
-      {{#each f.perks as |p pKey|}}
-      <div class="perk">
-        <div class="perkName" title="{{ p.desc }}">
-          <input type="checkbox" name="system.fame_perk_{{key}}_{{pKey}}" {{isPerkUnlocked ../../actor key pKey }} id="fame_perk_{{key}}_{{pKey}}">
-          <label for="fame_perk_{{key}}_{{pKey}}">{{ p.name }} <span="perkCost">({{ p.cost }} style)</span></label>
-        </div>
+      <div class="w50">
+        <ul>
+        {{#each f.perks as |p pKey|}}
+          <li class="perk {{#if (gt key ../../actor.system.fame_level) }}disabled{{/if}}">
+            <div class="perkName" title="{{ p.desc }}">
+              <input type="checkbox" name="system.fame_perk_{{key}}_{{pKey}}" {{#if (isPerkUnlocked ../../actor key pKey) }}checked{{/if}} id="fame_perk_{{key}}_{{pKey}}">
+              <label for="fame_perk_{{key}}_{{pKey}}">
+                {{ p.name }} 
+                {{#unless (isPerkUnlocked ../../actor key pKey)}}
+                <span="perkCost">({{ p.cost }} x {{{my_icon "style active" 'Slugblaster.Style' 0 }}})</span>
+                {{/unless}}
+              </label>
+            </div>
+          </li>
+        {{/each}}
+        {{#if (eq key 5) }}
+        <li class="legend">
+          <input type="text" name="system.fame_legend_1" value="{{ ../actor.system.fame_legend_1 }}" >
+          <input type="text" name="system.fame_legend_2" value="{{ ../actor.system.fame_legend_2 }}" >
+        </li>
+        {{/if}}
+        </ul>
       </div>
-      {{/each}}
     </li>
-  {{/each}}
+    {{/each}}
   </ul>
 </section>
