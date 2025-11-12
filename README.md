@@ -16,7 +16,7 @@ With Mikey's permission I've added a bunch of information from the official Slug
 ### Crew (actor) sheet
 <img width="648" height="730" alt="Slugblaster Crew" src="https://vanderlek.nl/img/slugblaster/slugblaster-crew.png" />
 <img width="652" height="442" alt="Dicepool" src="https://vanderlek.nl/img/slugblaster/slugblaster-crew-dicepool.png" />
-<img width="654" height="437" alt="Crew Fame" src="https://vanderlek.nl/img/slugblaster/slugblaster-crew-fame-v2.webp" />
+<img width="654" height="437" alt="Crew Fame" src="https://vanderlek.nl/img/slugblaster/slugblaster-crew-fame-v3.webp" />
 
 
 ## Other features
