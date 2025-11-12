@@ -101,7 +101,7 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
     }, {
       'name': 'Rising Stars',
       'cost': 9,
-      'desc': 'You get name-dropped routinely and everyone has an opinion on you.',
+      'desc': 'Buzz and excitement surround you. Everyone is watching closely.',
       'img': 'master.webp',
       'rewards': ['+1 to opportunities','+1 to challenges','+1 hype'],
       'perks': [
