@@ -36,6 +36,11 @@ export const registerHandlebarsHelpers = function() {
   Handlebars.registerHelper("CostLabel", function(val, name) {
     return val ? val + " " + game.i18n.localize(name) : "";
   });
+  Handlebars.registerHelper("localizeCrew", function(lvl, type) {
+    let fame_levels = ['Nobodies','UpAndComers','WellEstablished','MajorPlayers','RisingStars','Legends'];
+    return game.i18n.localize('Slugblaster.Crew.'+fame_levels[lvl]+type);
+  });
+  
   Handlebars.registerHelper("my_icon", function(style,title,index) {
     return `<i class="icon icon-${style}" title="${game.i18n.localize(title)}" data-index="${index}"></i>`;
   });

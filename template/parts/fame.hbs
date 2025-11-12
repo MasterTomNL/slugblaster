@@ -1,7 +1,7 @@
 <section class="slugblasterFame">
   <ul class="fameRows">
     {{#each fame as |f key|}}
-    <li class="fameRow flexcontainer">
+    <li class="flexcontainer fameRow">
       <div class="w50">
         <h3 class="fameName {{#if (eq key ../actor.system.fame_level) }}selected{{/if}}" title="{{ f.desc }}">
           <input id="fame_{{key}}" type="radio" name="system.fame_level" value="{{ key }}" {{checked (eq key ../actor.system.fame_level) }}>
@@ -10,7 +10,9 @@
             {{#if (and f.cost (gt key ../actor.system.fame_level)) }}({{ f.cost }} x {{{my_icon "style active" 'Slugblaster.Style' 0 }}}){{/if}}
           </label>
         </h3>
-        <p></p>
+        {{#unless (or (eq key 0) (eq key 5))}}
+        <p class="rewards">{{ localizeCrew key "Rewards" }}</p>
+        {{/unless}}
       </div>
       <div class="w50">
         <ul>

@@ -30,7 +30,7 @@
     "doomPlaceholder": "Horrors you can’t unsee, Things that follow you into adulthood, etc.",
     "legacyPlaceholder": "Lasting accomplishments, Relationships, Trophies, Memories, etc.",
     
-		"Actor": {
+	"Actor": {
       "Details": {
         "Name": "Name",
         "NamePlaceholder": "...",
@@ -128,9 +128,25 @@
       "FracturePlaceholder": "...",
       "Hangouts": "Hangouts",
       "HangoutsPlaceholder": "...",
+      "Legends": "Legends",
+      "LegendsDesc": "You did it. You’re slugblasting icons and the scene will never forget you. Even your mom’s friend Deborah knows you’re famous for “hockey or rapping or something” and no one can say you didn’t do something with your lives not that you were trying to prove that, right?)",
+      "MajorPlayers": "Major Players",
+      "MajorPlayersDesc": "You get name-dropped routinely and everyone has an opinion on you.",
+      "MajorPlayersRewards": "Four factions move further from neutral. Gain a third brand.",
       "Name": "Name",
       "NamePlaceholder": "...",
-      "Runs": "Runs"
+      "Nobodies": "Nobodies",
+      "NobodiesDesc": "You’ve been casually slugblasting a little while. You know how to hoverboard, you know how to get into a couple worlds, but no one knows who you are.",
+      "RisingStars": "Rising Stars",
+      "RisingStarsDesc": "You get name-dropped routinely and everyone has an opinion on you.",
+      "RisingStarsRewards": "+1 to opportunities, +1 to challenges and +1 hype.",
+      "Runs": "Runs",
+      "UpAndComers": "Up & Comers",
+      "UpAndComersDesc": "You have people’s attention, and now they’ll decide if they care.",
+      "UpAndComersRewards": "+1 to opportunities, +1 to challenges and a Rebrand if needed",
+      "WellEstablished": "Well-Established",
+      "WellEstablishedDesc": "The scene knows you now. You’ve earned your right to be here.",
+      "WellEstablishedRewards": "+1 and -1 with two neutral factions and a free two-way portal."
     },
     "Playbook": {
       "Attitude": "Attitude",

@@ -50,3 +50,4 @@ With Mikey's permission I've added a bunch of information from the official Slug
 * 0.8.4 - Major language file overhaul and small bugfixes
 * 0.8.5 - Small Compendium update
 * 0.8.6 - Traits/Beats now cost Style or Trouble
+* 0.8.7 - Added Fame rewards to Fame sheet

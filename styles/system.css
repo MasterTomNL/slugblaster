@@ -374,6 +374,7 @@
   .fameName.selected label { color: #2d0281; }
   .perkName { clear: both; }
   .fameRow { padding-bottom: 6px; }
+  .rewards { font-weight: 100; }
   .icon { height: 16px; width: 16px; margin: 0; }
   input[type='checkbox'] { height: 16px; margin: 0; margin-left: 20px; vertical-align: middle; }
   input[type='text'] { margin-left: 20px; }

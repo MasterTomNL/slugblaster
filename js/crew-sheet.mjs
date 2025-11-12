@@ -138,6 +138,102 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
       { 'name': 'rivals', 'value': '-2', 'factions':[], 'desc': 'Resentful, angry, threatened, petty.' },
       { 'name': 'enemy', 'value': '-3', 'factions':[], 'desc': 'Let me at ‘em. Should trigger an event like Hunted or Smear Tactics.' }
     ];
+    
+    context.perks = [
+      {
+        'name': 'Masks',
+        'level': 0,
+        'cost': 2,
+        'desc': 'Colourful nanomaterial air filters. Survive in Haz 1 worlds.',
+        'img': '/assets/perks/masks.webp'
+      }, {
+        'name': 'Advanced Portal Technology',
+        'level': 0,
+        'cost': 2,
+        'desc': 'Portal through thicker zones.',
+        'img': '/assets/perks/advanced-portalling-tech.webp'
+      }, {
+        'name': 'Hazwear',
+        'level': 1,
+        'cost': 2,
+        'desc': 'Hazwear suits in a variety of styles. Survive Haz 2 worlds.',
+        'img': '/assets/perks/hazwear-v2.webp'
+      }, {
+        'name': 'Sticker Spotted',
+        'level': 1,
+        'cost': 4,
+        'desc': 'Your crew’s name in a lasting location. +1 legacy each'
+      }, {
+        'name': 'Protective Fans',
+        'level': 1,
+        'cost': 5,
+        'desc': 'Loyal clapback artists and lookouts. Reroll challenges.'
+      }, {
+        'name': 'Blurb',
+        'level': 1,
+        'cost': 5,
+        'desc': 'A passing mention in Slugblaster Magazine. +1 with two factions.'
+      }, {
+        'name': 'Logic Binders',
+        'level': 2,
+        'cost': 3,
+        'desc': 'Protect your math and survive Haz 3 worlds.'
+      }, {
+        'name': 'Small-Press Merch',
+        'level': 2,
+        'cost': 4,
+        'desc': 'T-shirts, stickers, pins, patches, etc. +1 hype.'
+      }, {
+        'name': 'Improved Hangout ',
+        'level': 2,
+        'cost': 4,
+        'desc': 'Move in to an off-world skate shop, pizza place, test lab, etc.'
+      }, {
+        'name': 'Diehard Fans',
+        'level': 2,
+        'cost': 5,
+        'desc': 'Fans that will wear your merch in the casket. +1 legacy each.'
+      }, {
+        'name': 'Name on a Shoe',
+        'level': 3,
+        'cost': 5,
+        'desc': 'A custom shoe, hoverboard deck, etc. +1 hype.'
+      }, {
+        'name': 'Eponymous',
+        'level': 3,
+        'cost': 5,
+        'desc': 'A route, spot, trick, etc. named after the crew. +1 legacy each.'
+      }, {
+        'name': 'Article',
+        'level': 3,
+        'cost': 5,
+        'desc': 'An article in Slugblaster Magazine, etc. +1 with two factions.'
+      }, {
+        'name': 'Tastemaker Fans',
+        'level': 3,
+        'cost': 5,
+        'desc': 'Influencers, industry peeps, etc. +2 style per run.'
+      }, {
+        'name': 'Quantum Hangout',
+        'level': 4,
+        'cost': 5,
+        'desc': 'An upgraded hangout spot in your own private demiplane.'
+      }, {
+        'name': 'Image Rights',
+        'level': 4,
+        'cost': 5,
+        'desc': 'Your own action figures, video game skins, etc. +1 legacy each.'
+      }, {
+        'name': 'Screaming Fans',
+        'level': 4,
+        'cost': 5,
+        'desc': 'A teeming hoard of groupies and stans. +1 hype.'
+      }, {
+        'name': 'Cover Story',
+        'level': 4,
+        'cost': 5,
+        'desc': 'Featured in Slugblaster Magazine. +1 legacy each.'
+      }];
 
     // Prepare scoundrel data and items.
     this._prepareItems(context);

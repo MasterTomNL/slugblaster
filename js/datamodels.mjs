@@ -102,6 +102,7 @@ export class SlugblasterCrewData extends foundry.abstract.TypeDataModel {
       dicePool: new NumberField({ required: false, integer: true, min: 1, max: 9, initial: 1 }),
       challengesPool: new NumberField({ required: false, integer: true, min: 1, max: 9, initial: 1 }),
       fame_level: new NumberField({ required: false, integer: true, min: 0, max: 5, initial: 0 }),
+      fame_perks_unlocked: new StringField(),
       fame_perk_0_0: new BooleanField(),
       fame_perk_0_1: new BooleanField(),
       fame_perk_1_0: new BooleanField(),
