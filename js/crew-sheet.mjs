@@ -8,126 +8,15 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
   async getData() {
     const context = await super.getData();
     
+    const fameLevel = context.data.system.fame_level;
+    
     context.fame = [
-      {
-      'name': 'Nobodies',
-      'desc': 'You’ve been casually slugblasting a little while. You know how to hoverboard, you know how to get into a couple worlds, but no one knows who you are.',
-      'img': 'bronze.webp',
-      'perks': [
-        {
-          'name': 'Masks',
-          'cost': 2,
-          'desc': 'Colourful nanomaterial air filters. Survive in Haz 1 worlds.',
-          'img': '/assets/perks/masks.webp'
-        }, {
-          'name': 'Advanced Portal Technology',
-          'cost': 2,
-          'desc': 'Portal through thicker zones.',
-          'img': '/assets/perks/advanced-portalling-tech.webp'
-        }]
-    }, {
-      'name': 'Up & Comers',
-      'cost': 5,
-      'desc': 'You have people’s attention, and now they’ll decide if they care.',
-      'img': 'silver.webp',
-      'rewards': ['+1 to opportunities', '+1 to challenges', 'Rebrand if needed'],
-      'perks': [
-      {
-        'name': 'Hazwear',
-        'cost': 2,
-        'desc': 'Hazwear suits in a variety of styles. Survive Haz 2 worlds.',
-        'img': '/assets/perks/hazwear-v2.webp'
-      }, {
-        'name': 'Sticker Spotted',
-        'cost': 4,
-        'desc': 'Your crew’s name in a lasting location. +1 legacy each'
-      }, {
-        'name': 'Protective Fans',
-        'cost': 5,
-        'desc': 'Loyal clapback artists and lookouts. Reroll challenges.'
-      }, {
-        'name': 'Blurb',
-        'cost': 5,
-        'desc': 'A passing mention in Slugblaster Magazine. +1 with two factions.'
-      }]
-    }, {
-      'name': 'Well-Established',
-      'cost': 7,
-      'desc': 'The scene knows you now. You’ve earned your right to be here.',
-      'img': 'gold.webp',
-      'rewards': ['+1 and -1 with two neutral factions.', 'Gain 1 free two-way portal'],
-      'perks': [
-      {
-        'name': 'Logic Binders',
-        'cost': 3,
-        'desc': 'Protect your math and survive Haz 3 worlds.'
-      }, {
-        'name': 'Small-Press Merch',
-        'cost': 4,
-        'desc': 'T-shirts, stickers, pins, patches, etc. +1 hype.'
-      }, {
-        'name': 'Improved Hangout ',
-        'cost': 4,
-        'desc': 'Move in to an off-world skate shop, pizza place, test lab, etc.'
-      }, {
-        'name': 'Diehard Fans',
-        'cost': 5,
-        'desc': 'Fans that will wear your merch in the casket. +1 legacy each.'
-      }]
-    }, {
-      'name': 'Major Players',
-      'cost': 9,
-      'desc': 'You get name-dropped routinely and everyone has an opinion on you.',
-      'img': 'diamond.webp',
-      'rewards': ['Four factions move further from neutral.', 'Gain a third brand.'],
-      'perks': [
-      {
-        'name': 'Name on a Shoe',
-        'cost': 5,
-        'desc': 'A custom shoe, hoverboard deck, etc. +1 hype.'
-      }, {
-        'name': 'Eponymous',
-        'cost': 5,
-        'desc': 'A route, spot, trick, etc. named after the crew. +1 legacy each.'
-      }, {
-        'name': 'Article',
-        'cost': 5,
-        'desc': 'An article in Slugblaster Magazine, etc. +1 with two factions.'
-      }, {
-        'name': 'Tastemaker Fans',
-        'cost': 5,
-        'desc': 'Influencers, industry peeps, etc. +2 style per run.'
-      }]
-    }, {
-      'name': 'Rising Stars',
-      'cost': 9,
-      'desc': 'Buzz and excitement surround you. Everyone is watching closely.',
-      'img': 'master.webp',
-      'rewards': ['+1 to opportunities','+1 to challenges','+1 hype'],
-      'perks': [
-      {
-        'name': 'Quantum Hangout',
-        'cost': 5,
-        'desc': 'An upgraded hangout spot in your own private demiplane.'
-      }, {
-        'name': 'Image Rights',
-        'cost': 5,
-        'desc': 'Your own action figures, video game skins, etc. +1 legacy each.'
-      }, {
-        'name': 'Screaming Fans',
-        'cost': 5,
-        'desc': 'A teeming hoard of groupies and stans. +1 hype.'
-      }, {
-        'name': 'Cover Story',
-        'cost': 5,
-        'desc': 'Featured in Slugblaster Magazine. +1 legacy each.'
-      }]
-    }, {
-      'name': 'Legends',
-      'cost': 11,
-      'desc': 'You did it. You’re slugblasting icons and the scene will never forget you. Even your mom’s friend Deborah knows you’re famous for “hockey or rapping or something” and no one can say you didn’t do something with your lives not that you were trying to prove that, right?)',
-      'img': 'grandmaster.webp'
-    }];
+      { 'name': 'Nobodies' },
+      { 'name': 'Up & Comers', 'cost': 5 },
+      { 'name': 'Well-Established', 'cost': 7 },
+      { 'name': 'Major Players', 'cost': 9 },
+      { 'name': 'Rising Stars', 'cost': 9 },
+      { 'name': 'Legends', 'cost': 11 }];
     
     context.standings = [
       { 'name': 'ally', 'value': '+3', 'factions':[], 'desc': 'Ride or Die. Should trigger a perk or event, such as Diehard Fans, Collab, or Swag.'},
@@ -234,8 +123,24 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
         'cost': 5,
         'desc': 'Featured in Slugblaster Magazine. +1 legacy each.'
       }];
+    
+    //
+    context.unlocked = [];
+    let fame_perks = context.data.system.fame_perks;
+    let unlocks = fame_perks ? fame_perks.split(",") : [];
+    context.perks.forEach((p, index) => {
+      p.unlocked = false;
+      if (unlocks.includes(index.toString())) {
+        context.unlocked.push(p);
+        p.unlocked = true;
+      }
+      context.perks[index] = p;
+    });
+    
+    // set next level style cost
+    context.nextLevelStyleCost = fameLevel < 5 ? context.fame[fameLevel+1].cost : 0;
 
-    // Prepare scoundrel data and items.
+    // Prepare data and items.
     this._prepareItems(context);
 
     for (const i of context.standings) {
@@ -268,7 +173,7 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
     const containers = this.element.find('.draggable-container');
     containers.each((index, container) => {
       const containerId = $(container).data('container-id');
-      const dragDrop = new DragDrop({
+      const dragDrop = new foundry.applications.ux.DragDrop({
         dragSelector: ".draggable-item",
         dropZone: container,
         callback: (data) => {
@@ -312,6 +217,12 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
     // save changes in traits, beatArcs and beats
     html.on('change', '.valChange', this._onValueChange.bind(this));
     
+    // level up fame
+    html.on('click', '.levelUp', this._onLevelUp.bind(this));
+    
+    // unlock perks
+    html.on('click', '.unlockPerk', this._onUnlockPerk.bind(this));
+    
     // Rollable abilities.
     html.on('click', '.rollableTable', this._onRollableTable.bind(this));
     
@@ -347,6 +258,42 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
       await item.update({['system.'+key]: new_val});
     else
       await this.actor.update({['system.'+key]: new_val});
+  }
+  
+  async _onLevelUp(event) {
+    event.preventDefault();
+    // get itemId and styleCost
+    let styleCost = Number($(event.currentTarget).data('styleCost'));
+    // get existing perks and style
+    let fameLevel = Number(this.actor.system.fame_level);
+    let style = Number(this.actor.system.style);
+    // stop when we don't have enough style points or we are maxed level
+    if (style < styleCost || fameLevel == 5) return;
+    // add unlocked perk
+    fameLevel += 1;
+    style -= styleCost;
+    // save new values to the actor
+    await this.actor.update({
+      ['system.fame_level']: fameLevel,
+      ['system.style']: style });
+  }
+  async _onUnlockPerk(event) {
+    event.preventDefault();
+    // get itemId and styleCost
+    let itemId = $(event.currentTarget).data('itemId');
+    let styleCost = Number($(event.currentTarget).data('styleCost'));
+    // get existing perks and style
+    let perks = this.actor.system.fame_perks;
+    let style = Number(this.actor.system.style);
+    // stop when we don't have enough style points
+    if (style < styleCost) return;
+    // add unlocked perk
+    perks += (perks ? "," : "") + itemId;
+    style -= styleCost;
+    // save new values to the actor
+    await this.actor.update({
+      ['system.fame_perks']: perks,
+      ['system.style']: style });
   }
   
   // default module window settings

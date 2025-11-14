@@ -31,15 +31,15 @@ Hooks.on("init", () => {
   
   
   // sheets
-  Actors.registerSheet("slugblaster", SlugblasterActorSheet, { label: "Slugblaster Actor Sheet", makeDefault: true });
-  Actors.registerSheet("slugblaster", SlugblasterCrewSheet, { label: "Slugblaster Crew Sheet", types: ["crew"], makeDefault: true });
-  Actors.registerSheet("slugblaster", SlugblasterPlaybookSheet, { label: "Slugblaster Playbook Sheet", types: ["playbook"], makeDefault: true });
-  Actors.registerSheet("slugblaster", SlugblasterSignatureSheet, { label: "Slugblaster Signature Sheet", types: ["signature"], makeDefault: true });
-  Items.registerSheet("slugblaster", SlugblasterGearSheet, { label: "Slugblaster Gear Sheet", types: ["gear"], makeDefault: true });
-  Items.registerSheet("slugblaster", SlugblasterBeatSheet, { label: "Slugblaster Beat Sheet", types: ["beat", "trait"], makeDefault: true });
+  foundry.documents.collections.Actors.registerSheet("slugblaster", SlugblasterActorSheet, { label: "Slugblaster Actor Sheet", makeDefault: true });
+  foundry.documents.collections.Actors.registerSheet("slugblaster", SlugblasterCrewSheet, { label: "Slugblaster Crew Sheet", types: ["crew"], makeDefault: true });
+  foundry.documents.collections.Actors.registerSheet("slugblaster", SlugblasterPlaybookSheet, { label: "Slugblaster Playbook Sheet", types: ["playbook"], makeDefault: true });
+  foundry.documents.collections.Actors.registerSheet("slugblaster", SlugblasterSignatureSheet, { label: "Slugblaster Signature Sheet", types: ["signature"], makeDefault: true });
+  foundry.documents.collections.Items.registerSheet("slugblaster", SlugblasterGearSheet, { label: "Slugblaster Gear Sheet", types: ["gear"], makeDefault: true });
+  foundry.documents.collections.Items.registerSheet("slugblaster", SlugblasterBeatSheet, { label: "Slugblaster Beat Sheet", types: ["beat", "trait"], makeDefault: true });
   
   // template files
-	loadTemplates([
+	foundry.applications.handlebars.loadTemplates([
     "systems/slugblaster/template/parts/beats.hbs",
     "systems/slugblaster/template/parts/beatsNoLoad.hbs",
     "systems/slugblaster/template/parts/beatsPlaybook.hbs",

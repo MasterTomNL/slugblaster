@@ -368,11 +368,27 @@
 
 /* FAME */
 .slugblasterFame {
+  h2 { font-size: 3em; }
+  h3 { clear: both; margin: 0px; padding-top: 8px; }
   ul { list-style: none; }
+  .fa-check { color: #3fb105; float: right; }
   .fameImg { border: 0px; }
   .fameName { font-size: 1.2em; font-weight: bold; clear: both; }
   .fameName.selected label { color: #2d0281; }
-  .perkName { clear: both; }
+  .perkName label { display: inline; }
+  .perkCost, .levelUp { float: right; }
+  .perks .perk {
+    display: inline-block;
+    width: calc(50% - 12px);
+    height: 80px;
+    padding: 6px;
+    border: 1px solid;
+    margin: 6px;
+    float: left;
+    background: #dbd9cd url('../img/active-tab.png') repeat-x top;
+    border-radius: 3px;
+    .perkName { font-size: 1.1em; font-weight: bold; }
+  }
   .fameRow { padding-bottom: 6px; }
   .rewards { font-weight: 100; }
   .icon { height: 16px; width: 16px; margin: 0; }

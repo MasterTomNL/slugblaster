@@ -1,43 +1,38 @@
 <section class="slugblasterFame">
-  <ul class="fameRows">
-    {{#each fame as |f key|}}
-    <li class="flexcontainer fameRow">
-      <div class="w50">
-        <h3 class="fameName {{#if (eq key ../actor.system.fame_level) }}selected{{/if}}" title="{{ f.desc }}">
-          <input id="fame_{{key}}" type="radio" name="system.fame_level" value="{{ key }}" {{checked (eq key ../actor.system.fame_level) }}>
-          <label for="fame_{{key}}">
-            {{ key }}: {{ f.name }} 
-            {{#if (and f.cost (gt key ../actor.system.fame_level)) }}({{ f.cost }} x {{{my_icon "style active" 'Slugblaster.Style' 0 }}}){{/if}}
-          </label>
-        </h3>
-        {{#unless (or (eq key 0) (eq key 5))}}
-        <p class="rewards">{{ localizeCrew key "Rewards" }}</p>
-        {{/unless}}
+  <h2>
+    {{ localizeCrew actor.system.fame_level "" }}
+    {{#if (lte actor.system.fame_level 4)}}
+    <a class="button levelUp {{#if (lt actor.system.style nextLevelStyleCost) }}disabled{{/if}}" title="{{ localize 'Slugblaster.Crew.LevelUp' }}" data-style-cost="{{nextLevelStyleCost}}">
+      {{#numLoop nextLevelStyleCost}}{{{my_icon "style active" 'Slugblaster.Style' ""}}}{{/numLoop}}
+    </a>
+    {{/if}}
+  </h2>
+  {{#unless (or (eq actor.system.fame_level 0) (eq actor.system.fame_level 5))}}<p>{{ localizeCrew actor.system.fame_level "Rewards" }}</p>{{/unless}}
+  <p>{{ localizeCrew actor.system.fame_level "Desc" }}</p>
+  
+  <h3>{{ localize 'Slugblaster.Crew.Unlocked' }}</h3>
+  <div class="perks">
+  {{#each unlocked as |p key|}}
+    {{#if (lte p.level ../actor.system.fame_level)}}
+      <div class="perk">
+        <span class="perkName">{{ p.name }}<i class="fas fa-check"></i></span>
+        <p>{{ p.desc }}</p>
       </div>
-      <div class="w50">
-        <ul>
-        {{#each f.perks as |p pKey|}}
-          <li class="perk {{#if (gt key ../../actor.system.fame_level) }}disabled{{/if}}">
-            <div class="perkName" title="{{ p.desc }}">
-              <input type="checkbox" name="system.fame_perk_{{key}}_{{pKey}}" {{#if (isPerkUnlocked ../../actor key pKey) }}checked{{/if}} id="fame_perk_{{key}}_{{pKey}}">
-              <label for="fame_perk_{{key}}_{{pKey}}">
-                {{ p.name }} 
-                {{#unless (isPerkUnlocked ../../actor key pKey)}}
-                <span="perkCost">({{ p.cost }} x {{{my_icon "style active" 'Slugblaster.Style' 0 }}})</span>
-                {{/unless}}
-              </label>
-            </div>
-          </li>
-        {{/each}}
-        {{#if (eq key 5) }}
-        <li class="legend">
-          <input type="text" name="system.fame_legend_1" value="{{ ../actor.system.fame_legend_1 }}" >
-          <input type="text" name="system.fame_legend_2" value="{{ ../actor.system.fame_legend_2 }}" >
-        </li>
-        {{/if}}
-        </ul>
+    {{/if}}
+  {{/each}}
+  </div>
+  <h3>{{ localize 'Slugblaster.Crew.Unlockable' }}</h3>
+  <div class="perks">
+  {{#each perks as |p key|}}
+    {{#if (and (lte p.level ../actor.system.fame_level) (eq p.unlocked false)) }}
+      <div class="perk {{#if (lt ../actor.system.style p.cost) }}disabled{{/if}}">
+        <span class="perkName">{{ p.name }}</span>
+        <a class="button unlockPerk perkCost" data-item-id="{{key}}" data-style-cost="{{p.cost}}">
+          {{#numLoop p.cost }}{{{my_icon "style active" 'Slugblaster.Style' 0 }}}{{/numLoop}}
+        </a>
+        <p>{{ p.desc }}</p>
       </div>
-    </li>
-    {{/each}}
-  </ul>
+    {{/if}}
+  {{/each}}
+  </div>
 </section>

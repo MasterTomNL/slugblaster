@@ -1,4 +1,4 @@
-export class SlugblasterBeatSheet extends ItemSheet {
+export class SlugblasterBeatSheet extends foundry.appv1.sheets.ItemSheet {
   get template() {
     return 'systems/slugblaster/template/beat-sheet.hbs';
   }
