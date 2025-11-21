@@ -38,13 +38,13 @@
       <li class="list-item sigMod {{ isUnlocked mod.system.active }}" data-item-id="{{mod._id}}">
         <div class="static">
           <span class="name">{{mod.name}}</span>
-          {{#unless mod.system.custom}}
-            {{#unless mod.system.active }}
+          {{#unless mod.system.active }}
             <i class="fas fa-download install {{ hideOrDisable ../../actor.system mod.system }}" data-action="installMod" data-item-id="{{mod._id}}" title="{{ localize 'Slugblaster.Actor.SignatureDevice.Install' }}"></i>
-            {{/unless }}
-            
+          {{/unless }}
+          
+          {{#unless mod.system.custom }}          
             {{#if mod.system.active }}
-            <i class="fas fa-recycle salvage" data-action="salvageMod" data-item-id="{{mod._id}}" title="{{ localize 'Slugblaster.Actor.SignatureDevice.Salvage' }}"></i>
+              <i class="fas fa-recycle salvage" data-action="salvageMod" data-item-id="{{mod._id}}" title="{{ localize 'Slugblaster.Actor.SignatureDevice.Salvage' }}"></i>
             {{/if}}
             
             <span>(</span>
@@ -70,19 +70,17 @@
             </span>
             <span>)</span>
           {{/unless}}
-          {{#if (and ../../editable mod.system.custom)}}<i class="fas fa-edit" data-action="editItem"></i>{{/if}}
-          {{#if (and ../../editable mod.system.custom)}}<i class="fas fa-trash" data-action="deleteItem" data-item-id="{{mod._id}}"></i>{{/if}}
+          {{#if ../../editable}}<i class="fas fa-edit" data-action="editItem"></i>{{/if}}
           <p class="desc">{{mod.system.description}}</p>
         </div>
-        {{#if mod.system.custom}}
         <div class="fluid">
           <div class="flexcontainer">
             <input type="text" name="items.{{mod._id}}.name" value="{{mod.name}}">
             <i class="fas fa-save" data-action="saveItem"></i>
+            <i class="fas fa-trash" data-action="deleteItem" data-item-id="{{mod._id}}"></i>
           </div>
           <textarea name="items.{{mod._id}}.system.description">{{mod.system.description}}</textarea>
         </div>
-        {{/if}}
       </li>
       {{/each}}
     </ul>
