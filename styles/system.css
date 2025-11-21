@@ -143,6 +143,7 @@
     width: 100%;
     .icon { margin: 0; }
   }
+  .opportunitiesPool label, .challengesPool label { display: inline; }
 
   /* Item Editing */
   input[type=checkbox] { border:0; }
@@ -407,6 +408,7 @@
   h3 { clear: both; margin: 0px; padding-top: 8px; }
   ul { list-style: none; }
   .fa-check { color: #3fb105; float: right; }
+  .fa-undo { float: right; }
   .fameImg { border: 0px; }
   .fameName { font-size: 1.2em; font-weight: bold; clear: both; }
   .fameName.selected label { color: #2d0281; }
@@ -438,6 +440,7 @@
 .btn-group button { width: auto; margin: 0; float: left; padding: 0 6px; }
 .dicePool, .opportunitiesPool, .challengesPool { clear: both; padding-top:4px; }
 .dicePool .icon, .opportunitiesPool .icon, .challengesPool .icon { height: 24px; width:24px; margin: 0; }
+
 .crewDicePool label { display: inline; color: #444; }
 .btn-group button:first-child { border-right: 0px; }
 .btn-group button:last-child { border-left: 0px; }

@@ -3,6 +3,14 @@ export class SlugblasterGearSheet extends foundry.applications.api.HandlebarsApp
     return 'systems/slugblaster/template/gear-sheet.hbs';
   }
   
+  async _prepareContext(options) {
+    const context = await super._prepareContext(options);
+    
+    context.item = this.document;
+    
+    return context;
+  }
+  
   static PARTS = {
     ...super.PARTS,
       main: { template: 'systems/slugblaster/template/gear-sheet.hbs' },

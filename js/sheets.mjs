@@ -315,8 +315,8 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
         ['system.active']: false,
         ['system.description']: sys.description,
         ['system.type']: sys.type,
-        ['system.style']: sys.style,
-        ['system.trouble']: sys.trouble },
+        ['system.styleCost']: sys.styleCost,
+        ['system.troubleCost']: sys.troubleCost },
         { parent: this.actor });
     }
     if (data.type == 'gear') {

@@ -52,7 +52,8 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
         addFaction: this.#addFaction,
         prevFame: this.#prevFame,
         nextFame: this.#nextFame,
-        unlockPerk: this.#unlockPerk
+        unlockPerk: this.#unlockPerk,
+        refundPerk: this.#refundPerk,
       },
       dragDrop: [{
         dragSelector: '.draggable',
@@ -301,6 +302,27 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
     // add unlocked perk
     perks += (perks ? "," : "") + itemId;
     style -= styleCost;
+    // save new values to the actor
+    await this.actor.update({
+      ['system.fame_perks']: perks,
+      ['system.style']: style
+    });
+  }
+  
+  static async #refundPerk(event, target) {
+    event.preventDefault();
+    // get itemId and styleCost
+    let itemId = target.dataset.itemId;
+    let styleCost = Number(target.dataset.styleCost);
+    // get existing perks and style
+    let perks = this.actor.system.fame_perks;
+    let style = Number(this.actor.system.style);
+    // check if we have the perk (we should at this point)
+    if (perks.indexOf(itemId) < 0) return;
+    // remove unlocked perk
+    perks = perks.replace(itemId+",", "");
+    // add style back to crew
+    style += styleCost;
     // save new values to the actor
     await this.actor.update({
       ['system.fame_perks']: perks,

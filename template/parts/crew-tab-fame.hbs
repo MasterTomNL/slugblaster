@@ -20,7 +20,10 @@
   {{#each unlocked as |p key|}}
     {{#if (lte p.level ../actor.system.fame_level)}}
       <div class="perk">
-        <span class="perkName">{{ p.name }}<i class="fas fa-check"></i></span>
+        <span class="perkName">
+          {{ p.name }}
+          <i class="fas fa-check"></i>
+          {{#if ../isGM}}<i class="fas fa-undo" title="{{ localize 'Slugblaster.Crew.RefundPerk' }}" data-action="refundPerk" data-item-id="{{p._id}}" data-style-cost="{{p.cost}}"></i>{{/if}}</span>
         <p>{{ p.desc }}</p>
       </div>
     {{/if}}
