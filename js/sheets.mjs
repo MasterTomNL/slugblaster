@@ -304,7 +304,7 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
         }, { parent: this.actor });
       }
     }
-    if (['beat', 'gear'].includes(data.type)) {
+    if (data.type == 'beat') {
       cls = getDocumentClass("Item");
       src = await cls.fromDropData(data);
       sys = src.system;
@@ -318,6 +318,23 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
         ['system.style']: sys.style,
         ['system.trouble']: sys.trouble },
         { parent: this.actor });
+    }
+    if (data.type == 'gear') {
+      cls = getDocumentClass("Item");
+      src = await cls.fromDropData(data);
+      sys = src.system;
+      
+      await Item.create({
+        name: src.name,
+        type: src.type,
+        ['system.active']: false,
+        ['system.description']: sys.description,
+        ['system.type']: sys.type,
+        ['system.coil']: sys.coil,
+        ['system.disc']: sys.disc,
+        ['system.gem']: sys.gem,
+        ['system.lens']: sys.lens
+      }, { parent: this.actor });
     }
   }
   
