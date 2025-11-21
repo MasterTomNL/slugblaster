@@ -109,7 +109,7 @@
   /* TABS */
   .sheet-body {
     padding: 8px;
-  }
+  } 
   .sheet-tabs {
     border-top: 0px !important;
     border-bottom: 0px !important;
@@ -199,6 +199,7 @@
     &.icon-trouble { background-image: url('../img/warning-empty-white.webp'); }
     &.icon-trouble.active { background-image: url('../img/warning-white.webp'); }
   }
+  .perks .perk, .sheet-tabs .active { background-image: url('../img/active-tab-inverted.png'); background-color: #111; }
 }
 
 .actor-details input#name, .slugblaster-crew-sheet #name, .slugblaster .sb-name-input {
