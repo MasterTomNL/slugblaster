@@ -414,8 +414,8 @@ export class SlugblasterNPCSheet extends SlugblasterCoreSheet {
       },
       classes: ['slugblaster', 'npc'],
       position: {
-        width: 680, // 'auto'
-        height: 780, // 'auto'
+        width: '640',
+        height: 'auto'
       },
       window: {
         icon: 'fas fa-user',

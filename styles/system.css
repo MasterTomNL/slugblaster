@@ -136,6 +136,7 @@
   .w40 { width: 40%; }
   .w50 { width: 50%; }
   .w60 { width: 60%; }
+  .w100 { width: 100%; }
   
   /* DICE */
   .dice {
