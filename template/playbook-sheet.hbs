@@ -80,13 +80,13 @@
       </li>
         
       {{#each playbookBeats as |beat bId|}}
-      <li class="beatRow" valChangeParent data-item-id="{{beat._id}}">
+      <li class="beatRow" data-item-id="{{beat._id}}">
         <div class="flexrow">
-          <input data-name="name" class="valChange beatName flex2" type="text" value="{{beat.name}}" />
-          <input data-name="system.troubleCost" class="valChange al-c" type="text" value="{{beat.system.troubleCost}}" />
-          <input data-name="system.styleCost" class="valChange al-c" type="text" value="{{beat.system.styleCost}}" />
-          <input data-name="system.reward" class="valChange flex2" type="text" value="{{beat.system.reward}}" placeholder="{{ localize 'SB.newBeatReward' }}" />
-          <a class="delete flex0" title="{{ localize 'Slugblaster.Delete' }}" data-item-id="{{beat._id}}">
+          <input name="items.{{beat._id}}.name" class="beatName flex2" type="text" value="{{beat.name}}" />
+          <input name="items.{{beat._id}}.system.troubleCost" class="al-c" type="text" value="{{beat.system.troubleCost}}" />
+          <input name="items.{{beat._id}}.system.styleCost" class="al-c" type="text" value="{{beat.system.styleCost}}" />
+          <input name="items.{{beat._id}}.system.reward" class="flex2" type="text" value="{{beat.system.reward}}" placeholder="{{ localize 'SB.newBeatReward' }}" />
+          <a class="delete flex0" title="{{ localize 'Slugblaster.Delete' }}" data-action="deleteItem" data-item-id="{{beat._id}}">
             <i class="fas fa-trash"></i>
           </a>
         </div>

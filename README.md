@@ -55,3 +55,4 @@ With Mikey's permission I've added a bunch of information from the official Slug
 * 0.9.5 - Complete restructure of the component (now Foundry APPv2 compliant)
 * 0.9.6 - NPC actors added
 * 0.9.7 - DragDrop of items and traits is restored
+* 0.9.9 - I was caught in the plot... sereendipity save me!!
