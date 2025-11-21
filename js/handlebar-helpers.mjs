@@ -49,7 +49,7 @@ export const registerHandlebarsHelpers = function() {
       let item = itemId != undefined ? ` data-item-id="${itemId}"` : '';
       return `<i class="icon icon-${field} ${active}" title="${game.i18n.localize('Slugblaster.'+field)}" data-action="setAttribute" data-field="${field}" data-value="${value}" ${item}></i>`;
     }
-    let title = field.indexOf(" ") ? field.substring(0, field.indexOf(" ")): field;
+    let title = field.indexOf(" ") > 0 ? field.substring(0, field.indexOf(" ")): field;
     return `<i class="icon icon-${field}" title="${game.i18n.localize('Slugblaster.'+title)}"></i>`;
   });
 };
