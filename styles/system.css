@@ -27,6 +27,7 @@
     font-family: OneDirection;
     border-bottom-color: #a3a3a3;
     margin: 4px 0px 2px;
+    opacity: 0.6;
   }
   h2 i, h3 i, .fa-trash { font-size: 16px; color: #777; vertical-align: middle; cursor: pointer; margin: 0 4px; }
   label { display: inline-block; color: #777; }
