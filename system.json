@@ -2,7 +2,7 @@
   "id": "slugblaster",
   "title": "Slugblaster",
   "description": "A Slugblaster system.",
-  "version": "0.9.5",
+  "version": "0.9.6",
   "compatibility": {
     "minimum": 12,
     "verified": 13
@@ -19,6 +19,7 @@
     "Actor": {
       "slugblaster": {},
       "crew": {},
+      "npc": {},
       "playbook": {},
       "signature": {}
     },

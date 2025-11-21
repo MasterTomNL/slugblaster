@@ -1,8 +1,8 @@
 import { registerHandlebarsHelpers } from "./js/handlebar-helpers.mjs";
 import { SlugblasterCoreSheet } from "./js/slugblaster-core-sheet.mjs"; // methods to add, delete and/or change items
-import { SlugblasterActorData, SlugblasterCrewData, SlugblasterFameData, SlugblasterPlaybookData, SlugblasterSignatureData, SlugblasterGearData } from "./js/datamodels.mjs";
+import { SlugblasterActorData, SlugblasterCrewData, SlugblasterFameData, SlugblasterPlaybookData, SlugblasterSignatureData, SlugblasterGearData, SlugblasterNPCData } from "./js/datamodels.mjs";
 import { SlugblasterActor } from "./js/documents.mjs";
-import { SlugblasterActorSheet, SlugblasterSignatureSheet } from "./js/sheets.mjs";
+import { SlugblasterActorSheet, SlugblasterSignatureSheet, SlugblasterNPCSheet } from "./js/sheets.mjs";
 import { SlugblasterPlaybookSheet } from "./js/playbook-sheet.mjs";
 import { SlugblasterBeatSheet } from  "./js/beat-sheet.mjs";
 import { SlugblasterCrewSheet } from "./js/crew-sheet.mjs";
@@ -25,7 +25,8 @@ Hooks.on("init", () => {
     'slugblaster': SlugblasterActorData,
     'playbook': SlugblasterPlaybookData,
     'signature': SlugblasterSignatureData,
-    'crew': SlugblasterCrewData
+    'crew': SlugblasterCrewData,
+    'npc': SlugblasterNPCData,
   };
   CONFIG.Item.dataModels.gear = SlugblasterGearData;
   
@@ -33,6 +34,7 @@ Hooks.on("init", () => {
   // sheets
   foundry.documents.collections.Actors.registerSheet("slugblaster", SlugblasterActorSheet, { label: "Slugblaster Actor Sheet", makeDefault: true });
   foundry.documents.collections.Actors.registerSheet("slugblaster", SlugblasterCrewSheet, { label: "Slugblaster Crew Sheet", types: ["crew"], makeDefault: true });
+  foundry.documents.collections.Actors.registerSheet("slugblaster", SlugblasterNPCSheet, { label: "Slugblaster NPC Sheet", types: ["npc"], makeDefault: true });
   foundry.documents.collections.Actors.registerSheet("slugblaster", SlugblasterPlaybookSheet, { label: "Slugblaster Playbook Sheet", types: ["playbook"], makeDefault: true });
   foundry.documents.collections.Actors.registerSheet("slugblaster", SlugblasterSignatureSheet, { label: "Slugblaster Signature Sheet", types: ["signature"], makeDefault: true });
   foundry.documents.collections.Items.registerSheet("slugblaster", SlugblasterGearSheet, { label: "Slugblaster Gear Sheet", types: ["gear"], makeDefault: true });

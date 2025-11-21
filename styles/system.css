@@ -183,7 +183,7 @@
   
   /** Compendium */
   /* Playbook */
-  &.playbook textarea, &.signatureDevice textarea, &.beat textarea, &.gear textarea { width: 100%; }
+  &.npc textarea, &.playbook textarea, &.signatureDevice textarea, &.beat textarea, &.gear textarea { width: 100%; }
 }
 .theme-dark .slugblaster {
   .fas:hover { color: #aaaad7; }

@@ -1,0 +1,23 @@
+<section>
+  <img
+      class="actor-img"
+      src="{{actor.img}}"
+      {{#if editable}}
+      data-action="editImage"
+      data-field="img"
+      {{/if}}
+      data-tooltip="{{actor.name}}"
+      alt="{{actor.name}}"
+      title="{{actor.name}}"
+      height="100" width="100"
+    >
+  <div>
+    <label for="name">{{ localize 'Slugblaster.Name' }}</label>
+    <input id="name" name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'Slugblaster.Actor.NamePlaceholder'}}" />
+  </div>
+   
+  <div>
+    <label for="description">{{ localize 'Slugblaster.Description' }}</label>
+    <textarea id="description" rows=6 name="system.description" placeholder="{{ localize 'Slugblaster.DescriptionPlaceholder' }}">{{item.system.description}}</textarea>
+  </div>
+</section>

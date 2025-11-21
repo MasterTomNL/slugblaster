@@ -346,3 +346,34 @@ export class SlugblasterSignatureSheet extends SlugblasterCoreSheet {
     await Item.create(item, { parent: this.actor });
   }
 }
+
+export class SlugblasterNPCSheet extends SlugblasterCoreSheet {
+  get template() {
+    return 'systems/slugblaster/template/npc-sheet.hbs';
+  }
+  
+  static PARTS = {
+    ...super.PARTS,
+      main: { template: 'systems/slugblaster/template/npc-sheet.hbs' }
+  }
+  
+  // default module window settings
+  static DEFAULT_OPTIONS = {
+    ...super.DEFAULT_OPTIONS,
+      form: {
+        submitOnChange: true,
+        closeOnSubmit: false,
+      },
+      classes: ['slugblaster', 'npc'],
+      position: {
+        width: 680, // 'auto'
+        height: 780, // 'auto'
+      },
+      window: {
+        icon: 'fas fa-user',
+        title: 'Slugblaster.NPC.Title',
+        resizable: true,
+        minimizable: true,
+      },
+  };
+}
