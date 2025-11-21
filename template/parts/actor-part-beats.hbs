@@ -2,7 +2,7 @@
   <h3>{{ localize beatName }}</h3>
   <ul>
     {{#each beats as |beat key|}}
-    <li class="{{#if beat.system.active }}activeBeat{{/if}} {{#if (or (eq ../editable false) (and (eq beat.system.active false) (lt ../system.style beat.system.styleCost)))}}disabled{{/if}}"">
+    <li class="{{#if beat.system.active }}activeBeat{{/if}} {{#if (and (eq ../isGM false) (or (eq ../editable false) (and (eq beat.system.active false) (lt ../system.style beat.system.styleCost))))}}disabled{{/if}}"">
       <input
         type="checkbox"
         name="items.{{beat._id}}.system.active"
