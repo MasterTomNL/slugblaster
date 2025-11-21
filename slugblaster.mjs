@@ -40,29 +40,20 @@ Hooks.on("init", () => {
   
   // template files
 	foundry.applications.handlebars.loadTemplates([
-    "systems/slugblaster/template/parts/beats.hbs",
-    "systems/slugblaster/template/parts/beatsNoLoad.hbs",
+    "systems/slugblaster/template/parts/part-dice.hbs",
+    "systems/slugblaster/template/parts/part-style.hbs",
+    "systems/slugblaster/template/parts/part-trouble.hbs",
     "systems/slugblaster/template/parts/beatsPlaybook.hbs",
-    "systems/slugblaster/template/parts/challenges.hbs",
-    "systems/slugblaster/template/parts/crew.hbs",
-    "systems/slugblaster/template/parts/crew-details.hbs",
-    "systems/slugblaster/template/parts/details.hbs",
-    "systems/slugblaster/template/parts/dicepool.hbs",
-    "systems/slugblaster/template/parts/downtime.hbs",
-    "systems/slugblaster/template/parts/factions.hbs",
-    "systems/slugblaster/template/parts/fame.hbs",
-    "systems/slugblaster/template/parts/gear.hbs",
-    "systems/slugblaster/template/parts/hype.hbs",
-    "systems/slugblaster/template/parts/legacy.hbs",
-    "systems/slugblaster/template/parts/notes.hbs",
-    "systems/slugblaster/template/parts/opportunities.hbs",
-    "systems/slugblaster/template/parts/runs.hbs",
-    "systems/slugblaster/template/parts/signature.hbs",
-    "systems/slugblaster/template/parts/special_trait.hbs",
-    "systems/slugblaster/template/parts/stash.hbs",
-    "systems/slugblaster/template/parts/style.hbs",
-		"systems/slugblaster/template/parts/traits.hbs",
-    "systems/slugblaster/template/parts/trouble.hbs"
+    "systems/slugblaster/template/parts/actor-part-beats.hbs",
+    "systems/slugblaster/template/parts/actor-part-details.hbs",
+    "systems/slugblaster/template/parts/actor-part-downtime.hbs",
+    "systems/slugblaster/template/parts/actor-part-hype.hbs",
+    "systems/slugblaster/template/parts/actor-part-stash.hbs",
+    "systems/slugblaster/template/parts/actor-part-special_trait.hbs",
+    "systems/slugblaster/template/parts/actor-part-opportunities.hbs",
+    "systems/slugblaster/template/parts/crew-part-challenges.hbs",
+    "systems/slugblaster/template/parts/crew-part-details.hbs",
+    "systems/slugblaster/template/parts/crew-part-runs.hbs",
 	]);
 });
 

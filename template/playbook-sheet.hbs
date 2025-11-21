@@ -1,27 +1,27 @@
-<form class="slugblaster-playbook-sheet {{cssClass}}" autocomplete="off">
-  <section>
+<section>
+  <section class="playbook-details">
     <div>
       <label for="name">{{ localize 'Slugblaster.Name' }}</label>
-      <input id="name" name="name" type="text" value="{{actor.name}}" class="sb-name-input" placeholder="{{ localize 'Slugblaster.Playbook.NamePlaceholder'}}" />
+      <input id="name" name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'Slugblaster.Playbook.NamePlaceholder'}}" />
     </div>
-    
+      
     <div class="flexcontainer">
       <div class="flex1">
         <label for="boosts">{{ localize 'Slugblaster.Boost' }}</label>
         <input id="boosts" name="system.boosts" type="number" value="{{actor.system.boosts}}" placeholder="{{ localize 'Slugblaster.Playbook.BoostPlaceholder'}}" />
       </div>
-    
+      
       <div class="flex1">
         <label for="kicks">{{ localize 'Slugblaster.Kick' }}</label>
         <input id="kicks" name="system.kicks" type="number" value="{{actor.system.kicks}}" placeholder="{{ localize 'Slugblaster.Playbook.KickPlaceholder'}}" />
       </div>
     </div>
-    
+      
     <div>
       <label for="styleBonus">{{ localize 'Slugblaster.Playbook.StyleBonus' }}</label>
       <input id="styleBonus" name="system.styleBonus" type="text" value="{{actor.system.styleBonus}}" placeholder="{{ localize 'Slugblaster.Playbook.StyleBonusPlaceholder'}}" />
     </div>
-    
+      
     <div>
       <label for="specialGear">{{ localize 'Slugblaster.Playbook.SpecialGear' }}</label>
       <input id="specialGear" name="system.specialGear" type="text" value="{{actor.system.specialGear}}" placeholder="{{ localize 'Slugblaster.Playbook.SpecialGearPlaceholder'}}" />
@@ -103,4 +103,4 @@
 
   {{> "systems/slugblaster/template/parts/beatsPlaybook.hbs" beatName="otherBeat" beats=otherBeats}}
 
-</form>
+</section>

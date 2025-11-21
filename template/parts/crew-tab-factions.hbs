@@ -1,0 +1,38 @@
+<section class="slugblasterFactions tab {{tabs.factions.id}} {{tabs.factions.cssClass}}" data-tab="{{tabs.factions.id}}" data-group="{{tabs.factions.group}}">
+  <h3>
+    {{ localize 'Slugblaster.Crew.Factions' }}
+    {{#if editable }}
+    <i class="fas fa-plus" data-action="addFaction"></i>
+    {{/if}}
+  </h3>
+
+  <ul class="factions">
+    {{#each standings as |standing key|}}
+    <li class="standingLevel flexrow {{ standing.name }} drop-zone" data-container-id="{{ standing.value }}">
+      <div class="standingsName flex1 drop-zone" data-container-id="{{ standing.value }}" title="{{ standing.desc }}">{{ standing.value }}: {{ localize standing.name }}</div>
+      <div class="flex draggable-container drop-zone" data-container-id="{{ standing.value }}">
+        <ul class="drop-zone" data-container-id="{{ standing.value }}">
+        {{#each factions as |faction key|}}
+        <li class="draggable" data-item-id="{{ faction._id }}">
+          <div class="static">
+            <span class="factionName">{{ faction.name }}</span>
+            {{#if ../../editable }}
+            <i data-action="editItem" title="{{ localize 'Slugblaster.Edit' }}" class="fas fa-edit"></i>
+            {{/if}}
+          </div>
+      
+          <div class="fluid">
+            <div class="flexcontainer">
+              <input name="items.{{faction._id}}.name" class="factionName flex2" type="text" value="{{faction.name}}" />
+              <i class="fas fa-save"  data-action="saveItem"   title="{{ localize 'Slugblaster.Save' }}"></i>
+              <i class="fas fa-trash" data-action="deleteItem" title="{{ localize 'Slugblaster.Delete' }}" data-item-id="{{faction._id}}"></i>
+            </div>
+          </div>
+        </li>
+        {{/each}}
+        </ul>
+      </div>
+    </li>
+    {{/each}}
+  </ul>
+</section>

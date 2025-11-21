@@ -1,115 +1,74 @@
-const { HandlebarsApplicationMixin } = foundry.applications.api
-const { ActorSheetV2 } = foundry.applications.sheets
-
-//export class SlugblasterCoreSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
-export class SlugblasterCoreSheet extends foundry.appv1.sheets.ActorSheet {
-  async _onAdd(event) {
-    event.preventDefault();
-    let type = $(event.currentTarget).data('type'); // item.type
-    let systemType = $(event.currentTarget).data('systemType'); // item.system.type
-    let parentId = $(event.currentTarget).data('parentId'); // item.system.parentId
-    const item = { name: game.i18n.localize(`Slugblaster.${systemType}Placeholder`), type: type, ['system.active']: true, ['system.type']: systemType };
-    if (type == 'faction') item['system.level'] = 0;
-    if (parentId) item.parentId = parentId; // assign parentId when it's defined
-    await Item.create(item, { parent: this.actor }); // create the item
-  }
-
-	activateListeners(html) {
-    super.activateListeners(html);
+export class SlugblasterCoreSheet extends foundry.applications.api.HandlebarsApplicationMixin(foundry.applications.sheets.ActorSheetV2) {
+  get title() { return `${this.actor.type}: ${this.actor.name}`; }
+  get canLoot() { return false; }
+  get isLootable() { return false; }
+  
+  static DEFAULT_OPTIONS = {
+    ...super.DEFAULT_OPTIONS,
+      form: {
+        closeOnSubmit: true,
+      },
+      actions: {
+        editImage: this.#editImage,
+        editItem: this.#editItem,
+        saveItem: this.#saveItem,
+        rollTable: this.#rollTable,
+        rollDice: this.#rollDice,
+        plusDice: this.#plusDice,
+        minusDice: this.#minusDice,
+        setAttribute: this.#setAttribute,
+        deleteItem: this.#deleteItem,
+      }
+  };
+  
+  async _prepareContext(options) {
+    const context = await super._prepareContext(options);
     
-    // delete item from actor
-    html.on('click', '.delete', this._onDelete.bind(this));
+    // use a safe clone of actor data
+    context.isGM = game.user.isGM;
+    context.actor = this.document;
+    context.system = this.actor.system;
+    context.editable = context.isGM || this.actor.isOwner;
+    context.items = this.actor.items;
     
-    // dicePool interactions
-    html.on('click', '.dicepoolPlus', this._onDicepoolPlus.bind(this));
-    html.on('click', '.dicepoolMinus', this._onDicepoolMinus.bind(this));
-    html.on('click', '.dicepoolRoll', this._onDicepoolRoll.bind(this));
+    return context;
   }
-
-  async _onDelete(event) {
-    let itemId = $(event.currentTarget).data('itemId');
-    let item = this.actor.items.get(itemId);
-    if (!item) return;
-    await item.delete();
+  
+  static async #setAttribute(event, target) {
+    const data = target.dataset;
+    if (data.itemId)
+      await this.setItemSystemValue(data.itemId, data.field, data.value);
+    else
+      await this.setSystemValue(data.field, data.value);
   }
-
-  async _onDicepoolPlus(event) {
-    let div = $(event.currentTarget).parents('div.rolling');
-    let type = div.data('type');
-    await this.actor.update({['system.'+type]: this.actor.system[type] +1 });
-  }
-  async _onDicepoolMinus(event) {
-    let div = $(event.currentTarget).parents('div.rolling');
-    let type = div.data('type');
-    await this.actor.update({['system.'+type]: this.actor.system[type] - 1 });
-  }
-  async _onDicepoolRoll(event) {
-    let div = $(event.currentTarget).parents('div.rolling');
-    let type = div.data('type');
-    let formula = this.actor.system[type] + 'd6kh'; // (kh = keep highest)
-    
-    // add conditional +1's
-    let count = 0;
-    $(div).find('.conditional').each(function (i) {
-      if ($(this).is(':checked')) count++;
+  
+  static async #editImage(event, target) {
+    const field = target.dataset.field || "img";
+    let current; let object;
+    let itemId = target.dataset.itemId;
+    if (itemId)
+      object = this.actor.items.get(itemId);
+    else
+      object = this.actor;  
+    current = foundry.utils.getProperty(object, field);
+    const fp = new foundry.applications.apps.FilePicker({
+      type: "image",
+      current: current,
+      callback: (path) => object.update({ [field]: path })
     });
-    if (count > 0) formula += '+'+count;
-    
-    // roll it!
-    let roll = new Roll(formula, this.actor.getRollData());
-    if (type=='challengesPool') {
-      // Challenges 1
-      let table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.P8uleIWeJ35rQyrz");
-      await table.draw({ roll: roll });
-      // Challenges 2
-      table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.EYYxINLHCQRpMg8F");
-      await table.draw({ roll: roll });
-    }
-    else if (type == 'opportunitiesPool') {
-      // Opportunities 1
-      let table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.N8u3b8CR1LcYO7Vi");
-      await table.draw({roll: roll});
-      // Opportunities 2
-      table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.2C9VsTKDo9UMZZie");
-      await table.draw({roll: roll});
-    } else if (type == 'runsPool') {
-      // Runs
-      let table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.yIm5j0p9Y7NvzZzT");
-      await table.draw({roll: roll});
-    } else {
-      await roll.toMessage({
-        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-        flavor: 'Rolling...',
-        rollMode: game.settings.get('core', 'rollMode'),
-      });
-    }
-    // roll
-    await this.actor.update({['system.'+type]: 1 });
-  }
-
-  
-  _onEdit(event) {
-    let li = $(event.currentTarget).parents('li');
-    li.find('.not-editable').addClass("hidden");
-    li.find('.editable').removeClass("hidden");
+    fp.render(true);
   }
   
-  async _onValueChange(event) {
+  static #editItem(event, target) {
+    target.closest('li').classList.add('editable');
+  }
+  static #saveItem(event, target) {
+    target.closest('li').classList.remove('editable');
+  }
+  
+  static async #rollTable(event, target) {
     event.preventDefault();
-    // get closest li parent for details
-    let li = $(event.currentTarget).parents('.valChangeParent');
-    let itemId = li.data('itemId');
-    // process value
-    let field = $(event.currentTarget);
-    let newVal = field.val();
-    let valName = field.data('name');
-    // update the item
-    let item = this.actor.items.get(itemId);
-    await item.update({ [valName]: newVal });
-  }
-  
-  async _onRollableTable(event) {
-    const action = $(event.currentTarget).data('action');
+    const action = target.dataset.value;
     let table; let result; let value; let type; let curStyle; let curTrouble;
     
     switch (action) {
@@ -273,5 +232,131 @@ export class SlugblasterCoreSheet extends foundry.appv1.sheets.ActorSheet {
     value = curVal ? curVal + ", " + value : value;
     await this.actor.update({[`system.${action}`]: value });
   }
+
+  // adding items (to parent)
+  async addItem(type, parentId) {
+    const item = {
+      name: game.i18n.localize(`Slugblaster.${type}Placeholder`),
+      type: type,
+      ['system.active']: true,
+      ['system.custom']: true,
+    };
+    // set default level for faction
+    if (type == 'faction') item['system.level'] = 0;
+    // assign parentId when it's defined
+    if (parentId) item['system.parentId'] = parentId;
+    // create the item
+    await Item.create(item, { parent: this.actor });
+  }
+
+  static async #deleteItem(event, target) {
+    let itemId = target.dataset.itemId;
+    let item = this.actor.items.get(itemId);
+    if (!item) return;
+    await item.delete();
+  }
+
+  static async #plusDice(event, target) {
+    const type = target.dataset.type;
+    await this.actor.update({['system.'+type]: this.actor.system[type] + 1 });
+  }
+  static async #minusDice(event, target) {
+    const type = target.dataset.type;
+    await this.actor.update({['system.'+type]: this.actor.system[type] - 1 });
+  }
+  static async #rollDice(event, target) {
+    let type = target.dataset.type;
+    let formula = this.actor.system[type] + 'd6kh'; // (kh = keep highest)
+    
+    // add conditional +1's
+    let count = 0;
+    const section = target.closest('section');
+    section.querySelectorAll('.conditional').forEach((c) => { if ($(c).is(':checked')) count++; });
+    if (count > 0) formula += '+'+count;
+    
+    // roll it!
+    let roll = new Roll(formula, this.actor.getRollData());
+    if (type=='challengesPool') {
+      // Challenges 1
+      let table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.P8uleIWeJ35rQyrz");
+      await table.draw({ roll: roll });
+      // Challenges 2
+      table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.EYYxINLHCQRpMg8F");
+      await table.draw({ roll: roll });
+    }
+    else if (type == 'opportunitiesPool') {
+      // Opportunities 1
+      let table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.N8u3b8CR1LcYO7Vi");
+      await table.draw({roll: roll});
+      // Opportunities 2
+      table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.2C9VsTKDo9UMZZie");
+      await table.draw({roll: roll});
+    } else if (type == 'runsPool') {
+      // Runs
+      let table = await fromUuid("Compendium.slugblaster.rollable-tables.RollTable.yIm5j0p9Y7NvzZzT");
+      await table.draw({roll: roll});
+    } else {
+      await roll.toMessage({
+        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+        flavor: 'Rolling...',
+        rollMode: game.settings.get('core', 'rollMode'),
+      });
+    }
+    // roll
+    await this.actor.update({['system.'+type]: 1 });
+  }
   
+  async setSystemValue(field, value) {
+    if (Number(this.actor.system[field]) == Number(value)) value = 0;
+    await this.actor.update({ ['system.'+field]: Number(value) });
+  }
+  
+  async setItemSystemValue(itemId, field, value) {
+    let item = this.actor.items.get(itemId);
+    if (Number(item.system[field]) == Number(value)) value = 0;
+    await item.update({ ['system.'+field]: Number(value) });
+  }
+  
+  /** @override */
+  _processFormData(event, form, formData) {
+    // Extract the raw form data object BEFORE validation strips out items
+    const expanded = foundry.utils.expandObject(formData.object)
+
+    // Handle items separately if they exist
+    if (expanded.items) {
+      // Store for later processing
+      this._pendingItemUpdates = Object.entries(expanded.items).map(([id, itemData]) => ({
+        _id: id,
+        ...itemData
+      }))
+
+      // Remove from the expanded object
+      delete expanded.items
+
+      // Flatten and replace the existing formData.object properties
+      const flattened = foundry.utils.flattenObject(expanded)
+
+      // Clear existing object and repopulate (since we can't reassign)
+      for (const key in formData.object) {
+        delete formData.object[key]
+      }
+      Object.assign(formData.object, flattened)
+    }
+
+    // Call parent with modified formData
+    return super._processFormData(event, form, formData)
+  }
+
+  /** @override */
+  async _processSubmitData(event, form, formData) {
+    // Process the actor data normally
+    const result = await super._processSubmitData(event, form, formData)
+
+    // Now handle any pending item updates
+    if (this._pendingItemUpdates?.length > 0) {
+      await this.document.updateEmbeddedDocuments('Item', this._pendingItemUpdates)
+      delete this._pendingItemUpdates // Clean up
+    }
+    return result
+  }
 }

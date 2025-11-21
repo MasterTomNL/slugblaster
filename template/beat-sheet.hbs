@@ -1,35 +1,33 @@
-<form class="slugblasterBeatSheet {{cssClass}}" autocomplete="off">
-  <section>
-    <div>
-      <label for="name">{{ localize 'Slugblaster.Name' }}</label>
-      <input id="name" name="name" type="text" value="{{item.name}}" placeholder="{{ localize 'Slugblaster.NamePlaceholder'}}" />
-    </div>
-    <div>
-      <label for="type">{{ localize 'Slugblaster.Type' }}</label>
-      <input type="hidden" name="type" value="{{ item.type }}" />
-      <select name="system.type" value="{{ item.system.type }}">
-        {{selectOptions beatTypes selected=item.system.type localize=true}}
-      </select>
-    </div>
+<section>
+  <div>
+    <label for="name">{{ localize 'Slugblaster.Name' }}</label>
+    <input id="name" name="name" type="text" value="{{item.name}}" placeholder="{{ localize 'Slugblaster.NamePlaceholder'}}" />
+  </div>
+  <div>
+    <label for="type">{{ localize 'Slugblaster.Type' }}</label>
+    <input type="hidden" name="type" value="{{ item.type }}" />
+    <select name="system.type" value="{{ item.system.type }}">
+      {{selectOptions beatTypes selected=item.system.type localize=true}}
+    </select>
+  </div>
+  
+  <div>
+    <label for="description">{{ localize 'Slugblaster.Description' }}</label>
+    <textarea name="system.description">{{ item.system.description }}</textarea>
+  </div>
+  
+  <div>
+    <label for="reward">{{ localize 'Slugblaster.Reward' }}</label>
+    <input id="reward" name="system.reward" type="text" value="{{item.system.reward}}" />
+  </div>
+  
+  <div class="sb_itemCost">
+    <label style="line-height: 26px;">{{ localize 'Slugblaster.Cost' }}:</label>
     
-    <div>
-      <label for="description">{{ localize 'Slugblaster.Description' }}</label>
-      <textarea name="system.description">{{ item.system.description }}</textarea>
-    </div>
+    <input id="troubleCost" type="number" name="system.troubleCost" value="{{item.system.troubleCost}}" title="{{ localize 'Slugblaster.Trouble' }}" />
+    <label for="troubleCost"><i class="icon icon-trouble active" title="{{ localize 'Slugblaster.Trouble' }}"></i></label>
     
-    <div>
-      <label for="reward">{{ localize 'Slugblaster.Reward' }}</label>
-      <input id="reward" name="system.reward" type="text" value="{{item.system.reward}}" />
-    </div>
-    
-    <div class="sb_itemCost">
-      <label style="line-height: 26px;">{{ localize 'Slugblaster.Cost' }}:</label>
-      
-      <input id="troubleCost" type="number" name="system.troubleCost" value="{{item.system.troubleCost}}" title="{{ localize 'Slugblaster.Trouble' }}" />
-      <label for="troubleCost"><i class="icon icon-trouble active" title="{{ localize 'Slugblaster.Trouble' }}"></i></label>
-      
-      <input id="styleCost" type="number" name="system.styleCost" value="{{item.system.styleCost}}" title="{{ localize 'Slugblaster.Style' }}" />
-      <label for="styleCost"><i class="icon icon-style active" title="{{ localize 'Slugblaster.Style' }}"></i></label>
-    </div>
-  </section>
-</form>
+    <input id="styleCost" type="number" name="system.styleCost" value="{{item.system.styleCost}}" title="{{ localize 'Slugblaster.Style' }}" />
+    <label for="styleCost"><i class="icon icon-style active" title="{{ localize 'Slugblaster.Style' }}"></i></label>
+  </div>
+</section>

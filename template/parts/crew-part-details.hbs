@@ -1,0 +1,45 @@
+<section class="crew-details flexcontainer">
+  <div class="w40">
+    <img
+      class="actor-img flex0"
+      src="{{actor.img}}"
+      {{#if editable}}
+      data-action="editImage"
+      data-field="img"
+      {{/if}}
+      data-tooltip="{{actor.name}}"
+      alt="{{actor.name}}"
+      title="{{actor.name}}"
+      height="100" width="100"
+    >
+  </div>
+  <div class="crew-details w60">
+    <label for="name">
+      {{ localize 'Slugblaster.Crew.Name' }}
+      {{#if editable }}
+      <i class="icon icon-dice" title="{{ localize 'Slugblaster.Randomize' }}" data-action="rollTable" data-value="crew"></i>
+      {{/if}}
+    </label>
+    <input id="name" name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'Slugblaster.Crew.NamePlaceholder'}}" />
+    
+    <div>
+      <label for="brands">
+        {{ localize 'Slugblaster.Crew.Brands' }}
+        {{#if editable }}
+        <i class="icon icon-dice" title="{{ localize 'Slugblaster.Randomize' }}" data-action="rollTable" data-value="brands"></i>
+        {{/if}}
+      </label>
+      <input id="brands" type="text" name="system.brands" value="{{actor.system.brands}}" placeholder="{{ localize 'Slugblaster.Crew.BrandsPlaceholder' }}" />
+    </div>
+    
+    <div>
+      <label for="hangouts">
+        {{ localize 'Slugblaster.Crew.Hangouts' }}
+        {{#if editable }}
+        <i class="icon icon-dice" title="{{ localize 'Slugblaster.Randomize' }}" data-action="rollTable" data-value="hangouts"></i>
+        {{/if}}
+      </label>
+      <input id="hangouts" type="text" name="system.hangouts" value="{{actor.system.hangouts}}" placeholder="{{ localize 'Slugblaster.Crew.HangoutsPlaceholder' }}" />
+    </div>
+  </div>
+</section>

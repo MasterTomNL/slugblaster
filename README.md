@@ -52,3 +52,4 @@ With Mikey's permission I've added a bunch of information from the official Slug
 * 0.8.6 - Traits/Beats now cost Style or Trouble
 * 0.8.7 - Added Fame rewards to Fame sheet
 * 0.9 - Crew Fame and perks revamped and now costs (crew) style as well
+* 0.9.5 - Complete restructure of the component (now Foundry APPv2 compliant)

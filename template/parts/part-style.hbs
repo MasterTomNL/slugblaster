@@ -1,0 +1,15 @@
+<section class="slugblasterStyle">
+  {{#if showHeader}}
+  <h2>{{ localize 'Slugblaster.Style' }}</h2>
+  {{/if}}
+	<div class="attributes" data-value="{{actor.system.style}}" data-key="style">
+    {{#numLoop styleMax}}
+			{{{my_icon "style" this ../actor.system.style null }}}
+    {{/numLoop}}
+  </div>
+  {{#if this.actor.system.styleBonus }}
+  <span class="styleBonus" data-action="addStyle">
+    {{ localize 'Slugblaster.StyleBonus' this=actor.system.styleBonus }}
+  </span>
+  {{/if}}
+</section>

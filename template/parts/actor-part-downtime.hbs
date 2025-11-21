@@ -1,0 +1,11 @@
+<div class="slugblasterDowntime">
+  <h2>{{ localize 'Slugblaster.Actor.Dicepool.Downtime' }}</h2>
+  
+	<a class="button {{#if (lt actor.system.style 2) }}disabled{{/if}}" title="{{ localize 'Slugblaster.Actor.Dicepool.PortalDiscovery' }}" data-action="rollTable" data-value="portal_discovery">
+    {{{my_icon "style active" null }}}{{{my_icon "style active" null }}} {{ localize 'Slugblaster.Actor.Dicepool.PortalDiscovery' }}
+  </a>
+  <hr>
+  <a class="button {{#if (lt actor.system.style 1) }}disabled{{/if}}" title="{{ localize 'Slugblaster.Actor.Dicepool.BeingGood' }}" data-action="rollTable" data-value="being_good">
+    {{{my_icon "style active" null }}} {{ localize 'Slugblaster.Actor.Dicepool.BeingGood' }}
+  </a>
+</div>

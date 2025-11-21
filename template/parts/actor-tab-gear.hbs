@@ -1,0 +1,62 @@
+<section class="tab {{tabs.gear.id}} {{tabs.gear.cssClass}}" data-tab="{{tabs.gear.id}}" data-group="{{tabs.gear.group}}">
+  <div class="slugblasterBoardAndRaygun flexcontainer {{cssClass}}">
+    <img class="profile-img" src="{{actor.system.board_img}}" data-action="editImage" data-field="system.board_img" height="100" width="100" />
+    <div class="flex1">
+      <div>
+        <label for="hoverboard">{{ localize 'Slugblaster.Actor.Gear.Board' }}</label>
+        <input id="hoverboard" type="text" name="system.hoverboard" value="{{actor.system.hoverboard}}" placeholder="{{ localize 'Slugblaster.Actor.Gear.BoardPlaceholder' }}" />
+        {{#if editable}}
+        <span class="rollableTable" data-action="rollTable" data-value="hoverboard" title="{{ localize 'SB.randomize' }}"><i class="icon icon-dice"></i></span>
+        {{/if}}
+      </div>
+      <div>
+        <label for="raygun">{{ localize 'Slugblaster.Actor.Gear.Raygun' }}</label>
+        <input id="raygun" type="text" name="system.raygun" value="{{actor.system.raygun}}" placeholder="{{ localize 'Slugblaster.Actor.Gear.RaygunPlaceholder' }}" />
+        {{#if editable}}
+        <span class="rollableTable" data-action="rollTable" data-value="raygun" title="{{ localize 'Slugblaster.Randomize' }}"><i class="icon icon-dice"></i></span>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+  <div class="slugblasterGear">
+    <h3 {{#if editable}}data-action="addGear"{{/if}}>
+      {{ localize 'Slugblaster.Actor.Gear.TabName' }}
+      {{#if editable}}<i class="item-control fas fa-plus"></i>{{/if}}
+    </h3>
+    <ul>
+      {{#each gear as |item key|}}
+      <li class="itemRow" data-item-id="{{item._id}}" data-type="gear" data-sType="gear">
+        <div class="{{ isUnlocked item.system.active }} static">
+          <span class="itemName">{{ item.name }}</span>
+          {{#unless item.system.active }}
+          <span class="gearCosts {{ hideOrDisable ../actor.system item.system }}">
+            <i title="{{ localize 'Slugblaster.Actor.Gear.Craft'}}" data-action="craftItem" data-item-id="{{item._id}}" class="fas fa-hammer install"></i>
+            (
+            {{#numLoop item.system.coil }}{{{my_icon "coil" 'Slugbaster.Coil' 0}}}{{/numLoop}}
+            {{#numLoop item.system.disc }}{{{my_icon "disc" 'Slugblaster.Disc' 0}}}{{/numLoop}}
+            {{#numLoop item.system.gem }}{{{my_icon "gem" 'Slugblaster.Gem' 0}}}{{/numLoop}}
+            {{#numLoop item.system.lens }}{{{my_icon "lens" 'Slugblaster.Lens' 0}}}{{/numLoop}}
+            )
+          </span>
+          {{/unless}}
+          {{#if ../editable }}
+          <i data-action="editItem" title="{{ localize 'Slugblaster.Edit' }}" class="fas fa-edit"></i>
+          {{/if}}
+          <span class="itemDesc">
+            {{ item.system.description }}
+          </span>
+        </div>
+        <div class="fluid">
+          <div class="flexcontainer">
+            <input type="checkbox" name="items.{{item._id}}.system.active" {{ checked item.system.active }}>
+            <input type="text" name="items.{{item._id}}.name" value="{{item.name}}" placeholder="{{ localize 'Slugblaster.Actor.Gear.ItemNamePlaceholder' }}" />
+            <i class="fas fa-save"  data-action="saveItem"   title="{{ localize 'Slugblaster.Save' }}"></i>
+            <i class="fas fa-trash" data-action="deleteItem" title="{{ localize 'Slugblaster.Delete' }}" data-item-id="{{item._id}}"></i>
+          </div>
+          <textarea name="items.{{item._id}}.system.description" placeholder="{{ localize 'Slugblaster.Actor.Gear.ItemDescPlaceholder' }}">{{item.system.description}}</textarea>
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</section>

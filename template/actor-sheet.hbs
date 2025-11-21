@@ -1,63 +1,9 @@
-<form class="slugblaster-actor-sheet {{cssClass}} {{actor.type}}" autocomplete="off">
-  <header>
-    <!-- AVATARS + details -->
-    {{> "systems/slugblaster/template/parts/details.hbs" }}
+<header>
+  <!-- AVATARS + details -->
+  {{> "systems/slugblaster/template/parts/actor-part-details.hbs" }}
     
-    <div class="flexcontainer">
-      {{> "systems/slugblaster/template/parts/style.hbs" styleMax=8}}
-      {{> "systems/slugblaster/template/parts/trouble.hbs" }}
-    </div>
-  </header>
-  
-  {{!-- Character Sheet Navigation --}}
-  <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="navitem" data-tab="dicepool">{{ localize "Slugblaster.Actor.Dicepool.TabName" }}</a>
-    <a class="navitem" data-tab="gear">{{ localize "Slugblaster.Actor.Gear.TabName" }}</a>
-    <a class="navitem" data-tab="signature">{{ localize "Slugblaster.Actor.SignatureDevice.TabName" }}</a>
-    <a class="navitem" data-tab="legacy">{{ localize "Slugblaster.Actor.LegacyDoomSlam.TabName" }}</a>
-    <a class="navitem" data-tab="traits">{{ localize "Slugblaster.Actor.Traits.TabName" }}</a>
-    <a class="navitem" data-tab="notes">{{ localize "Slugblaster.Actor.Notes.TabName" }}</a>
-  </nav>
-  
-  <section class="sheet-body">
-    <!-- DICEPOOL -->
-    <div class="tab dicepool" data-group="primary" data-tab="dicepool">
-      {{> "systems/slugblaster/template/parts/hype.hbs" boostMax=actor.system.boosts kickMax=actor.system.kicks }}
-      <div class="flexcontainer">
-        <div class="flex1">
-          {{> "systems/slugblaster/template/parts/dicepool.hbs" }}
-          {{> "systems/slugblaster/template/parts/downtime.hbs" }}
-        </div>
-        <div class="flex1">
-          {{> "systems/slugblaster/template/parts/opportunities.hbs" }}
-        </div>
-      </div>
-    </div>
-    
-    <!-- GEAR -->
-    <div class="tab gear" data-group="primary" data-tab="gear">
-      {{> "systems/slugblaster/template/parts/gear.hbs" }}
-    </div>
-    
-    <!-- SIGNATURE -->
-    <div class="tab signature" data-group="primary" data-tab="signature">
-      {{> "systems/slugblaster/template/parts/stash.hbs" }}
-      {{> "systems/slugblaster/template/parts/signature.hbs" }}
-    </div>
-    
-    <!-- LEGACY -->
-    <div class="tab legacy" data-group="primary" data-tab="legacy">
-      {{> "systems/slugblaster/template/parts/legacy.hbs" }}
-    </div>
-    
-    <!-- TRAITS -->
-    <div class="tab traits" data-group="primary" data-tab="traits">
-      {{> "systems/slugblaster/template/parts/traits.hbs" }}
-    </div>
-    
-    <!-- NOTES -->
-    <div class="tab notes" data-group="primary" data-tab="notes">
-      {{> "systems/slugblaster/template/parts/notes.hbs" }}
-    </div>
-  </section>
-</form>
+  <div class="flexcontainer">
+    {{> "systems/slugblaster/template/parts/part-style.hbs" styleMax=8 showHeader=true}}
+    {{> "systems/slugblaster/template/parts/part-trouble.hbs" }}
+  </div>
+</header>

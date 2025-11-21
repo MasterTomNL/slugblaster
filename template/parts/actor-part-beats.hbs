@@ -1,0 +1,31 @@
+<section class="slugblasterBeats">
+  <h3>{{ localize beatName }}</h3>
+  <ul>
+    {{#each beats as |beat key|}}
+    <li class="{{#if beat.system.active }}activeBeat{{/if}} {{#if (or (eq ../editable false) (and (eq beat.system.active false) (lt ../system.style beat.system.styleCost)))}}disabled{{/if}}"">
+      <input
+        type="checkbox"
+        name="items.{{beat._id}}.system.active"
+        {{checked beat.system.active}}
+        data-style="{{beat.system.styleCost}}"
+        data-trouble="{{beat.system.troubleCost}}"
+        data-action="payBeatCost"
+      >
+      <span class="beatName">{{ beat.name }}</span>
+      {{#if ../isGM }}
+      <i class="fas fa-trash" title="{{ localize 'Slugblaster.Delete' }}" data-action="deleteItem" data-item-id="{{beat._id}}"></i>
+      {{/if}}
+      {{#if (or (gt beat.system.styleCost 0) (gt beat.system.troubleCost 0)) }}
+        <span class="beatCosts">(
+        {{#numLoop beat.system.styleCost}}{{{my_icon "style active" 'SB.style' 0}}}{{/numLoop}}
+        {{#numLoop beat.system.troubleCost}}{{{my_icon "trouble active" 'SB.trouble' 0}}}{{/numLoop}}
+        )</span>
+      {{/if}}
+      {{#if beat.system.reward}}
+      <span class="beatReward">{{ beat.system.reward }}</span>
+      {{/if}}
+      <p class="beatDesc">{{ beat.system.description }}</p>
+    </li>
+    {{/each}}
+  </ul>
+</section>

@@ -1,0 +1,23 @@
+<section class="slugblasterStash">
+  <input id="stashCoil" type="number" name="system.coil" value="{{actor.system.coil}}" title="{{ localize 'Slugblaster.Coil' }}" />
+  <label for="stashCoil">{{{my_icon "coil" null}}}</label>
+  
+  <input id="stashDisc" type="number" name="system.disc" value="{{actor.system.disc}}" title="{{ localize 'Slugblaster.Disc' }}" />
+  <label for="stashDisc">{{{my_icon "disc" null}}}</label>
+  
+  <input id="stashGem" type="number" name="system.gem" value="{{actor.system.gem}}" title="{{ localize 'Slugblaster.Gem' }}" />
+  <label for="stashGem">{{{my_icon "gem" null}}}</label>
+  
+  <input id="stashLens" type="number" name="system.lens" value="{{actor.system.lens}}" title="{{ localize 'Slugblaster.Lens' }}" />
+  <label for="stashLens">{{{my_icon "lens" null}}}</label>
+  
+  {{#if editable }}
+  <a class="rollableTable {{#if (and (lt actor.system.style 1) (eq actor.system.styleFree false)) }}disabled{{/if}}" data-action="rollTable" data-value="getComponents">
+    {{#if actor.system.styleFree }}
+      <b>({{ localize 'Slugblaster.Actor.SignatureDevice.Free' }})</b>
+    {{else}}
+      {{{my_icon "style active" null }}}
+    {{/if}} => {{ localize 'Slugblaster.Actor.SignatureDevice.FindComponents' }}
+  </a>
+  {{/if}}
+</section>

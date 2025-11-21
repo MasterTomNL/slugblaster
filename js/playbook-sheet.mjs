@@ -5,17 +5,14 @@ export class SlugblasterPlaybookSheet extends SlugblasterCoreSheet {
     return 'systems/slugblaster/template/playbook-sheet.hbs';
   }
   
-  /** @override */
-  async getData() {
-    const context = await super.getData();
-
-    // Prepare scoundrel data and items.
-    this._prepareItems(context);
-
-    return context;
+  static PARTS = {
+    ...super.PARTS,
+      main: { template: 'systems/slugblaster/template/playbook-sheet.hbs' },
   }
   
-  _prepareItems(context) {
+  async _prepareContext(options) {
+    const context = await super._prepareContext(options);
+    
     // get traits and beats from items
     let angstBeats = [];
     let crewBeats = [];
@@ -47,28 +44,42 @@ export class SlugblasterPlaybookSheet extends SlugblasterCoreSheet {
     context.playbookBeats = playbookBeats;
     context.traits = traits;
     context.traitBeats = traitBeats;
-  }
-  
-  activateListeners(html) {
-		super.activateListeners(html);
     
-    // Add Trait / BeatArc / Beat
-		html.on('click', '.addBtn', this._onAdd.bind(this));
-    
-    // save changes in traits, beatArcs and beats
-    html.on('change', '.valChange', this._onValueChange.bind(this));
+    return context;
   }
   
   // default module window settings
-  static get defaultOptions() {
-    const options = super.defaultOptions;
-    // sheet window options
-    foundry.utils.mergeObject(options, {
-      classes: ["slugblaster", "sheet", "playbook"],
-      width: 640,
-      height: 720
-    });
-    return options;
+  static DEFAULT_OPTIONS = {
+    ...super.DEFAULT_OPTIONS,
+      form: {
+        submitOnChange: true,
+        closeOnSubmit: false,
+      },
+      classes: ['slugblaster', 'playbook'],
+      position: {
+        width: 680, // 'auto'
+        height: 780, // 'auto'
+      },
+      window: {
+        icon: 'fas fa-user',
+        title: 'Slugblaster.Playbook.Title',
+        resizable: true,
+        minimizable: true,
+      },
+      actions: {
+        addBeat: this.#addBeat,
+      }
+  };
+  
+  static async #addBeat(event, target) {
+    const type = target.dataset.type;
+    const item = {
+      name: game.i18n.localize(`Slugblaster.${type}Placeholder`),
+      type: 'beat',
+      ['system.type']: type
+    };
+    // create the item
+    await Item.create(item, { parent: this.actor });
   }
   
   async _onDropItem(event, data) {

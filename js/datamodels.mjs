@@ -48,8 +48,8 @@ export class SlugblasterActorData extends foundry.abstract.TypeDataModel {
 export class SlugblasterSignatureData extends foundry.abstract.TypeDataModel {
   static defineSchema() {
     return {
-      boosts: new NumberField({ required: true, integer: true, min: -1, max: 6, initial: 0 }),
-      kicks: new NumberField({ required: true, integer: true, min: -1, max: 6, initial: 0 }),
+      boosts: new NumberField({ required: true, integer: true, min: 0, max: 6, initial: 0 }),
+      kicks: new NumberField({ required: true, integer: true, min: 0, max: 6, initial: 0 }),
       look: new StringField(),
       description: new HTMLField(),
       effect: new HTMLField(),
@@ -78,6 +78,8 @@ export class SlugblasterGearData extends foundry.abstract.TypeDataModel {
       type: new StringField(),
       description: new HTMLField(),
       parentId: new StringField(),
+      look: new StringField(),
+      custom: new BooleanField(),
       boosts: new NumberField({ required: true, integer: true, min: -1, max: 5, initial: 0 }),
       kicks: new NumberField({ required: true, integer: true, min: -1, max: 5, initial: 0 }),
       coil: new NumberField({ required: true, integer: true, min: 0, max: 5, initial: 0 }),

@@ -1,0 +1,13 @@
+<section class="tab {{tabs.notes.id}} {{tabs.notes.cssClass}}" data-tab="{{tabs.notes.id}}" data-group="{{tabs.notes.group}}">
+  {{#if editable }}
+    <prose-mirror
+      name="system.notes"
+      editable="{{editable}}"
+      toggled="false"
+      value="{{actor.system.notes}}">
+      {{{actor.system.notes}}}
+    </prose-mirror>
+  {{else}}
+    {{{actor.system.notes}}}
+  {{/if}}
+</section>

@@ -1,15 +1,115 @@
 import { SlugblasterCoreSheet } from "./slugblaster-core-sheet.mjs"; // methods to add, delete and/or change items
+const { DragDrop } = foundry.applications.ux
+
 export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
+  #dragDrop
   get template() {
     return 'systems/slugblaster/template/crew-sheet.hbs';
   }
   
-  /** @override */
-  async getData() {
-    const context = await super.getData();
+  static TABS = {
+    crew: {
+      tabs: [
+        { group: 'crew', id: 'factions', label: 'Slugblaster.Crew.Factions' },
+        { group: 'crew', id: 'fame',     label: 'Slugblaster.Crew.Fame' },
+        { group: 'crew', id: 'dicepool', label: 'Slugblaster.Dicepool' },
+        { group: 'crew', id: 'notes',    label: 'Slugblaster.Notes' }
+      ],
+      initial: 'factions'
+    }
+  }
+  
+  static PARTS = {
+    ...super.PARTS,
+      main: { template: 'systems/slugblaster/template/crew-sheet.hbs' },
+      fractures: { template: 'systems/slugblaster/template/parts/crew-part-fractures.hbs' },
+      tabs: { template: 'systems/slugblaster/template/parts/crew-tabs.hbs' },
+      factions: { template: 'systems/slugblaster/template/parts/crew-tab-factions.hbs' },
+      fame: { template: 'systems/slugblaster/template/parts/crew-tab-fame.hbs' },
+      dicepool: { template: 'systems/slugblaster/template/parts/crew-tab-dicepool.hbs' },
+      notes: { template: 'systems/slugblaster/template/parts/tab-notes.hbs' },
+  }
+  
+  // default module window settings
+  static DEFAULT_OPTIONS = {
+    ...super.DEFAULT_OPTIONS,
+      form: {
+        submitOnChange: true,
+        closeOnSubmit: false,
+      },
+      classes: ['slugblaster', 'crew'],
+      position: {
+        width: 640, // 'auto'
+        height: 780, // 'auto'
+      },
+      window: {
+        icon: 'fas fa-user',
+        title: 'Slugblaster.Crew.Title',
+        resizable: true,
+        minimizable: true,
+      },
+      actions: {
+        addFaction: this.#addFaction,
+        prevFame: this.#prevFame,
+        nextFame: this.#nextFame,
+        unlockPerk: this.#unlockPerk
+      },
+      dragDrop: [{
+        dragSelector: '.draggable',
+        dropSelector: '.drop-zone'
+      }]
+  };
+  
+  constructor(options = {}) {
+    super(options)
+    this.#dragDrop = this.#createDragDropHandlers()
+  }
+  
+  #createDragDropHandlers() {
+    return this.options.dragDrop.map((d) => {
+      d.permissions = {
+        //dragstart: this._canDragStart.bind(this),
+        //drop: this._canDragDrop.bind(this)
+      }
+      d.callbacks = {
+        dragstart: this._onDragStart.bind(this),
+        //dragover: this._onDragOver.bind(this),
+        drop: this._onDrop.bind(this)
+      }
+      return new DragDrop(d)
+    })
+  }
+  
+  _onDragStart(event) {
+    const itemId = event.target.dataset.itemId;
+    console.log('_ondragStart',itemId, event);
+    event.dataTransfer.setData('itemId', itemId);
+  }
+  
+  _onDrop(event) {
+    event.preventDefault();
+    const itemId = event.dataTransfer.getData('itemId');
+    let item = this.actor.items.get(itemId);
+    let levelId = event.target.dataset.containerId;
+    item.update({ ['system.level']: levelId });
+  }
+  
+  static async #addFaction(event, target) {
+    this.addItem('faction', null);
+  }
+  
+  async _prepareContext(options) {
+    const context = await super._prepareContext(options);
     
-    const fameLevel = context.data.system.fame_level;
+    // use a safe clone of actor data
+    context.isGM = game.user.isGM;
+    context.actor = this.document;
+    context.system = this.actor.system;
+    context.editable = context.isGM || this.actor.isOwner;
+    // set current fame level
+    const fameLevel = context.system.fame_level;
     
+    // fame levels
     context.fame = [
       { 'name': 'Nobodies' },
       { 'name': 'Up & Comers', 'cost': 5 },
@@ -17,6 +117,8 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
       { 'name': 'Major Players', 'cost': 9 },
       { 'name': 'Rising Stars', 'cost': 9 },
       { 'name': 'Legends', 'cost': 11 }];
+    // set next level style cost
+    context.nextLevelStyleCost = fameLevel < 5 ? context.fame[fameLevel+1].cost : 0;
     
     context.standings = [
       { 'name': 'ally', 'value': '+3', 'factions':[], 'desc': 'Ride or Die. Should trigger a perk or event, such as Diehard Fans, Collab, or Swag.'},
@@ -126,7 +228,7 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
     
     //
     context.unlocked = [];
-    let fame_perks = context.data.system.fame_perks;
+    let fame_perks = context.system.fame_perks;
     let unlocks = fame_perks ? fame_perks.split(",") : [];
     context.perks.forEach((p, index) => {
       p.unlocked = false;
@@ -137,12 +239,18 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
       context.perks[index] = p;
     });
     
-    // set next level style cost
-    context.nextLevelStyleCost = fameLevel < 5 ? context.fame[fameLevel+1].cost : 0;
-
-    // Prepare data and items.
-    this._prepareItems(context);
-
+    // get factions and fame from items
+    let factions = [];
+    let fractures = [];
+    let items = this.actor.items;
+    for (const i of items) {
+      i.img = i.img || DEFAULT_TOKEN;
+      if (i.type == 'faction') factions.push(i);
+      if (i.type == 'fracture') fractures.push(i);
+    };
+    context.factions = factions;
+    context.fractures = fractures;
+    
     for (const i of context.standings) {
       for (const f of context.factions) {
         if (f.system.level == i.value) {
@@ -150,120 +258,15 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
         }
       }
     }
-    this._activateDragDrop(context);
+    //this._activateDragDrop(context);
 
     return context;
   }
   
-  _prepareItems(context) {
-    // get traits and beats from items
-    let factions = [];
-    let fractures = [];
-    for (const i of context.items) {
-      i.img = i.img || DEFAULT_TOKEN;
-      if (i.type == 'faction') factions.push(i);
-      if (i.type == 'fracture') fractures.push(i);
-    }
-    context.factions = factions;
-    context.fractures = fractures;
-  }
-  
-  _activateDragDrop(context) {
-    // find the containers
-    const containers = this.element.find('.draggable-container');
-    containers.each((index, container) => {
-      const containerId = $(container).data('container-id');
-      const dragDrop = new foundry.applications.ux.DragDrop({
-        dragSelector: ".draggable-item",
-        dropZone: container,
-        callback: (data) => {
-          console.log(`Dropped in container ${containerId}:`, data);
-        }
-      });
-      
-      // Manually manage drag-and-drop functionality
-      $(container).on('dragstart', '.draggable-item', (event) => {
-        const draggedItemId = $(event.currentTarget).data('item-id');
-        event.originalEvent.dataTransfer.setData('item-id', draggedItemId);
-      });
-      
-      $(container).on('drop', (event) => {
-        event.preventDefault();
-        const itemId = event.originalEvent.dataTransfer.getData('item-id');
-        let item = this.actor.items.get(itemId);
-        let levelId = event.target.dataset.containerId;
-        item.update({ ['system.level']: levelId });
-      });
-
-      // Prevent default behavior on dragover
-      $(container).on('dragover', (event) => {
-          event.preventDefault();
-      });
-    });
-  }
-  
-  
-  activateListeners(html) {
-		super.activateListeners(html);
-    
-    this._activateDragDrop(this);
-    
-    // Add Trait / BeatArc / Beat
-		html.on('click', '.addBtn', this._onAdd.bind(this));
-    
-    // edit (factions)
-    html.on('click', '.edit', this._onEdit.bind(this));
-    
-    // save changes in traits, beatArcs and beats
-    html.on('change', '.valChange', this._onValueChange.bind(this));
-    
-    // level up fame
-    html.on('click', '.levelUp', this._onLevelUp.bind(this));
-    
-    // unlock perks
-    html.on('click', '.unlockPerk', this._onUnlockPerk.bind(this));
-    
-    // Rollable abilities.
-    html.on('click', '.rollableTable', this._onRollableTable.bind(this));
-    
-    // Boost and Kicks and Style
-    html.on('click', '.sbResources .icon', this._onDotChange.bind(this));    
-    // Boosts, Kicks and Style...
-    html.find('.sbResources').each(function () {
-		  const value = Number(this.dataset.value);
-		  $(this).find(".icon").each(function (i) {
-			  if (i + 1 <= value)
-          $(this).addClass("active");
-			});
-		});   
-  }
-  
-  async _onDotChange(event) {
-    event.preventDefault();
-    // get parent div + key
-    let div = $(event.currentTarget).parents('div');
-    let key = div.data('key');
-    let val = div.data('value');
-    let itemId = div.data('itemId');
-    // get dot + index
-    let dot = $(event.currentTarget);
-    let dom_val = Number(dot.data('index')) + 1;
-		// determine new value based on dot index and current value
-    let new_val = val != dom_val ? dom_val : 0;
-    // update the item or actor
-    let item = false;
-    if (itemId)
-      item = this.actor.items.get(itemId);
-    if (item)
-      await item.update({['system.'+key]: new_val});
-    else
-      await this.actor.update({['system.'+key]: new_val});
-  }
-  
-  async _onLevelUp(event) {
+  static async #nextFame(event, target) {
     event.preventDefault();
     // get itemId and styleCost
-    let styleCost = Number($(event.currentTarget).data('styleCost'));
+    let styleCost = Number(target.dataset.styleCost);
     // get existing perks and style
     let fameLevel = Number(this.actor.system.fame_level);
     let style = Number(this.actor.system.style);
@@ -275,13 +278,22 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
     // save new values to the actor
     await this.actor.update({
       ['system.fame_level']: fameLevel,
-      ['system.style']: style });
+      ['system.style']: style
+    });
   }
-  async _onUnlockPerk(event) {
+  
+  static async #prevFame(event, target) {
+    event.preventDefault();
+    let fameLevel = Number(this.actor.system.fame_level);
+    if (fameLevel <= 0) return;
+    await this.actor.update({ ['system.fame_level']: fameLevel - 1 });
+  }
+  
+  static async #unlockPerk(event, target) {
     event.preventDefault();
     // get itemId and styleCost
-    let itemId = $(event.currentTarget).data('itemId');
-    let styleCost = Number($(event.currentTarget).data('styleCost'));
+    let itemId = target.dataset.itemId;
+    let styleCost = Number(target.dataset.styleCost);
     // get existing perks and style
     let perks = this.actor.system.fame_perks;
     let style = Number(this.actor.system.style);
@@ -293,23 +305,7 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
     // save new values to the actor
     await this.actor.update({
       ['system.fame_perks']: perks,
-      ['system.style']: style });
-  }
-  
-  // default module window settings
-  static get defaultOptions() {
-    const options = super.defaultOptions;
-    // sheet window options
-    foundry.utils.mergeObject(options, {
-      classes: ["slugblaster", "sheet", "crew"],
-      width: 640,
-      height: 720,
-      tabs: [{
-        navSelector: ".sheet-tabs",
-        contentSelector: ".sheet-body",
-        initial: "factions"
-      }]
+      ['system.style']: style
     });
-    return options;
   }
 }

@@ -6,41 +6,68 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
     return 'systems/slugblaster/template/actor-sheet.hbs';
   }
   
-  // default module window settings
-  static get defaultOptions() {
-    const options = super.defaultOptions;
-    // sheet window options
-    foundry.utils.mergeObject(options, {
-      classes: ["slugblaster", "sheet", "actor"],
-      width: 680,
-      height: 780,
-      tabs: [{
-        navSelector: ".sheet-tabs",
-        contentSelector: ".sheet-body",
-        initial: "general"
-      }]
-    });
-    return options;
+  static TABS = {
+    sheet: {
+      tabs: [
+        { group: 'sheet', id: 'dicepool',  label: 'Slugblaster.Dicepool' },
+        { group: 'sheet', id: 'gear',      label: 'Slugblaster.Actor.Gear.TabName' },
+        { group: 'sheet', id: 'signature', label: 'Slugblaster.Actor.SignatureDevice.TabName' },
+        { group: 'sheet', id: 'legacy',    label: 'Slugblaster.Actor.Legacy.TabName' },
+        { group: 'sheet', id: 'traits',    label: 'Slugblaster.Actor.Traits.TabName' },
+        { group: 'sheet', id: 'notes',     label: 'Slugblaster.Notes' }
+      ],
+      initial: 'dicepool'
+    },
   }
   
-  // prepare actor data
-  async getData(options) {
-    // data structure from base sheet
-    const context = await super.getData(options);
-
-    // use a safe clone of actor data
-    const actorData = context.data;
-    context.isGM = game.user.isGM;
-    context.system = actorData.system;
-    
-    // sort items by active
-    let items = context.items;
-    items.sort((a, b) => {
-      if (a.system.active > b.system.active) { return -1; }
-      if (a.system.active < b.system.active) { return 1; }
-      return 0;
-    });
-    
+  static PARTS = {
+    ...super.PARTS,
+      main: { template: 'systems/slugblaster/template/actor-sheet.hbs' },
+      tabs: { template: 'systems/slugblaster/template/parts/actor-tabs.hbs' },
+      dicepool: { template: 'systems/slugblaster/template/parts/actor-tab-dicepool.hbs' },
+      gear: { template: 'systems/slugblaster/template/parts/actor-tab-gear.hbs' },
+      signature: { template: 'systems/slugblaster/template/parts/actor-tab-signature.hbs' },
+      legacy: { template: 'systems/slugblaster/template/parts/actor-tab-legacy.hbs' },
+      traits: { template: 'systems/slugblaster/template/parts/actor-tab-traits.hbs' },
+      notes: { template: 'systems/slugblaster/template/parts/tab-notes.hbs' },
+  }
+  
+  // default module window settings
+  static DEFAULT_OPTIONS = {
+    ...super.DEFAULT_OPTIONS,
+      form: {
+        submitOnChange: true,
+        closeOnSubmit: false,
+      },
+      classes: ['slugblaster', 'actor'],
+      position: {
+        width: 680, // 'auto'
+        height: 780, // 'auto'
+      },
+      window: {
+        icon: 'fas fa-user',
+        title: 'Slugblaster.Actor.Title',
+        resizable: true,
+        minimizable: true,
+      },
+      actions: {
+        addGear: this.#addGear,
+        craftItem: this.#installMod,
+        installMod: this.#installMod,
+        salvageMod: this.#salvageMod,
+        nopeSlam: this.#nopeSlam,
+        addStyle: this.#addStyle,
+        addSlam: this.#addSlam,
+        addDoom: this.#addDoom,
+        addLegacy: this.#addLegacy,
+        addSignatureMod: this.#addSignatureMod,
+        payBeatCost: this.#payBeatCost,
+      }
+  };
+  
+  async _prepareContext(options) {
+    const context = await super._prepareContext(options);
+      
     // get traits and beats from items
     let angstBeats = [];
     let crewBeats = [];
@@ -54,13 +81,14 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
     let signatures = [];
     let signatureMods = [];
     
-    let doom = [];
-    let legacy = [];
+    let dooms = [];
+    let legacies = [];
     let slams = [];
     
     let type;
 
-    for (const i of items) {
+    // sort items by active (?)
+    for (const i of context.items) {
       // get (system.)type
       type = i.system && i.system.type ? i.system.type : i.type;
 
@@ -78,21 +106,22 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
       if (type == 'signature') signatures.push(i);
       if (type == 'signatureMod') signatureMods.push(i);
       
-      if (i.type == 'doom') doom.push(i);
-      if (i.type == 'legacy') legacy.push(i);
+      if (i.type == 'doom') dooms.push(i);
+      if (i.type == 'legacy') legacies.push(i);
       if (i.type == 'slam') slams.push(i);
     }
     
-    context.angstBeats = angstBeats;
-    context.crewBeats = crewBeats;
-    context.familyBeats = familyBeats;
-    context.otherBeats = otherBeats;
-    context.playbookBeats = playbookBeats;
-    context.traits = traits;
-    context.traitBeats = traitBeats;
-    context.gear = gear;
+    context.angstBeats = this.sortItems(angstBeats);
+    context.crewBeats = this.sortItems(crewBeats);
+    context.familyBeats = this.sortItems(familyBeats);
+    context.otherBeats = this.sortItems(otherBeats);
+    context.playbookBeats = this.sortItems(playbookBeats);
+    context.traits = this.sortItems(traits);
+    context.traitBeats = this.sortItems(traitBeats);
+    context.gear = this.sortItems(gear);
     
     // bind mods to signatures...
+    signatureMods = this.sortItems(signatureMods);
     for (let s of signatures) {
       s.mods = [];
       for (let m of signatureMods) {
@@ -102,73 +131,50 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
     }
     context.signatures = signatures;
     
-    context.doom = doom;
-    context.legacy = legacy;
+    context.dooms = dooms;
+    context.legacies = legacies;
     context.slams = slams;
-    
-    context.dicePool = 1;
     
     return context;
   }
-	
-	/** @override */
-	activateListeners(html) {
-		super.activateListeners(html);
-        
-		// Rollable abilities.
-		html.on('click', '.rollable', this._onRoll.bind(this));
-    html.on('click', '.rollableTable', this._onRollableTable.bind(this));
-
-		// Add Gear / Trait / BeatArc / Beat
-		html.on('click', '.addBtn', this._onAdd.bind(this));
-    
-    // save changes in gear, traits, beatArcs and beats
-    html.on('change', '.valChange', this._onValueChange.bind(this));
-    html.on('click', '.itemImg', this._onItemImg.bind(this));
-       
-    // boost and kick
-    html.on('click', '.sbResources .icon', this._onDotChange.bind(this));
-    
-    // styleBonus and Nope!
-    html.on('click', '.styleBonus', this._addStyleBonus.bind(this));
-    html.on('click', '.troubleBonus', this._onNope.bind(this));
-    
-    // load
-    html.on('click', '.load', this._onLoadChange.bind(this));    
-    
-    // edit
-    html.on('click', '.edit', this._onEdit.bind(this));
-    
-    // install or salvage a signature mod
-    html.on('click', '.install', this._onInstall.bind(this));
-    html.on('click', '.salvage', this._onSalvage.bind(this));
-		
-		// Kicks, Boosts, Trouble and Style...
-    html.find('.sbResources').each(function () {
-		  const value = Number(this.dataset.value);
-		  $(this).find(".icon").each(function (i) {
-			  if (i + 1 <= value)
-          $(this).addClass("active");
-			});
-		});    
-    
-    // Load dots
-    html.find('.load').each(function () {
-		  const active = this.dataset.value;
-      if (active=="true") $(this).addClass("active");
-		});
-	}
   
-  async _addStyleBonus(event) {
+  sortItems(items) {
+    items.sort((a, b) => {
+      if (a.system.active > b.system.active) { return -1; }
+      if (a.system.active < b.system.active) { return 1; }
+      return 0;
+    });
+    return items;
+  }
+  
+  // add 1 Style
+  static async #addStyle(event, target) {
     await this.actor.update({['system.style']: Number(this.actor.system.style)+1 });
   }
-  async _onNope(event) {
+  // add 2 Trouble
+  static async #nopeSlam(event, target) {
     await this.actor.update({['system.trouble']: Number(this.actor.system.trouble)+2 });
   }
   
-  async _onInstall(event) {
-    let li = $(event.currentTarget).parents('li'); // get parent (for itemId)
-    let item = this.actor.items.get(li.data('itemId')); // get item
+  static async #payBeatCost(event, target) {
+    const styleCost = Number(target.dataset.style);
+    const troubleCost = Number(target.dataset.trouble);
+    
+    if (target.checked)     
+      await this.actor.update({
+        ['system.style']: Number(this.actor.system.style) - styleCost,
+        ['system.trouble']: Number(this.actor.system.trouble) - troubleCost
+      });
+    else
+      await this.actor.update({
+        ['system.style']: Number(this.actor.system.style) + styleCost,
+        ['system.trouble']: Number(this.actor.system.trouble) + troubleCost
+      });
+  }
+  
+  static async #installMod(event, target) {
+    event.preventDefault();
+    let item = this.actor.items.get(target.dataset.itemId); // get item
     let iSys = item.system;
     let aSys = this.actor.system;
     // check coilCost against stash
@@ -193,9 +199,9 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
     await item.update({['system.active']: true });
   }
   
-  async _onSalvage(event) {
-    let li = $(event.currentTarget).parents('li'); // get parent (for itemId)
-    let item = this.actor.items.get(li.data('itemId')); // get item
+  static async #salvageMod(event, target) {
+    event.preventDefault();
+    let item = this.actor.items.get(target.dataset.itemId); // get item
     let iSys = item.system;
     let aSys = this.actor.system;
     // salvage components
@@ -206,101 +212,25 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
       ['system.lens']: Number(aSys.lens) + Math.max(Number(iSys.lens), 0) });
     // deactivate the mod
     await item.update({['system.active']: false });
+  } 
+  
+  static async #addGear(event, target) {
+    await this.addItem('gear', null);
+  }
+  static async #addSlam(event, target) {
+    await this.addItem('slam', null);
+  }
+  static async #addDoom(event, target) {
+    await this.addItem('doom', null);
+  }
+  static async #addLegacy(event, target) {
+    await this.addItem('legacy', null);
+  }
+  static async #addSignatureMod(event, target) {
+    await this.addItem('signatureMod', target.dataset.parentId);
   }
   
-  async _onItemImg(event) {
-    let img = $(event.currentTarget);
-		let item = this.actor.items.get(img.data('itemId'));
-    let imgPicker = await new FilePicker({
-      type: "image",
-      callback: (path) => {
-        item.update({'img' : path });
-      }
-    });
-    imgPicker.browse();
-  }
-  
-  async _onDotChange(event) {
-    event.preventDefault();
-    // get parent div + key
-    let div = $(event.currentTarget).parents('div');
-    let key = div.data('key');
-    let val = div.data('value');
-    let itemId = div.data('itemId');
-    // get dot + index
-    let dot = $(event.currentTarget);
-    let dom_val = Number(dot.data('index')) + 1;
-		// determine new value based on dot index and current value
-    let new_val = val != dom_val ? dom_val : 0;
-    // update the item or actor
-    let item = false;
-    if (itemId)
-      item = this.actor.items.get(itemId);
-    if (item)
-      await item.update({['system.'+key]: new_val});
-    else
-      await this.actor.update({['system.'+key]: new_val});
-  }
-  
-	// Handle clickable rolls.
-	async _onRoll(event) {
-		event.preventDefault();
-		const element = event.currentTarget;
-		const dataset = element.dataset;
-    
-    // only work when data-roll-type is defined
-    if (!dataset.type) return;
-
-		// Handle item rolls.
-    if (dataset.type == 'item') {
-			const itemId = element.closest('.item').dataset.itemId;
-			const item = this.actor.items.get(itemId);
-			if (item) return item.roll();
-		}
-    
-    let keep = 'kh' // keep highest
-    let value = 0;
-    let bonus = 0;
-        
-    // when you have none... don't roll
-    if (value == 0 && bonus == 0) {
-      return;
-    }
-    
-    // let's roll!
-    let formula = value > 0 ? value + 'd6' : '';
-    formula += bonus > 0 ? '+' + bonus + 'd6' : '';
-    formula += keep;
-    let roll = new Roll(formula, this.actor.getRollData());
-		roll.toMessage({
-      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      flavor: dataset.label,
-      rollMode: game.settings.get('core', 'rollMode'),
-    });
-    return roll;
-	}
-  
-	async _onLoadChange(event) {
-    event.preventDefault();
-    let itemId = $(event.currentTarget).parents('li').data('itemId');
-    let active = $(event.currentTarget).data('value');
-    
-    // styleCost
-    let styleCost = Number($(event.currentTarget).data('style'));
-    let troubleCost = Number($(event.currentTarget).data('trouble'));
-    if (active) {
-      if (styleCost > 0) await this.actor.update({['system.style']: this.actor.system.style + styleCost });
-      if (troubleCost > 0) await this.actor.update({['system.trouble']: this.actor.system.trouble + troubleCost });
-    } else {
-      if (styleCost > 0) await this.actor.update({['system.style']: this.actor.system.style - styleCost });
-      if (troubleCost > 0) await this.actor.update({['system.trouble']: this.actor.system.trouble - troubleCost });
-    }
-    active = active ? "" : "true"; // inverse it
-    let item = this.actor.items.get(itemId);
-    await item.update({['system.active']: active });
-  }
-  
-  async _onDropActor(event, data) {
+  async _onDropDocument(event, data) {
     if (!this.isEditable) return;
     const cls = getDocumentClass("Actor");
     const src = await cls.fromDropData(data);
@@ -319,9 +249,9 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
         ['system.styleBonus']: sys.styleBonus,
         ['system.boosts']: sys.boosts,
         ['system.kicks']: sys.kicks,
-		['system.specialTraitName']: sys.specialTraitName,
-		['system.specialTraitDesc']: sys.specialTraitDesc,
-	  });
+        ['system.specialTraitName']: sys.specialTraitName,
+        ['system.specialTraitDesc']: sys.specialTraitDesc,
+      });
       
       // add phone and specialGear
       await Item.create({ name: 'your phone', type: 'gear', ['system.active']: true }, { parent: this.actor });
@@ -379,52 +309,40 @@ export class SlugblasterSignatureSheet extends SlugblasterCoreSheet {
     return 'systems/slugblaster/template/signature-sheet.hbs';
   }
   
-  /** @override */
-  async getData() {
-    return await super.getData();
-  }
-  
-  activateListeners(html) {
-		super.activateListeners(html);
-    
-    // Add a mod
-		html.on('click', '.addBtn', this._onAdd.bind(this));
-    
-    // save changes in mods
-    html.on('change', '.valChange', this._onValueChange.bind(this));
-  }
-  
-  async _onAdd(event) {
-    event.preventDefault();
-    let type = $(event.currentTarget).data('type');
-    await Item.create({ name: game.i18n.localize('SB.newMod'), type: type }, { parent: this.actor });
-    
-  }
-  
-  async _onValueChange(event) {
-    event.preventDefault();
-    // get closest li parent for details
-    let li = $(event.currentTarget).parents('li');
-    let itemId = li.data('itemId');
-    // process value
-    let field = $(event.currentTarget);
-    let newVal = field.val();
-    let valName = field.data('name');
-    // update the item
-    let item = this.actor.items.get(itemId);
-    await item.update({ [valName]: newVal });
+  static PARTS = {
+    ...super.PARTS,
+      main: { template: 'systems/slugblaster/template/signature-sheet.hbs' },
   }
   
   // default module window settings
-  static get defaultOptions() {
-    const options = super.defaultOptions;
-    // sheet window options
-    foundry.utils.mergeObject(options, {
-      classes: ["slugblaster", "sheet", "signature"],
-      width: 1024,
-      height: 640
-    });
-    return options;
+  static DEFAULT_OPTIONS = {
+    ...super.DEFAULT_OPTIONS,
+      form: {
+        submitOnChange: true,
+        closeOnSubmit: false,
+      },
+      classes: ['slugblaster', 'signatureDevice'],
+      position: {
+        width: 680, // 'auto'
+        height: 780, // 'auto'
+      },
+      window: {
+        icon: 'fas fa-user',
+        title: 'Slugblaster.SignatureDevice.Title',
+        resizable: true,
+        minimizable: true,
+      },
+      actions: {
+        addSigMod: this.#addSigMod,
+      }
+  };
+  
+  static async #addSigMod(event, target) {
+    const item = {
+      name: game.i18n.localize(`Slugblaster.SignatureModPlaceholder`),
+      type: 'signatureMod',
+    };
+    // create the item
+    await Item.create(item, { parent: this.actor });
   }
 }
-

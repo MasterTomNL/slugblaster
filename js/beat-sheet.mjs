@@ -1,12 +1,13 @@
-export class SlugblasterBeatSheet extends foundry.appv1.sheets.ItemSheet {
+export class SlugblasterBeatSheet extends foundry.applications.api.HandlebarsApplicationMixin(foundry.applications.sheets.ItemSheetV2) {
   get template() {
     return 'systems/slugblaster/template/beat-sheet.hbs';
   }
   
-  /** @override */
-  async getData() {
-    const context = await super.getData();
-
+  async _prepareContext(options) {
+    const context = await super._prepareContext(options);
+    
+    context.item = this.document;
+    
     // add beatTypes    
     context.beatTypes = {
       'angst': 'Angst',
@@ -20,15 +21,27 @@ export class SlugblasterBeatSheet extends foundry.appv1.sheets.ItemSheet {
     return context;
   }
   
-  // default module window settings
-  static get defaultOptions() {
-    const options = super.defaultOptions;
-    // sheet window options
-    foundry.utils.mergeObject(options, {
-      classes: ["slugblaster", "sheet", "beat"],
-      width: 520,
-      height: 360
-    });
-    return options;
+  static PARTS = {
+    ...super.PARTS,
+      main: { template: 'systems/slugblaster/template/beat-sheet.hbs' },
   }
+  
+  // default module window settings
+  static DEFAULT_OPTIONS = {
+    ...super.DEFAULT_OPTIONS,
+      form: {
+        submitOnChange: true,
+        closeOnSubmit: false,
+      },
+      classes: ['slugblaster', 'beat'],
+      position: {
+        width: 'auto',
+        height: 'auto'
+      },
+      window: {
+        title: 'Slugblaster.Beat.Title',
+        resizable: true,
+        minimizable: true,
+      }
+  };
 }

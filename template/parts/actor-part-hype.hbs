@@ -1,0 +1,21 @@
+<section class="slugblasterHype">
+  <h2>{{ localize 'Slugblaster.Actor.Dicepool.Hype' }}</h2>
+  {{#if actor.system.attitude }}
+  <p>{{ actor.system.attitude }}</p>
+  {{/if}}
+	<div class="attributes" data-value="{{actor.system.boost}}" data-key="boost">
+    {{#numLoop boostMax}}
+			{{{my_icon "boost" this ../actor.system.boost}}}
+    {{/numLoop}}
+  </div>
+  {{#if (eq actor.system.boosts -1) }}
+  <div class="boosting">
+    {{{my_icon "boost active" null}}}
+  </div>
+  {{/if}}
+  <div class="attributes" data-value="{{actor.system.kick}}" data-key="kick">
+    {{#numLoop kickMax}}
+			{{{my_icon "kick" this ../actor.system.kick}}}
+    {{/numLoop}}
+  </div>
+</section>

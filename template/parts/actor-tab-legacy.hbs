@@ -1,0 +1,56 @@
+<section class="tab {{tabs.legacy.id}} {{tabs.legacy.cssClass}}" data-tab="{{tabs.legacy.id}}" data-group="{{tabs.legacy.group}}">
+  <div class="slugblasterSlam">
+    <h2>
+      {{ localize 'Slugblaster.Actor.LegacyDoomSlam.Slam' }}
+      {{#if editable}}<i data-action="addSlam" class="item-control fas fa-plus"></i>{{/if}}
+    </h2>
+    <ul class="slams">
+      {{#each slams as |item key|}}
+        <li>
+        {{#if ../editable}}
+          <input type="text" name="items.{{item._id}}.name" value="{{item.name}}" placeholder="{{ localize 'Slugblaster.Actor.LegacyDoomSlam.SlamPlaceholder' }}">
+          <i title="{{ localize 'Slugblaster.Delete' }}" data-action="deleteItem" data-item-id="{{item._id}}" class="fas fa-trash"></i>
+        {{else}}
+          {{item.name}}
+        {{/if}}
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+  <div class="slugblasterDoom">
+    <h2>
+      {{ localize 'Slugblaster.Actor.LegacyDoomSlam.Doom' }}
+      {{#if editable}}<i data-action="addDoom" class="item-control fas fa-plus"></i>{{/if}}
+    </h2>
+    <ul class="dooms">
+      {{#each dooms as |item key|}}
+        <li>
+        {{#if ../editable}}
+          <input type="text" name="items.{{item._id}}.name" value="{{item.name}}" placeholder="{{ localize 'Slugblaster.Actor.LegacyDoomSlam.DoomPlaceholder' }}">
+          <i title="{{ localize 'Slugblaster.Delete' }}" data-action="deleteItem" data-item-id="{{item._id}}" class="fas fa-trash"></i>
+        {{else}}
+          {{item.name}}
+        {{/if}}
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+  <div class="slugblasterLegacy">
+    <h2>
+      {{ localize 'Slugblaster.Actor.LegacyDoomSlam.Legacy' }}
+      {{#if editable}}<i data-action="addLegacy" class="item-control fas fa-plus"></i>{{/if}}
+    </h2>
+    <ul class="legacies">
+      {{#each legacies as |item key|}}
+        <li>
+        {{#if ../editable}}
+          <input type="text" name="items.{{item._id}}.name" value="{{item.name}}" placeholder="{{ localize 'Slugblaster.Actor.LegacyDoomSlam.LegacyPlaceholder' }}">
+          <i title="{{ localize 'Slugblaster.Delete' }}" data-action="deleteItem" data-item-id="{{item._id}}" class="fas fa-trash"></i>
+        {{else}}
+          {{item.name}}
+        {{/if}}
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</section>

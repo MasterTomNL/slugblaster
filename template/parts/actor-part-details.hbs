@@ -1,0 +1,64 @@
+<section class="slugblaster-details flexcontainer">
+  <div class="w40">
+    <img
+      class="actor-img flex0"
+      src="{{actor.img}}"
+      {{#if editable}}
+      data-action="editImage"
+      data-field="img"
+      {{/if}}
+      data-tooltip="{{actor.name}}"
+      alt="{{actor.name}}"
+      title="{{actor.name}}"
+      height="100" width="100"
+    >
+    <div class="attitude" {{#if actor.system.attitude }}title="{{ actor.system.attitude }}"{{/if}}>
+      {{#if (eq actor.system.boosts -1)}}{{{my_icon "boost active" null }}}{{/if}}
+      {{#numLoop actor.system.boosts }}{{{my_icon "boost" this ../actor.system.boost null }}}{{/numLoop}}
+      {{#numLoop actor.system.kicks }}{{{my_icon "kick" this ../actor.system.kick null }}}{{/numLoop}}
+      {{#if actor.system.attitude }}<p>{{ actor.system.attitude }}</p>{{/if}}
+    </div>
+  </div>
+  <div class="actor-details w60">
+    <div>
+      <label for="name">{{ localize 'Slugblaster.Actor.Details.Name' }}</label>
+      <input id="name" name="name" type="text" value="{{actor.name}}" class="sb-name-input" placeholder="{{ localize 'Slugblaster.Actor.Details.NamePlaceholder' }}" />
+    </div>
+    
+    <div class="sb_playbook">
+      <label for="playbook">{{ localize 'Slugblaster.Actor.Details.Playbook' }}</label>
+      <span class="actorPlaybook">{{ localize actor.system.playbook }}</span>
+    </div>
+    <div>
+      <label for="look">{{ localize 'Slugblaster.Actor.Details.Look' }}</label>
+      <input id="look" type="text" name="system.look" value="{{actor.system.look}}" placeholder="{{ localize 'Slugblaster.Actor.Details.LookPlaceholder' }}" />
+      {{#if editable }}<span class="rollableTable" title="{{ localize 'Slugblaster.Randomize' }}" data-action="rollTable" data-value="look"><i class="icon icon-dice"></i></span>{{/if}}
+    </div>
+
+    <div>
+      <label for="family">{{ localize 'Slugblaster.Actor.Details.Family' }}</label>
+      <input id="family" type="text" name="system.family" value="{{actor.system.family}}" placeholder="{{ localize 'Slugblaster.Actor.Details.FamilyPlaceholder' }}"/>
+      {{#if editable }}<span class="rollableTable" title="{{ localize 'Slugblaster.Randomize' }}" data-action="rollTable" data-value="family"><i class="icon icon-dice"></i></span>{{/if}}
+    </div>
+    
+    <div>
+      <label for="bond">{{ localize 'Slugblaster.Actor.Details.Bond' }}</label>
+      <input id="bond" type="text" name="system.bond" value="{{actor.system.bond}}" placeholder="{{ localize 'Slugblaster.Actor.Details.BondPlaceholder' }}"/>
+      {{#if editable }}<span class="rollableTable" title="{{ localize 'Slugblaster.Randomize' }}" data-action="rollTable" data-value="bond"><i class="icon icon-dice"></i></span>{{/if}}
+    </div>
+
+    <div>
+      <label for="vibes">{{ localize 'Slugblaster.Actor.Details.Vibes' }}</label>
+      <input id="vibes" type="text" name="system.vibes" value="{{actor.system.vibes}}" placeholder="{{ localize 'Slugblaster.Actor.Details.VibesPlaceholder' }}"/>
+      {{#if actor.system.playbook }}
+      {{#if editable }}<span class="rollableTable" title="{{ localize 'Slugblaster.Randomize' }}" data-action="rollTable" data-value="vibes"><i class="icon icon-dice"></i></span>{{/if}}
+      {{/if}}
+    </div>
+    
+    <div>
+      <label for="stickers">{{ localize 'Slugblaster.Actor.Details.Stickers' }}</label>
+      <input id="stickers" type="text" name="system.stickers" value="{{actor.system.stickers}}" placeholder="{{ localize 'Slugblaster.Actor.Details.StickersPlaceholder' }}"/>
+      {{#if editable }}<span class="rollableTable" title="{{ localize 'Slugblaster.Randomize' }}" data-action="rollTable" data-value="stickers"><i class="icon icon-dice"></i></span>{{/if}}
+    </div>
+  </div>
+</section>

@@ -1,21 +1,29 @@
-export class SlugblasterGearSheet extends foundry.appv1.sheets.ItemSheet {
+export class SlugblasterGearSheet extends foundry.applications.api.HandlebarsApplicationMixin(foundry.applications.sheets.ItemSheetV2) {
   get template() {
     return 'systems/slugblaster/template/gear-sheet.hbs';
   }
   
-  // default module window settings
-  static get defaultOptions() {
-    const options = super.defaultOptions;
-    // sheet window options
-    foundry.utils.mergeObject(options, {
-      classes: ["slugblaster", "sheet", "gear"],
-      width: 480,
-      height: 640
-    });
-    return options;
+  static PARTS = {
+    ...super.PARTS,
+      main: { template: 'systems/slugblaster/template/gear-sheet.hbs' },
   }
   
-  activateListeners(html) {
-		super.activateListeners(html);
-  }
+  // default module window settings
+  static DEFAULT_OPTIONS = {
+    ...super.DEFAULT_OPTIONS,
+      form: {
+        submitOnChange: true,
+        closeOnSubmit: false,
+      },
+      classes: ['slugblaster', 'gear'],
+      position: {
+        width: 'auto',
+        height: 'auto'
+      },
+      window: {
+        title: 'Slugblaster.Gear.Title',
+        resizable: true,
+        minimizable: true,
+      }
+  };
 }

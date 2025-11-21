@@ -1,0 +1,11 @@
+<section class="slugblasterTrouble {{cssClass}}">
+  <h2>{{ localize 'Slugblaster.Trouble' }}</h2>
+	<div class="attributes" data-value="{{ actor.system.trouble }}" data-key="trouble">
+    {{#numLoop 8}}
+			{{{my_icon "trouble" this ../actor.system.trouble null }}}
+    {{/numLoop}}
+  </div>
+  <span class="troubleBonus" data-action="nopeSlam">
+    {{ localize 'Slugblaster.TroubleSpendToNope' }}
+  </span>
+</section>

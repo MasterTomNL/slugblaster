@@ -1,7 +1,7 @@
 export const registerHandlebarsHelpers = function() {
   Handlebars.registerHelper("numLoop", function (num, options) {
     let result = "";
-    for (let i = 0, j = num; i < j; i++) {
+    for (let i = 1, j = num; i <= j; i++) {
       result = result + options.fn(i);
     }
     return result;
@@ -17,6 +17,7 @@ export const registerHandlebarsHelpers = function() {
     return el.system.active ? false : true;
   });
   Handlebars.registerHelper("hideOrDisable", function(a, i) {
+    if (!a || !i) return;
     let cls = "";
     // hide when there's no component cost
     if (Number(i.coil) == 0 && Number(i.disc) == 0 && Number(i.gem) == 0 && Number(i.lens) == 0)
@@ -28,7 +29,7 @@ export const registerHandlebarsHelpers = function() {
   });
   Handlebars.registerHelper("haveStyleOrTrouble", function(a, b) {
     // when the trait is already acquired... we good.
-    if (b.active) return;
+    if (b.active || !a || !b) return;
     // if not... check if we have sufficient style or trouble
     return (Number(a.style) < Number(b.styleCost) || Number(a.trouble) < Number(b.troubleCost)) ? "disabled": "";
   });
@@ -41,7 +42,14 @@ export const registerHandlebarsHelpers = function() {
     return game.i18n.localize('Slugblaster.Crew.'+fame_levels[lvl]+type);
   });
   
-  Handlebars.registerHelper("my_icon", function(style,title,index) {
-    return `<i class="icon icon-${style}" title="${game.i18n.localize(title)}" data-index="${index}"></i>`;
+  Handlebars.registerHelper("my_icon", function(field,value,actorValue,itemId) {
+    let active;
+    if (value != undefined) {
+      active = Number(value) <= Number(actorValue) ? 'active': '';
+      let item = itemId != undefined ? ` data-item-id="${itemId}"` : '';
+      return `<i class="icon icon-${field} ${active}" title="${game.i18n.localize('Slugblaster.'+field)}" data-action="setAttribute" data-field="${field}" data-value="${value}" ${item}></i>`;
+    }
+    let title = field.indexOf(" ") ? field.substring(0, field.indexOf(" ")): field;
+    return `<i class="icon icon-${field}" title="${game.i18n.localize('Slugblaster.'+title)}"></i>`;
   });
 };
