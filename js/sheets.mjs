@@ -1,5 +1,4 @@
 import { SlugblasterCoreSheet } from "./slugblaster-core-sheet.mjs"; // methods to add, delete and/or change items
-import { SlugblasterPlaybookData, SlugblasterSignatureData } from './datamodels.mjs';
 
 export class SlugblasterActorSheet extends SlugblasterCoreSheet {
   get template() {
@@ -232,12 +231,13 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
   
   async _onDropDocument(event, data) {
     if (!this.isEditable) return;
-    const cls = getDocumentClass("Actor");
-    const src = await cls.fromDropData(data);
-    const sys = src.system;
+    let cls; let src; let sys;    
     
     // system values
-    if (src.type == 'playbook') {
+    if (data.type == 'playbook') {
+      cls = getDocumentClass("Actor");
+      src = await cls.fromDropData(data);
+      sys = src.system;
       // remove existing traits and gear
       for (let i of this.actor.items) {
         await i.delete();
@@ -272,7 +272,10 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
         }, { parent: this.actor });
       }
     }
-    if (src.type == 'signature') {
+    if (data.type == 'signature') {
+      cls = getDocumentClass("Actor");
+      src = await cls.fromDropData(data);
+      sys = src.system;
       let parentSig = await Item.create({
         name: src.name,
         type: 'gear',
@@ -301,6 +304,34 @@ export class SlugblasterActorSheet extends SlugblasterCoreSheet {
         }, { parent: this.actor });
       }
     }
+    if (['beat', 'gear'].includes(data.type)) {
+      cls = getDocumentClass("Item");
+      src = await cls.fromDropData(data);
+      sys = src.system;
+      
+      await Item.create({
+        name: src.name,
+        type: src.type,
+        ['system.active']: false,
+        ['system.description']: sys.description,
+        ['system.type']: sys.type,
+        ['system.style']: sys.style,
+        ['system.trouble']: sys.trouble },
+        { parent: this.actor });
+    }
+  }
+  
+  async _onDropItem(event, src) {
+    let item = {
+      name: src.name,
+      type: src.type,
+      ['system.active']: false,
+      ['system.description']: src.system.description,
+      ['system.type']: src.system.type,
+      ['system.style']: src.system.style,
+      ['system.trouble']: src.system.trouble
+    };
+    await Item.create(item, { parent: this.actor });
   }
 }
 

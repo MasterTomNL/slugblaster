@@ -73,7 +73,6 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
       }
       d.callbacks = {
         dragstart: this._onDragStart.bind(this),
-        //dragover: this._onDragOver.bind(this),
         drop: this._onDrop.bind(this)
       }
       return new DragDrop(d)
@@ -82,13 +81,13 @@ export class SlugblasterCrewSheet extends SlugblasterCoreSheet {
   
   _onDragStart(event) {
     const itemId = event.target.dataset.itemId;
-    console.log('_ondragStart',itemId, event);
     event.dataTransfer.setData('itemId', itemId);
   }
   
   _onDrop(event) {
     event.preventDefault();
     const itemId = event.dataTransfer.getData('itemId');
+    if (!itemId) return;
     let item = this.actor.items.get(itemId);
     let levelId = event.target.dataset.containerId;
     item.update({ ['system.level']: levelId });
