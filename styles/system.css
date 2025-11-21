@@ -71,7 +71,11 @@
   }
 
   /* Character details */
-  .attributes { display: inline-block; }
+  .attributes {
+    display: inline-block;
+    padding-right: 10px;
+    .icon { margin: 0; }
+  }
   .attitude {
     text-align: center;
     width: 100%;
@@ -439,10 +443,14 @@
 /* DICEPOOL */
 .btn-group { clear: both; }
 .btn-group button { width: auto; margin: 0; float: left; padding: 0 6px; }
+.dicepool-downtime { width:45%; display:inline-block; float: left; padding-right: 10px; }
+.dicepool-opportunities { width:55%; display:inline-block; float: left; }
 .dicePool, .opportunitiesPool, .challengesPool { clear: both; padding-top:4px; }
 .dicePool .icon, .opportunitiesPool .icon, .challengesPool .icon { height: 24px; width:24px; margin: 0; }
 
 .crewDicePool label { display: inline; color: #444; }
+.crew-dice { width: 45%; display: inline-block; float: left; padding-right: 10px; }
+.crew-challenges { width: 55%; display: inline-block; float: left; }
 .btn-group button:first-child { border-right: 0px; }
 .btn-group button:last-child { border-left: 0px; }
 input.conditional { height: 16px; margin: 0; vertical-align: middle; }
