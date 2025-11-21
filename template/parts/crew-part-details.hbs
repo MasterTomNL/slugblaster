@@ -17,7 +17,9 @@
     <label for="name">
       {{ localize 'Slugblaster.Crew.Name' }}
       {{#if editable }}
-      <i class="icon icon-dice" title="{{ localize 'Slugblaster.Randomize' }}" data-action="rollTable" data-value="crew"></i>
+      <span class="rollableTable">
+        <i class="icon icon-dice" title="{{ localize 'Slugblaster.Randomize' }}" data-action="rollTable" data-value="crew"></i>
+      </span>
       {{/if}}
     </label>
     <input id="name" name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'Slugblaster.Crew.NamePlaceholder'}}" />
@@ -26,7 +28,9 @@
       <label for="brands">
         {{ localize 'Slugblaster.Crew.Brands' }}
         {{#if editable }}
-        <i class="icon icon-dice" title="{{ localize 'Slugblaster.Randomize' }}" data-action="rollTable" data-value="brands"></i>
+        <span class="rollableTable">
+          <i class="icon icon-dice" title="{{ localize 'Slugblaster.Randomize' }}" data-action="rollTable" data-value="brands"></i>
+        </span>
         {{/if}}
       </label>
       <input id="brands" type="text" name="system.brands" value="{{actor.system.brands}}" placeholder="{{ localize 'Slugblaster.Crew.BrandsPlaceholder' }}" />
@@ -36,7 +40,9 @@
       <label for="hangouts">
         {{ localize 'Slugblaster.Crew.Hangouts' }}
         {{#if editable }}
-        <i class="icon icon-dice" title="{{ localize 'Slugblaster.Randomize' }}" data-action="rollTable" data-value="hangouts"></i>
+        <span class="rollableTable">
+          <i class="icon icon-dice" title="{{ localize 'Slugblaster.Randomize' }}" data-action="rollTable" data-value="hangouts"></i>
+        </span>
         {{/if}}
       </label>
       <input id="hangouts" type="text" name="system.hangouts" value="{{actor.system.hangouts}}" placeholder="{{ localize 'Slugblaster.Crew.HangoutsPlaceholder' }}" />
