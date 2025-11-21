@@ -70,11 +70,11 @@
   }
 
   /* Character details */
+  .attributes { display: inline-block; }
   .attitude {
     text-align: center;
     width: 100%;
     i { width: 32px; height: 32px; margin: 0px; }
-    .attributes { display: inline-block; }
     p { overflow: hidden; text-overflow: ellipsis; height: 20px; white-space: nowrap; margin:0; }
   }
   

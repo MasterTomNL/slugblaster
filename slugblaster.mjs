@@ -55,6 +55,7 @@ Hooks.on("init", () => {
     "systems/slugblaster/template/parts/actor-part-opportunities.hbs",
     "systems/slugblaster/template/parts/crew-part-challenges.hbs",
     "systems/slugblaster/template/parts/crew-part-details.hbs",
+    "systems/slugblaster/template/parts/crew-part-hype.hbs",
     "systems/slugblaster/template/parts/crew-part-runs.hbs",
 	]);
 });
